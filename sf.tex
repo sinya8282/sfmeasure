@@ -1,0 +1,29 @@
+\section{Measuring Power of Star-Free Languages}\label{sec:sf}
+
+In this section, we give a proof of the first main theorem, which gives a decidable characterisation of \(\sf\)-measurability for regular languages.
+The key lemma of the proof of Theorem~\ref{thm:sf} is the following lemma.
+\begin{lemma}\label{lem:cat}
+ The class \(\ext(\gd)\) is closed under concatenation.
+\end{lemma}
+
+\begin{theorem}\label{thm:sf}
+The class of star-free languages and the class of generalised definite languages have the same measuring power, \ie, \(\ext(\sf) = \ext(\gd)\).
+\end{theorem}
+\begin{proof}[Proof of Theorem~\ref{thm:sf}]
+By definition, \(\fin\) is contained in \(\gd\).
+Moreover, \(\ext(\gd)\) is closed under Boolean operations by Lemma~\ref{lem:closure} since \(\gd\) is so.
+Combining these facts with Lemma~\ref{lem:cat}, we can conclude that
+\(\sf \subseteq \ext(\gd)\), which implies 
+\(\ext(\sf) \subseteq \ext(\ext(\gd)) = \ext(\gd) \subseteq \ext(\sf)\)
+by Lemma~\ref{lem:closure}.
+That is, \(\ext(\sf) = \ext(\gd)\) holds.
+\end{proof}
+\begin{corollary}
+ The \(\sf\)-measurability for a given deterministic automaton is decidable in quadratic time.
+\end{corollary}
+
+The proof of Lemma~\ref{lem:cat} requires some additional notion and lemma.
+For a given generalised definite language \(L = F A^* G\) where \(F, G\) are finite, we define its \emph{prefix density}
+\(\pred(L)\) as \(\d(F A^*)\) and its
+\emph{suffix density} \(\sufd(L)\) as \(\d(A^* G)\).
+By Lemma~\ref{lem:density}, we have \(\d(L) = \pred(L) \cdot \sufd(L)\).

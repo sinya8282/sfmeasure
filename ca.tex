@@ -1,0 +1,87 @@
+\subsection{Constrained Automata and \(\unca\)-Measurability}
+A constrained automaton~\cite{UnCA} is a pair
+\((\CA, C)\) of a usual (non-deterministic) automaton \(\CA = (Q,
+\delta \subseteq: Q \times A \times Q, q_0, F)\),
+where the set of transition rules \(\delta\) is totally ordered and has
+\(d\) transition rules,
+over an
+alphabet \(A\) and a semilinear set \(C \subseteq \nat^d\).
+For an automaton \(\CA = (Q, \delta, q_0, F)\), we write
+\(\runsp{p}{q}\) for the set of runs from state \(p\) to \(q\)
+\begin{align*}
+ \runsp{p}{q} \defeq \{ ((q_0, a_1, q_1), \ldots, (p_{k-1}, a_{k-1}, q_k))
+ \in \delta^* \mid k \geq 0, q_0 = p, q_{k} = q \}.
+\end{align*}
+and write \(\runs\) for the accepting runs of \(\CA\):
+\(\runs = \bigcup_{q \in F} \runsp{q_0}{p}\).
+For a run \(\run = ((q_0, a_1, q_1), \ldots, (p_{k-1}, a_{k-1}, q_k))
+\in \delta^*\), we denote by \(\projw(\run)\) the projection
+\(a_1 \ldots a_{k-1}\) of \(\run\) to \(A^*\),
+and denote by \(\projn(\run)\) the projection
+\[
+ \projn(\run)_i \defeq \text{ the number of occurrence of the \(i\)-th
+ transition rule in } \run \quad (i \in \{1, \ldots, d\})
+\]
+of \(\run\) to \(\nat^d\).
+Then the language recognised by a CA \(\CC = (\CA, C)\), denoted by \(L(\CC)\), is defined as
+\[
+ L(\CC) \defeq \{ \projw(\run) \in A^* \mid \run \in \runs, \projn(\run)
+ \in C\}.
+\]
+
+CAs are very powerful model: CAs can count and can recognise
+many type of languages that can not recognise usual finite automata,
+pushdown automata, nor those higher-order extensions including
+nested pushdown automata.
+The typical example is the language \(\mix \defeq \{ w \in \{a,b,c\}^*
+\mid |w|_a = |w|_b = |w|_c\}\) (where \(|w|_a\) for \(a \in A\) means
+the number of occurrence of a letter \(a\) in a word \(w\)).
+\(\mix\) can not be recognised by pushdown automata, but CAs can.
+The very trivial CA \(\CC_1 = ((\{q\}, \delta, q, \{q\}), C = (1,1,1)^*)\) where
+\[
+ \delta(q, a) = \delta(q, b) = \delta(q, c) = q
+\]
+recognise \(\mix\), \ie, \(L(\CC_1) = \mix\).
+Since we take its constraint \(C\) as \((1,1,1)^* \subseteq \nat^3\),
+the vectors obtained by the finite repetition of sum of \((1,1,1)\),
+\ie, the diagonal in \(\nat^3\), \(\CC_1\) can check that the number of total number of \(a\)'s, \(b\)'s and \(c\)'s are equal or not.
+
+% this theorem assuming \card{A} > 1
+\begin{theorem}\label{thm:hard}
+There exists a recursive language \(L\) which has full \(\ca\)-gap.
+\end{theorem}
+\begin{proof}
+Let \(A = \{a,b\}\).
+Let \((\CA_i)_{i \in \nat}\) be an enumeration of automata over \(A\)
+ such that \(\reg_A = \{ L(\CA_i) \mid i \in \nat\}\); we can take such
+ enumeration by enumerating some binary representation of automata via
+ shortlex order \(\slo\).
+Now we constructing a \(\reg\)-immune language \(L\) such that \(\d(L) = 1\).
+Consider the following program \(P\) which takes an input word \(w\):
+Step~(1) set \(i = 0\) and \(\ell = 0\).
+Step~(2) check \(L(\CA_i)\) is infinite or not.
+Step~(3) if \(L(\CA_i)\) is finite, then set \(i = i + 1\) and go back to Step~2.
+Step~(4) otherwise, pick \(u\) such that \(u\) is the smallest
+	    (with respect to \(\slo\)) word satisfying
+	    \(|u| > \ell\) and \(u \in L\) (such \(u\) surely exists
+	    since \(L(\CA_i)\) is infinite).
+Step~(5) if \(w = u\) then \(P\) rejects \(w\) and halts.
+Step~(6) if \(w \slo u\) then \(P\) accepts \(w\) and halts.
+Step~(7) if \(u \slo w\) then set \(\ell = |u|\), \(i = i + 1\) and
+	    go back to Step~2.
+
+One can easily observe that all Steps are effective and \(P\) ultimately
+ halts for any input word \(w\) because the length of the word \(u\) in Step~4 is strictly
+ increasing until \(u = w\) or \(w \slo u\).
+Thus the language \(L \defeq \{ w \in A^* \mid P \text{ accepts } w \}\) is
+ recursive, (1) \(\reg\)-immune; by Step~(4--5), \(P\) rejects some word
+ \(w \in K\) for any infinite regular language \(K\), and (2) \(\d(L)
+ = 1\); by Step~(5--6) and the length of \(u\) is strictly increasing,
+ \(P\) accepts every word in \(A^n\) at most one
+ exception \(u\) for any \(n\).
+ Thus \(\um(L) - \lm(L) = 1 - 0 = 1\).
+\end{proof}
+
+\begin{conjecture}\label{con:uncadensity}
+Every language accepted by an unambiguous constrained automaton has a density.
+\end{conjecture}

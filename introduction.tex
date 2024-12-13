@@ -1,0 +1,52 @@
+\section{Introduction}
+Approximating a complex object by more simple objects is a major concept
+in both computer science and mathematics.
+In the theory of formal languages, various types of approximations have
+been investigated (\eg,
+\cite{kappe2004,kappe2005,approx,CORDY2007125,CAMPEANU20013,Domaratzki}).
+For example, Kappes and Kintala~\cite{kappe2004} introduced 
+\emph{convergent-reliability} and \emph{slender-reliability} which
+measure how a given deterministic automaton \(\CA\) nicely approximates a given
+language \(L\) over an alphabet \(A\).
+A slightly modified version of approximation notion is
+\emph{bounded-\(\epsilon\)-approximation} which was introduced by Eisman and Ravikumar~\cite{Eisman2011}.
+They say that two languages \(L_1\) and \(L_2\) provide a
+bounded-\(\epsilon\)-approximation of language \(L\) if
+\(L_1 \subseteq L \subseteq L_2\) holds and
+ the ratio of their length-\(n\) difference satisfies
+\(
+ \card{(L_2 \setminus L_1) \cap A^n} / \card{A^n} \leq \epsilon
+ \)
+for every sufficiently large \(n \in \nat\).
+% Perhaps surprisingly, they showed that no pair of regular languages can
+%  provide a bounded-\(\epsilon\)-approximation of the
+% language \(\{w \in \{a,b\}^* \mid w \text{ has more } a \text{'s than } b
+% \text{'s}\}\) for any \(0 \leq \epsilon < 1\)~\cite{approx}.
+% This result is a very strong \emph{in}approximable (by regular languages)
+% example of certain non-regular languages.
+Also, there is a different framework of approximation so-called
+\emph{minimal-cover}~\cite{Domaratzki,CAMPEANU20013}, and
+a notion represents some \emph{in}approximability by regular languages so-called \emph{\(\reg\)-immunity}~\cite{immunity}.
+A model of approximation studied in this paper is \emph{\(\CC\)-measurability}, which was introduced in \cite{S2021}.
+This notion is rather close to bounded-\(\epsilon\)-approximation.
+Instead of approximating by a \emph{single} regular language, we consider an approximation of some non-regular language \(L\) by an \emph{infinite sequence} of regular languages that ``converges'' to \(L\).
+Intuitively, we say that \(L\) is \emph{\(\CC\)-measurable} if there exists
+  an infinite sequence of pairs of languages \((K_n, M_n)_{n
+  \in \nat}\) in \(\CC\) such that
+  \(K_n \subseteq L \subseteq M_n\) holds for all \(n\) and 
+  the ``size'' (\emph{density}) of the difference \(M_n \setminus K_n\) tends to \(0\) if \(n\) tends to infinity.
+The notion \(\CC\)-measurability can be considered as a non-commutative and high-dimensional extension of Buck's measure theoretic approach to the density on natural numbers~\cite{Buck}.
+
+So far, the decidability and different characterisation of \(\CC\)-measurability is systematically studied for some subclass \(\CC\) of regular languages.
+For example, two simple and decidable characterisations of \(\pt\)-measurable and \(\at\)-measurable languages are given in \cite{ltmeasure}, where \(\pt\) is the class of all piecewise testable languages and \(\at\) is the class of all alphabet testable languages (\ie, languages definable by the first-order logic with only one variable).
+For the class \(\gd\) of generalised definite languages, an automata theoretic characterisation of the \(\gd\)-measurability for regular languages is given in \cite{gdmeasure} and it is decidable in quadratic time~\cite{ppl2024} with respect to the size of given deterministic automaton.
+Some properties of the measuring power of star-free languages is investigated in \cite{carathe}, but the decidability for regular languages was left open.
+The decidability of \(\group\)-measurability for regular languages is still unknown, while the measurability of two restricted subclasses
+ \(\gcom\) (\emph{commutative} group languages) and \(\modl\) (languages defined by length-modulo condition) of group languages are shown to be decidable for regular languages~\cite{gcommeasure}. 
+
+The main results of this paper are the following two theorems.
+The former one gives the decidable characterisation of \(\sf\)-measurability for regular languages, and the latter one gives a measure theoretic ``decomposition theorem'' of regular languages into star-free and regular languages.
+\begin{enumerate}
+ \item A language \(L\) is \(\sf\)-measurable if and only if \(L\) is \(\gd\)-measurable (Theorem~\ref{thm:sf}).
+ \item Every regular language is \(\bool(\sf \cup \group)\)-measurable (Theorem~\ref{thm:dec}).
+\end{enumerate}
