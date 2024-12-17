@@ -1,29 +1,162 @@
 \section{Measuring Power of Star-Free Languages}\label{sec:sf}
-
 In this section, we give a proof of the first main theorem, which gives a decidable characterisation of \(\sf\)-measurability for regular languages.
-The key lemma of the proof of Theorem~\ref{thm:sf} is the following lemma.
-\begin{lemma}\label{lem:cat}
- The class \(\ext(\gd)\) is closed under concatenation.
-\end{lemma}
-
 \begin{theorem}\label{thm:sf}
 The class of star-free languages and the class of generalised definite languages have the same measuring power, \ie, \(\ext(\sf) = \ext(\gd)\).
 \end{theorem}
-\begin{proof}[Proof of Theorem~\ref{thm:sf}]
-By definition, \(\fin\) is contained in \(\gd\).
-Moreover, \(\ext(\gd)\) is closed under Boolean operations by Lemma~\ref{lem:closure} since \(\gd\) is so.
-Combining these facts with Lemma~\ref{lem:cat}, we can conclude that
-\(\sf \subseteq \ext(\gd)\), which implies 
-\(\ext(\sf) \subseteq \ext(\ext(\gd)) = \ext(\gd) \subseteq \ext(\sf)\)
-by Lemma~\ref{lem:closure}.
-That is, \(\ext(\sf) = \ext(\gd)\) holds.
-\end{proof}
-\begin{corollary}
- The \(\sf\)-measurability for a given deterministic automaton is decidable in quadratic time.
-\end{corollary}
 
-The proof of Lemma~\ref{lem:cat} requires some additional notion and lemma.
-For a given generalised definite language \(L = F A^* G\) where \(F, G\) are finite, we define its \emph{prefix density}
-\(\pred(L)\) as \(\d(F A^*)\) and its
-\emph{suffix density} \(\sufd(L)\) as \(\d(A^* G)\).
-By Lemma~\ref{lem:density}, we have \(\d(L) = \pred(L) \cdot \sufd(L)\).
+% The key lemma of the proof of Theorem~\ref{thm:sf} is the following lemma.
+% \begin{lemma}\label{lem:cat}
+%  The class \(\ext(\gd)\) is closed under concatenation.
+% \end{lemma}
+
+% The proof of Lemma~\ref{lem:cat} requires some additional notion and lemma.
+% For a given generalised definite language \(L = F A^* G\) where \(F, G\) are finite, we define its \emph{prefix density}
+% \(\pred(L)\) as \(\d(F A^*)\) and its
+% \emph{suffix density} \(\sufd(L)\) as \(\d(A^* G)\).
+% It is easy to see that \(\d(L) = \pred(L) \cdot \sufd(L)\) holds by Lemma~\ref{lem:density}.
+
+% To prove Lemma~\ref{lem:cat}, we require some lemmata.
+% For a language \(L\), its prefix-free part is defined as 
+% \(\pfree(L) = L \setminus L A^+\) and its suffix-free part is defined as \(\sfree(L) = L \setminus A^+ L\).
+% For a sequence of generalised definite languages \((K_n)_{n \geq 0} = (E_n \cup \bigcup_{(u,v) \in F_n} uA^*v)_{n \geq 0}\), we define its \emph{prefix union} as
+% \(\pref_\cup((K_n)_{n \geq 0}) = \bigcup_{n \geq 0} \{ u \mid (u,v) \in F_n\}\) and \emph{prefix intersection} as 
+% \(\pref_\cap((K_n)_{n \geq 0}) = \bigcap_{n \geq 0} \{ u \mid (u,v) \in F_n\}\).
+% Similarly, we define its \emph{suffix union} and \emph{suffix intersection} as
+% \(\suff_\cup((K_n)_{n \geq 0}) = \bigcup_{n \geq 0} \{ v \mid (u,v) \in F_n\} \text{ and } \suff_\cap((K_n)_{n \geq 0}) = \bigcap_{n \geq 0} \{ v \mid (u,v) \in F_n\}\).
+% \begin{lemma}
+% Let \(L\) be a \(\gd\)-measurable language,
+% \((K_n)_{n \geq 0} = (E_n \cup \bigcup_{(u,v) \in F})_{n \geq 0}\) and
+% \((M_n)_{n \geq 0} = (E'_n \cup \bigcup_{(u,v) \in F'})_{n \geq 0}\) be a convergent sequence of generalised definite languages to \(L\) from inner and outer, respectively.
+% Then \(\pfree(\pref_\cup((K_n)_{n \geq 0})) = \pfree(\pref_\cap((M_n)_{n \geq 0}))\) and 
+% \(\sfree(\suff_\cup((K_n)_{n \geq 0})) = \sfree(\suff_\cap((M_n)_{n \geq 0}))\) holds.
+% \end{lemma}
+% \begin{proof}
+% By the definition of a convergent sequence,
+% we have \(K_n \subseteq L \subseteq M_n\) holds for each \(n\), hence
+% clearly \(\pfree(\pref_\cup((K_n)_{n \geq 0})) \subseteq \pfree(\pref_\cap((M_n)_{n \geq 0}))\) and
+% \(\sfree(\suff_\cup((K_n)_{n \geq 0})) \subseteq \sfree(\suff_\cap((M_n)_{n \geq 0}))\)
+%  holds.
+% If \(\pfree(\pref_\cap((M_n)_{n \geq 0})) = \emptyset\) then
+% \(\pfree(\pref_\cup((M_n)_{n \geq 0})) = \emptyset\)
+% Assume that this inclusion is proper \(\pfree(\pref_\cup((K_n)_{n \geq 0})) \subsetneq \pfree(\pref_\cap((M_n)_{n \geq 0}))\) and let
+%  \(u \in \pfree(\pref_\cap((M_n)_{n \geq 0})) \setminus \pfree(\pref_\cup((K_n)_{n \geq 0}))\).
+% \end{proof}
+
+% \begin{lemma}\label{lem:catapprox}
+% Let \(L_1 = E A^* F\) and \(L_2 = G A^* H\) be generalised definite languages where \(E, F, G\) and \(H\) are all finite but non-empty sets.
+% Pick \(fg \in FG\) and let \(m = \max \{ |e|_{fg} + |h|_{fg} \mid e \in E, h \in H \}\)
+% (\(m\) is  well-defined since \(E\) and \(H\) are finite).
+% Then two languages \(K = E A^* H\) and \(M = K \cap A^* (fg)^{m+1} A^*\) satisfies (1) \(K \supseteq L_1 L_2 \supseteq M\) and (2) \(\d(K) = \d(L_1 L_2) = \d(M)\).
+% \end{lemma}
+% \begin{proof}
+% Condition~(1) is obvious by the definition.
+% By Condition~(1) we have \(\d(K) \geq \d(L_1 L_2) \geq \d(M)\), hence
+% it is enough to show that \(\d(K) = \d(M)\).
+% Observe that \(L_1 L_2 = E A^* F G A^* H \supseteq K \cap (A^* fg A^*)^{m+1} \supseteq M\) holds.
+% By the infinite monkey theorem, we have \(\d(A^* (fg)^{m+1} A^*) = 1\).
+% This implies that \(\d(M) = \d(K \cap A^* (fg)^{m+1} A^*) = \d(K)\) by Lemma~\ref{lem:density}.
+% Thus \(\d(K) = \d(M)\)
+% \end{proof}
+
+% \begin{proof}[Proof of Lemma~\ref{lem:cat}]
+%  Let \(L_1\) and \(L_2\) be two \(\gd\)-measurable languages,
+% \((C_n \cup \bigcup_{i \in I_n} D_{n,i} A^* E_{n,i})_{n \geq 0}\) and 
+% \((C'_n \cup \bigcup_{i \in I'_n} D'_{n,i} A^* E'_{n,i})_{n \geq 0}\) 
+%   be sequences of languages in \(\gd\) that converges to \(L_1\) from inner and outer,
+% \((F_n \cup \bigcup_{j \in J_n} G_{n,j} A^* H_{n,j})_{n \geq 0}\) 
+% and
+% \((F'_n \cup \bigcup_{j \in J_n'} G'_{n,j} A^* H'_{n,j})_{n \geq 0}\) be sequences of languages in \(\gd\) that converges to \(L_2\) from inner and outer, respectively.
+% If either \(L_1\) or \(L_2\) is empty, then
+% \(L_1 L_2 = \emptyset\) is clearly in \(\ext(\gd)\).
+% Hence we assume \(L_1\) and \(L_2\) are both non-empty.
+% For each \(n \geq 0\), the concatenation of the \(n\)-th languages 
+% \(C_n \cup \bigcup_{i \in I_n} D_{n,i} A^* E_{n,i}\) and
+% \(F_n \cup \bigcup_{j \in J_n} G_{n,j} A^* H_{n,j}\)
+% in the convergent sequences of \(L_1\) and \(L_2\) from inner is
+% \(M_n = C_n F_n \cup 
+% \bigcup_{j \in J_n} C_n D_{n,i} A^* E_{n,i} \cup
+% \bigcup_{i \in I_n} D_{n,i} A^* E_{n,i} F_n \cup
+% \bigcup_{i \in I_n, j \in J_n} D_{n,i} A^* E_{n,i} G_{n,j} A^* H_{n,j}\).
+% For each \(i \in I\) and \(j \in J\), pick \(e_i \in E_{n,i}\) and 
+% \(g_{n,j} \in G_{n,j}\).
+% By Lemma~\ref{lem:catapprox}, the language 
+% \(M'_n = 
+% C_n F_n \cup 
+% \bigcup_{j \in J_n} C_n D_{n,i} A^* E_{n,i} \cup
+% \bigcup_{i \in I_n} D_{n,i} A^* E_{n,i} F_n \cup
+% \bigcup_{i \in I_n, j \in J_n}
+% (D_{n,i} A^* H_{n,j} \cap  A^* (e_{n,i} g_{n,j})^{m_{n,i,j}+1} A^*)
+% \)
+% , where \(m_{n,i,j}\) is the constant defined in Lemma~\ref{lem:catapprox} for two generalised definite languages \(D_{n,i} A^* E_{n,i}\) and \(G_{n,j} A^* H_{n,j}\),
+% satisfies \(M_n \supseteq M'_n\) and \(\d(M_n) = \d(M'_n)\).
+% By the same manner, 
+% for each concatenation
+%  \(K_n = \left(C'_n \cup \bigcup_{i \in I'_n} D'_{n,i} A^* E'_{n,i}\right) \left(F'_n \cup \bigcup_{j \in J'_n} G'_{n,j} A^* H'_{n,j}\right)\) of the \(n\)-th languages in the convergent sequences of \(L_1\) and \(L_2\) from outer,
+% the language \(K'_n = 
+% C'_n F'_n \cup 
+% \bigcup_{j \in J'_n} C'_n D'_{n,i} A^* E'_{n,i} \cup
+% \bigcup_{i \in I'_n} D'_{n,i} A^* E'_{n,i} F'_n \cup
+% \bigcup_{i \in I'_n, j \in J'_n} D'_{n,i} A^* H'_{n,j}
+% \)
+% satisfies 
+% \(K_n \subseteq K'_n\) and \(\d(K_n) = \d(K'_n)\) by Lemma~\ref{lem:catapprox}.
+% \end{proof}
+
+The key lemma of the proof of Theorem~\ref{thm:sf} is the following lemma.
+\begin{lemma}\label{lem:kernelHtrivial}
+Let \(L\) be a regular language and \(M_L\) be its syntactic monoid.
+If every \(\CH\)-class in the kernel of \(M_L\) is trivial, then
+\(L\) is \(\gd\)-measurable.
+\end{lemma}
+\begin{proof}
+Let \(\eta: A^* \rightarrow M\) be the syntactic morphism of \(L\).
+We show that \(L_m = \eta^{-1}(m)\) is \(\gd\)-measurable for each \(m \in M\), which implies the \(\gd\)-measurability of \(L_m = \bigcup_{m \in \eta(L)} \eta^{-1}(m)\) by Lemma~\ref{lem:closure}.
+Let \(K\) be the kernel of \(M_L\).
+If \(m \not\in K\), then the infinite monkey theorem implies 
+\(\d(L_m) = 0\) hence \(L_m\) is \(\gd\)-measurable by Lemma~\ref{lem:zeroone}.
+Hence we assume \(m \in K\).
+In this case, we have \(\CH_m = mM \cap Mm\).
+By the assumption, \(K\) is \(\CH\)-trivial which implies
+\(\CH_m = \{m\} = mM \cap Mm\).
+This means that 
+\[
+ L_m = \eta^{-1}(mM \cap Mm)
+ = \eta^{-1}(mM) \cap \eta^{-1}(Mm)
+ = L_m A^* \cap A^* L_m.
+\]
+For each \(n \geq 0\), we define a generalised definite language \(L_m^{\leq n}\) as
+\[
+ L_m^{\leq n} = \{w \in L_m \mid |w| \leq n\} A^* \cap A^* \{w \in L_m \mid |w| \leq n\}.
+\]
+It is easy to see that the sequence of generalised definite languages \((L_m^{\leq n})_{n \geq 0}\) satisfies
+ \(L_m \supseteq L_m^{\leq n}\) for each \(n\) and 
+ \(\lim_{n \rightarrow \infty} \d(L_m^{\leq n}) = \d(L_m)\), \ie,
+ \((L_m^{\leq n})_{n \geq 0}\) is a convergent sequence to \(L_m\) from inner.
+We showed that, for every \(m \in M\),
+there is a convergent sequence 
+\((M_{m,n})_{n \geq 0}\)
+of generalised definite languages to \(L_m\) from inner.
+A convergent sequence to \(L_m\) from outer can be defined as
+\(
+(A^* \setminus \bigcup_{m' \in M \setminus \{m\}} M_{m',n})_{n \geq 0}.
+\)
+Since \(\gd\) is closed under Boolean operations, 
+each \(M'_{m,n}\) is in \(\gd\), \ie, 
+\(L_m\) is \(\gd\)-measurable.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:sf}]
+Since we have \(\gd \subseteq \sf\), it is enough to show that
+\(\sf \subseteq \ext(\gd)\) which implies 
+\(\ext(\gd) \subseteq \ext(\sf) \subseteq \ext(\ext(\gd)) = \ext(\gd)\) by Lemma~\ref{lem:closure}.
+By Sch\"utzenberger's theorem, the syntactic monoid of any star-free language is \(\CH\)-trivial, hence \(\sf \subseteq \ext(\gd)\) holds by Lemma~\ref{lem:kernelHtrivial}
+\end{proof}
+
+Actually, the converse direction of Lemma~\ref{lem:kernelHtrivial} holds.
+\begin{theorem}
+Let \(L\) be a regular language and \(M_L\) be its syntactic monoid.
+Then \(L\) is \(\gd\)-measurable if and only if every \(\CH\)-class in the kernel of \(M_L\) is trivial.
+\end{theorem}
+\begin{proof}
+TODO.
+\end{proof}
