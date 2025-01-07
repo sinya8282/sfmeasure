@@ -102,7 +102,21 @@ The class of star-free languages and the class of generalised definite languages
 % \(K_n \subseteq K'_n\) and \(\d(K_n) = \d(K'_n)\) by Lemma~\ref{lem:catapprox}.
 % \end{proof}
 
-The key lemma of the proof of Theorem~\ref{thm:sf} is the following lemma.
+To prove Theorem~\ref{thm:sf}, we require some lemmata, where Lemma~\ref{lem:kernelHtrivial} is the key of our proof.
+\begin{lemma}[\cite{gdmeasure}]\label{lem:zeroone}
+Every regular language whose density is zero or one is \(\gd\)-measurable.
+\end{lemma}
+\begin{lemma}\label{lem:fiberinner}
+Let \(\CC \subseteq \reg_A\) be a class of regular languages closed under Boolean operations, \(M\) be a finite monoid, \(\alpha: A^* \rightarrow M\) be a monoid morphism and \(L \subseteq A^*\) be a langauge such that \(L = \alpha^{-1}(\alpha(L))\).
+If there is a convergent sequence of languages in \(\CC\) to \(\alpha^{-1}(m)\) from inner for every \(m \in M\), then \(L\) is \(\CC\)-measurable.
+\end{lemma}
+\begin{proof}
+For each \(m \in M\), let \((L_{m,n})_n\) be a convergent sequence of languages in \(\CC\) to \(\alpha^{-1}(m)\) from inner.
+Since \(\CC\) is closed under finite union,
+the sequence \((\bigcup_{m \in \alpha(L)} L_{m,n})_n\) is a convergent sequence of languages in \(\CC\) to \(L\).
+Since \(\CC\) is closed under finite intersection and complementation,
+the sequence \((\bigcap_{m \not\in \alpha(L)} \comp{L_{m,n}})_n\) is a convergent sequence of languages in \(\CC\) to \(L\).
+\end{proof}
 \begin{lemma}\label{lem:kernelHtrivial}
 Let \(L\) be a regular language and \(M_L\) be its syntactic monoid.
 If every \(\CH\)-class in the kernel of \(M_L\) is trivial, then
@@ -110,11 +124,10 @@ If every \(\CH\)-class in the kernel of \(M_L\) is trivial, then
 \end{lemma}
 \begin{proof}
 Let \(\eta: A^* \rightarrow M\) be the syntactic morphism of \(L\).
-We show that \(L_m = \eta^{-1}(m)\) is \(\gd\)-measurable for each \(m \in M\), which implies the \(\gd\)-measurability of \(L_m = \bigcup_{m \in \eta(L)} \eta^{-1}(m)\) by Lemma~\ref{lem:closure}.
 Let \(K\) be the kernel of \(M_L\).
 If \(m \not\in K\), then the infinite monkey theorem implies 
 \(\d(L_m) = 0\) hence \(L_m\) is \(\gd\)-measurable by Lemma~\ref{lem:zeroone}.
-Hence we assume \(m \in K\).
+Let \(m \in M\) be an element in \(K\).
 In this case, we have \(\CH_m = mM \cap Mm\).
 By the assumption, \(K\) is \(\CH\)-trivial which implies
 \(\CH_m = \{m\} = mM \cap Mm\).
@@ -133,23 +146,16 @@ It is easy to see that the sequence of generalised definite languages \((L_m^{\l
  \(\lim_{n \rightarrow \infty} \d(L_m^{\leq n}) = \d(L_m)\), \ie,
  \((L_m^{\leq n})_{n \geq 0}\) is a convergent sequence to \(L_m\) from inner.
 We showed that, for every \(m \in M\),
-there is a convergent sequence 
-\((M_{m,n})_{n \geq 0}\)
-of generalised definite languages to \(L_m\) from inner.
-A convergent sequence to \(L_m\) from outer can be defined as
-\(
-(A^* \setminus \bigcup_{m' \in M \setminus \{m\}} M_{m',n})_{n \geq 0}.
-\)
-Since \(\gd\) is closed under Boolean operations, 
-each \(M'_{m,n}\) is in \(\gd\), \ie, 
-\(L_m\) is \(\gd\)-measurable.
+there is a convergent sequence of generalised definite languages to \(L_m\) from inner.
+Hence \(L\) is \(\gd\)-measurable by Lemma~\ref{lem:fiberinner} because 
+\(\gd\) is closed under Boolean operations.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:sf}]
 Since we have \(\gd \subseteq \sf\), it is enough to show that
 \(\sf \subseteq \ext(\gd)\) which implies 
 \(\ext(\gd) \subseteq \ext(\sf) \subseteq \ext(\ext(\gd)) = \ext(\gd)\) by Lemma~\ref{lem:closure}.
-By Sch\"utzenberger's theorem, the syntactic monoid of any star-free language is \(\CH\)-trivial, hence \(\sf \subseteq \ext(\gd)\) holds by Lemma~\ref{lem:kernelHtrivial}
+The syntactic monoid of any star-free language is \(\CH\)-trivial, hence \(\sf \subseteq \ext(\gd)\) holds by Lemma~\ref{lem:kernelHtrivial}.
 \end{proof}
 
 Actually, the converse direction of Lemma~\ref{lem:kernelHtrivial} holds.

@@ -81,6 +81,9 @@ A language \(L\) is said to be
  We say that an infinite sequence \((L_n)_n\) of languages over \(A\)
  {\em converges to \(L\) from inner (from outer, {\em respectively})} if
  \(L_n \subseteq L\) (\(L_n \supseteq L\), respectively) for each \(n\) and \(\lim_{n \rightarrow \infty}\cd(L_n) = \cd(L)\).
+A langauge \(L\) is \(\CC=A\)-measurable if and only if
+there exist a convergent sequence of languages in \(\CC_A\) to \(L\)
+both from inner and outer.
 \end{definition}
 
 The following is an example of \(\gcom\)-measurable non-regular language.
@@ -105,8 +108,4 @@ The operator \(\ext\) is a closure,
  (monotone) \(\ext(\CC) \subseteq \ext(\CD)\), and
  (idempotent) \(\ext(\ext(\CC)) = \ext(\CC)\).
 Moreover, \(\ext(\CC_A)\) is closed under Boolean operations and quotients if \(\CC_A\) is closed under Boolean operations and quotients.
-\end{lemma}
-
-\begin{lemma}[\cite{gdmeasure}]\label{lem:zeroone}
-Every regular language whose density is zero or one is \(\gd\)-measurable.
 \end{lemma}
