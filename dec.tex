@@ -14,11 +14,16 @@ Let \(m \in K\) and define a morphism \(\etam: A^* \rightarrow \CH_m\)
 as \(\etam(a) = e_m \eta(a) e_m\) where \(e_m\) is the identity element of the group \(\CH_m = mM \cap Mm = e_m M e_m\).
 We now show that 
 \(
- \eta^{-1}(m) = \eta^{-1}(\CH_m) \cap \eta^{-1}_m(m)
+ \eta^{-1}(m) = \eta^{-1}(\CH_m) \cap \etam^{-1}(m)
 \)
 holds.
+Question (by Ryoma):  does \(\etam(a_1 a_2) = \etam(a_1) \etam(a_2)\) hold?
 To prove \(\eta^{-1}(m) \subseteq \etam^{-1}(m)\),
 let \(a_1 \cdots a_n \in \eta^{-1}(m)\) and \(\eta(a_i) = x_i\) for each \(i\).
+TODO...
+To prove \(\eta^{-1}(m) \supseteq  \eta^{-1}(\CH_m) \cap \etam^{-1}(m)\),
+let \(a_1 \cdots a_n \in \eta^{-1}(\CH_m) \cap \etam^{-1}(m)\).
+TODO...
 \end{proof}
 \begin{corollary}
 A language \(L\) is \(\reg\)-measurable if and only if 
