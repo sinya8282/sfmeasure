@@ -1,4 +1,39 @@
 \section{Some Applications of Two Main Theorems}
-\subsection{Axiomatic characterisation of the density function \(\d\)}
+In this section, we enumerate some consequences of our two main theorems.
+
 \subsection{Probabilistic independence of star-free and group languages}
+TODO: remark some references wich informally explains ``orthogonality'' of \(\sf\) and \(\group\).
+The first consequence is the following ``probabilistic independence'' of star-free and group langauges, which emphasises orthogonality of these two language classes more formally.
+\begin{theorem}\label{thm:ind}
+For each star-free language \(L\) and group langauge \(K\),
+we have 
+\[
+ \cd(L \cap K) = \cd(L) \times \cd(K).
+\]
+\end{theorem}
+The probabilistic independence of generalised definite languages and group languages can be more easliy proved. We use it as a lemma for proving Theorem~\ref{thm:ind}
+\begin{lemma}\label{lem:ind}
+For each generalised definite language \(L\) and group langauge \(K\),
+we have 
+\[
+ \cd(L \cap K) = \cd(L) \times \cd(K).
+\]
+\end{lemma}
+\begin{proof}
+Let \(L = u A^* v\) be a generalised definite language, and \(K\) be a group language such that \(K = \eta^{-1}(S)\) for some finite group \(G\), its subset \(S\) and \(\eta: A^* \rightarrow G\) be a surjective morphism.
+Observe that \(L \cap K = u (u^{-1} K v^{-1}) v\) holds.
+Because we have \(u^{-1} K v^{-1} = u^{-1} \eta^{-1}(S) v^{-1} 
+= \eta^{-1}( \eta(u)^{-1} S \eta(v)^{-1})\),
+we can conclude that 
+\(\cd(L \cap K) = \cd(u(\eta^{-1}( \eta(u)^{-1} S \eta(v)^{-1})) v) =
+\card{A}^{-|uv|} \times \cd(\eta^{-1}( \eta(u)^{-1} S \eta(v)^{-1}))
+= \cd(L) \times \cd(K)
+\)
+by Lemma~\ref{lem:density} and Lemma~\ref{lem:groupdensity} since 
+\(\card{S} = \card{\eta(u)^{-1} S \eta(v)^{-1}}\).
+\end{proof}
+\begin{proof}[Proof of Theorem~\ref{thm:ind}]
+\end{proof}
+
+\subsection{Axiomatic characterisation of the density function \(\d\)}
 \subsection{A simple proof of the existence of non-primitive words in a regular language with positive density}
