@@ -33,7 +33,24 @@ by Lemma~\ref{lem:density} and Lemma~\ref{lem:groupdensity} since
 \(\card{S} = \card{\eta(u)^{-1} S \eta(v)^{-1}}\).
 \end{proof}
 \begin{proof}[Proof of Theorem~\ref{thm:ind}]
+Let \(L\) be a star-free language and \(K\) be a group language.
+We show that \(\cd(L \cap K) \geq \cd(L) \times \cd(K)\) holds.
+By Theorem~\ref{thm:sf}, there is a convergent sequence \(M_n = (\bigcup_{(u, v) \in F_n} u A^* v)_{n \geq 0}\) of generalised definite languages, where \(F_n \subseteq A^* \times A^*\) is finite for each \(n\), into \(L\) from inner.
+Without loss of generality, we can assume that \(uA^*v \cap u'A^*v = \emptyset\) for each different pairs \((u,v), (u',v') \in F\).
+Then we have
+\[
+ \cd(L \cap K) \geq \cd\left(\bigcup_{(u,v) \in F_n} u A^* v \cap K\right)
+ = \sum_{(u,v) \in F_n} \cd(u A^* v \cap K)
+ = \cd(M_n) \times \cd(K)
+\]
+by Lemma~\ref{lem:ind} where \(\cd(M_n)\) tends to \(\cd(L)\) as \(n\) tends to infinity.
+Hence \(\cd(L \cap K) \geq \cd(L) \times \cd(K)\).
+By the same argument, the inequality
+\(\cd(L \cap K) \leq \cd(L) \times \cd(K)\) can be show by using a 
+convergent sequence of generalised definite languages into \(L\) from outer.
 \end{proof}
 
 \subsection{Axiomatic characterisation of the density function \(\d\)}
+
+
 \subsection{A simple proof of the existence of non-primitive words in a regular language with positive density}
