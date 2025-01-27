@@ -1,7 +1,4 @@
-\section{Some Applications of Two Main Theorems}
-In this section, we enumerate some consequences of our two main theorems.
-
-\subsection{Probabilistic independence of star-free and group languages}
+\section{Probabilistic independence of star-free and group languages}
 TODO: remark some references wich informally explains ``orthogonality'' of \(\sf\) and \(\group\).
 The first consequence is the following ``probabilistic independence'' of star-free and group langauges, which emphasises orthogonality of these two language classes more formally.
 \begin{theorem}\label{thm:ind}
@@ -50,23 +47,23 @@ By the same argument, the inequality
 convergent sequence of generalised definite languages into \(L\) from outer.
 \end{proof}
 
-\subsection{Axiomatic characterisation of the density function \(\d\)}
-TODO.
+% \subsection{Axiomatic characterisation of the density function \(\d\)}
+% TODO.
 
-\subsection{A simple proof of the existence of non-primitive words in a regular language with positive density}
-By using Theorem~\ref{thm:dec}, we can give a simple proof of the following known theorem.
-\begin{theorem}[\cite{Liu,S2021}]
-Let \(L\) be a regular language.
-If \(L\) has a positive density (\ie, \(\cd(L) > 0\)), then there exists a non-empty non-primitive word in \(L\).
-\end{theorem}
-\begin{proof}
-Because \(L\) is \(\bool(\gd \cup \group))\)-measurable by Theorem~\ref{thm:dec},
-there exist a finite Boolean combination \(K\) of generalised definite and group languages such that \(L \supseteq K\) and \(\cd(K) > 0\).
-By taking a disjunctive normal form of \(K\), we can take a language of the form \(u M v\) (where \((u,v)\) is a pair of words) as a subset of \(K\) such that \(M\) is a non-empty group language because \(\cd(K) > 0\).
-Let \(\eta: A^* \rightarrow G\) be a morphism onto a finite group \(G\) such that \(M = \eta^{-1}(S)\) where \(S \subseteq G\).
-For any non-empty word \(w \in M\),
-we have \(\eta((wvu)^{\card{G}}w) = \eta(w)\) which implies
-\((wvu)^{\card{G}}w\) is in \(M\).
-This means that \(L\) contains a non-empty non-primitive word
-\(u (wvu)^{\card{G}} w v\).
-\end{proof}
+% \subsection{A simple proof of the existence of non-primitive words in a regular language with positive density}
+% By using Theorem~\ref{thm:dec}, we can give a simple proof of the following known theorem.
+% \begin{theorem}[\cite{Liu,S2021}]
+% Let \(L\) be a regular language.
+% If \(L\) has a positive density (\ie, \(\cd(L) > 0\)), then there exists a non-empty non-primitive word in \(L\).
+% \end{theorem}
+% \begin{proof}
+% Because \(L\) is \(\bool(\gd \cup \group))\)-measurable by Theorem~\ref{thm:dec},
+% there exist a finite Boolean combination \(K\) of generalised definite and group languages such that \(L \supseteq K\) and \(\cd(K) > 0\).
+% By taking a disjunctive normal form of \(K\), we can take a language of the form \(u M v\) (where \((u,v)\) is a pair of words) as a subset of \(K\) such that \(M\) is a non-empty group language because \(\cd(K) > 0\).
+% Let \(\eta: A^* \rightarrow G\) be a morphism onto a finite group \(G\) such that \(M = \eta^{-1}(S)\) where \(S \subseteq G\).
+% For any non-empty word \(w \in M\),
+% we have \(\eta((wvu)^{\card{G}}w) = \eta(w)\) which implies
+% \((wvu)^{\card{G}}w\) is in \(M\).
+% This means that \(L\) contains a non-empty non-primitive word
+% \(u (wvu)^{\card{G}} w v\).
+% \end{proof}
