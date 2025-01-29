@@ -1,7 +1,7 @@
 \section{Preliminaries}\label{sec:pre}
 This section provides the precise definitions of density, measurability, considered subclasses of regular languages.
 \(\reg_A\) denotes the family of all regular languages over an alphabet \(A\). For a word \(w \in A^*\) and a letter \(a \in A\), we write \(|w|_a\) the number of occurrences of \(a\) in \(w\). The complement of \(L\) over \(A\) is denoted by \(\comp{L} = A^* \setminus L\).
-We assume that the reader has a standard knowledge of algebraic language theory (\cf \cite{Lawson,MPRI}).
+We assume that the reader has a standard knowledge of algebraic language theory (\cf \cite{Lawson,MPRI}) including the concept of Green's relations \(\CL, \CR, \CJ\) and \(\CH\).
 
 The main targets of this paper are the following three subclasses of regular languages. The \emph{star-free languages}, the \emph{generalised definite languages} \(\gd\) and the \emph{group languages} \(\group\):
 \begin{align*}
@@ -55,11 +55,14 @@ We list some basic properties of the density as follows.
 \begin{lemma}\label{lem:groupdensity}
  Let \(\eta\colon A^* \rightarrow G\) be a morphism onto a finite group. For any \(g \in G\), we have \(\cd(\eta^{-1}(g)) = \card{G}^{-1}\).
 \end{lemma}
-Let \(L\) be a regular language, \(M_L\) be its syntactic monoid and 
-\(\eta: A^* \rightarrow M_L\) be its syntactic morphism.
-The kernel of \(M_L\) is a unique minimal ideal of \(M_L\) (it is always exists since \(M_L\) is finite).
-For every \(m\) not in the kernel of \(M_L\),
-\(\eta^{-1}(m) \cap A^* w A^* = \emptyset\) holds for some \(w \in A^*\) hence \(\d(\eta^{-1}(m)) = 0\) by the infinite monkey theorem.
+\begin{remark}
+Let \(L\) be a regular language, \(M\) be a finite monoid and 
+\(\eta: A^* \rightarrow M\) be a morphism recognising \(L = \eta^{-1}(\eta(L))\).
+The \emph{kernel} of \(M\) is a unique minimal ideal of \(M\) (it is always exists since \(M\) is finite).
+For every \(m\) not in the kernel of \(M\),
+\(\eta^{-1}(m) \cap A^* w A^* = \emptyset\) holds for \(w \in \eta^{-1}(K)\) hence \(\d(\eta^{-1}(m)) = 0\) by the infinite monkey theorem.
+This implies that \(\d(\eta^{-1}(K)) = 1\).
+\end{remark}
 For more detailed properties of \(\cd\), see Chapter~13 of \cite{codes}.
 
 The notion of ``measurability'' on formal languages is defined by a standard measure theoretic approach as follows.

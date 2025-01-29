@@ -126,29 +126,56 @@ If every \(\CH\)-class in the kernel of \(M_L\) is trivial, then
 Let \(\eta: A^* \rightarrow M\) be the syntactic morphism of \(L\).
 Let \(K\) be the kernel of \(M_L\).
 If \(m \not\in K\), then the infinite monkey theorem implies 
-\(\d(L_m) = 0\) hence \(L_m\) is \(\gd\)-measurable by Lemma~\ref{lem:zeroone}.
+\(\d(\eta^{-1}(m)) = 0\) hence \(\eta^{-1}(m)\) is \(\gd\)-measurable by Lemma~\ref{lem:zeroone}.
 Let \(m \in M\) be an element in \(K\).
 In this case, we have \(\CH_m = mM \cap Mm\).
 By the assumption, \(K\) is \(\CH\)-trivial which implies
-\(\CH_m = \{m\} = mM \cap Mm\).
-This means that 
+\(\CH_m = mM \cap Mm = \{m\}\).
+For the language \(L_m = \eta^{-1}(m)\), we have
 \[
  L_m = \eta^{-1}(mM \cap Mm)
- = \eta^{-1}(mM) \cap \eta^{-1}(Mm)
- = L_m A^* \cap A^* L_m.
+ = \eta^{-1}(mM) \cap \eta^{-1}(Mm).
 \]
-For each \(n \geq 0\), we define a generalised definite language \(L_m^{\leq n}\) as
+Let \(w \in \eta^{-1}(K)\).
+If a word \(u \in A^*\) contains \(w\) as a factor (\ie, \(u \in A^* w A^*\)), then \(\eta(u) \in K\) and \(\eta(uA^*) = \eta(u) M\) is a minimal right ideal. 
+Notice that the set of all minimal right ideals is a partition of the kernel 
+\(
+ K = \bigsqcup_{n \in K / \CR} nM
+\).
+%Notice that \(u A^* \subseteq \eta^{-1}(\eta(u) M)\) holds.
+For each \(\ell \geq 0\), we define a generalised definite language \(L_\ell\) as
+\(
+ L_\ell = \{ uA^* \mid u \in A^\ell, \eta(uA^*) \subseteq mM\}.
+\)
+The inclusion \(L_\ell \subseteq \eta^{-1}(mM)\) is obvious.
+We can show that \(L_\ell\) tends to \(\eta^{-1}(mM)\) from inner as:
+\begin{align*}
+& \,\, \d\left(\eta^{-1}(mM) \setminus L_\ell\right)\\
+= & \,\,
+\d(\eta^{-1}(mM)) - \sum \d(\{ uA^* \mid u \in A^\ell, \eta(uA^*) \subseteq mM\})\\
+\leq & \,\,
+\sum_{n \in K / \CR} \left( \d(\eta^{-1}(nM)) - \sum \d(\{ uA^* \mid u \in A^\ell, \eta(uA^*) \subseteq nM\}) \right)\\
+= & \,\,
+\sum_{n \in K / \CR} \left( \d(\eta^{-1}(nM))\right)
+ - \sum_{n \in K / \CR} \sum \d(\{ uA^* \mid u \in A^\ell, \eta(uA^*) \subseteq nM\})\\
+= & \,\,
+\d(\eta^{-1}(K))
+ - \sum \d(\{ uA^* \mid u \in A^\ell, \eta(uA^*) \subseteq nM \text{ for some } n \in K\})\\
+\leq & \,\,
+1 - \sum \d(\{ uA^* \mid u \in A^\ell \cap A^* w A^*\})
+\end{align*}
+which tends to zero as \(\ell \rightarrow \infty\), since 
 \[
- L_m^{\leq n} = \{w \in L_m \mid |w| \leq n\} A^* \cap A^* \{w \in L_m \mid |w| \leq n\}.
+\sum \d(\{ uA^* \mid u \in A^\ell \cap A^* w A^*\})
+= \frac{\card{A^\ell \cap A^* w A^*}}{\card{A^\ell}}
 \]
-It is easy to see that the sequence of generalised definite languages \((L_m^{\leq n})_{n \geq 0}\) satisfies
- \(L_m \supseteq L_m^{\leq n}\) for each \(n\) and 
- \(\lim_{n \rightarrow \infty} \d(L_m^{\leq n}) = \d(L_m)\), \ie,
- \((L_m^{\leq n})_{n \geq 0}\) is a convergent sequence to \(L_m\) from inner.
+tends to one as \(\ell \rightarrow \infty\) by the infinity monkey theorem.
+By the same argument, there is a convergent sequence \((L'_\ell)_{\ell \geq 0}\) of generalised definite languages into \(\eta^{-1}(Mm)\) from inner.
+This means that the sequence \((L_\ell \cap L'_\ell)_{\ell \geq 0}\)
+of generalised definite languages converges into \(\eta^{-1}(mM) \cap \eta^{-1}(Mm) = L_m\) from inner.
 We showed that, for every \(m \in M\),
-there is a convergent sequence of generalised definite languages to \(L_m\) from inner.
-Hence \(L\) is \(\gd\)-measurable by Lemma~\ref{lem:fiberinner} because 
-\(\gd\) is closed under Boolean operations.
+there is a convergent sequence of generalised definite languages into \(L_m = \eta^{-1}(m)\) from inner.
+Hence \(L\) is \(\gd\)-measurable by Lemma~\ref{lem:fiberinner} because \(\gd\) is closed under Boolean operations.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:sf}]
