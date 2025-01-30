@@ -28,28 +28,30 @@ Also, there is a different framework of approximation so-called
 \emph{minimal-cover}~\cite{Domaratzki,CAMPEANU20013}, and
 a notion represents some \emph{in}approximability by regular languages so-called \emph{\(\reg\)-immunity}~\cite{immunity}.
 A model of approximation studied in this paper is \emph{\(\CC\)-measurability}, which was introduced in \cite{S2021}.
-This notion is rather close to bounded-\(\epsilon\)-approximation.
-Instead of approximating by a \emph{single} regular language, we consider an approximation of some non-regular language \(L\) by an \emph{infinite sequence} of regular languages that ``converges'' to \(L\).
-Intuitively, we say that \(L\) is \emph{\(\CC\)-measurable} if there exists
-  an infinite sequence of pairs of languages \((K_n, M_n)_{n
-  \in \nat}\) in \(\CC\) such that
-  \(K_n \subseteq L \subseteq M_n\) holds for all \(n\) and 
-  the ``size'' (\emph{density}) of the difference \(M_n \setminus K_n\) tends to \(0\) if \(n\) tends to infinity.
-The notion \(\CC\)-measurability can be considered as a non-commutative and high-dimensional extension of Buck's measure theoretic approach to the density on natural numbers~\cite{Buck}.
+This notion is rather close to bounded-\(\epsilon\)-approximation:
+ Instead of approximating by a \emph{single} regular language, we consider an approximation of some non-regular language \(L\) by an \emph{infinite sequence} of regular languages that ``converges'' to \(L\).
+Intuitively, we say that \(L\) is \emph{\(\CC\)-measurable} if there exists an infinite sequence of pairs of languages \((K_n, M_n)_{n \in \nat}\) in \(\CC\) such that \(K_n \subseteq L \subseteq M_n\) holds for all \(n\) and the ``size'' (\emph{density}) of the difference \(M_n \setminus K_n\) tends to \(0\) if \(n\) tends to infinity.
+The notion \(\CC\)-measurability can be considered as a non-commutative and high-dimensional extension of Buck's measure theoretic approach to the density on natural numbers~\cite{Buck}, and \(\CC\)-measurability can be also characterised by using a purely measure theoretic notion so-called \emph{Carath{\'e}odory extension}~\cite{carathe}.
+% While the membership problem for a given language \(L\) and a class
+% \(\CC\) just asks whether \(L \in \CC\), the \(\CC\)-measurability asks the existence of
+% an infinite sequence of languages in \(\CC\) that converges
+% to \(L\).
+% In this sense, measurability is much more difficult than the membership
+% problem and its analysis is a challenging task.
 
-So far, the decidability and different characterisation of \(\CC\)-measurability is systematically studied for some subclass \(\CC\) of regular languages.
-For example, two simple and decidable characterisations of \(\pt\)-measurable and \(\at\)-measurable languages are given in \cite{ltmeasure}, where \(\pt\) is the class of all piecewise testable languages and \(\at\) is the class of all alphabet testable languages (\ie, languages definable by the first-order logic with only one variable).
+So far, the decidability and alternative characterisation of \(\CC\)-measurability is systematically studied for some subclass \(\CC\) of regular languages.
+For example, simple and decidable characterisations of \(\pt\)-measurable and \(\at\)-measurable languages are given in \cite{ltmeasure}, where \(\pt\) is the class of all piecewise testable languages and \(\at\) is the class of all alphabet testable languages (\ie, languages definable by the first-order logic with only one variable).
 For the class \(\gd\) of generalised definite languages, an automata theoretic characterisation of the \(\gd\)-measurability for regular languages is given in \cite{gdmeasure} and it is decidable in quadratic time~\cite{ppl2024} with respect to the size of given deterministic automaton.
 Some properties of the measuring power of star-free languages is investigated in \cite{carathe}, but the decidability for regular languages was left open.
-The decidability of \(\group\)-measurability for regular languages is still unknown, while the measurability of two restricted subclasses
- \(\gcom\) (\emph{commutative} group languages) and \(\modl\) (languages defined by length-modulo condition) of group languages are shown to be decidable for regular languages~\cite{gcommeasure}. 
+The decidability of \(\group\)-measurability, where \(\group\) is the class of all group languages, for regular languages is still unknown, while the measurability of two restricted subclasses
+ \(\gcom\) (commutative group languages) and \(\modl\) (languages defined by length-modulo condition) of group languages are shown to be decidable for regular languages~\cite{gcommeasure}. 
 
-The main results of this paper are the following two theorems.
-The former one gives the decidable characterisation of \(\sf\)-measurability for regular languages, and the latter one gives a measure theoretic ``decomposition theorem'' of regular languages into star-free and group languages.
+\subsection*{Our contribution}
+The main results of this paper are the following three kinds.
+TODO 
+%The former one gives the decidable characterisation of \(\sf\)-measurability for regular languages.
 \begin{enumerate}
  \item A language \(L\) is \(\sf\)-measurable if and only if \(L\) is \(\gd\)-measurable (Theorem~\ref{thm:sf}).
- \item Every regular language is \(\bool(\gd \cup \group)\)-measurable (Theorem~\ref{thm:dec}).
+ \item The probabilistic independence of star-free and group languages (Theorem~\ref{thm:ind}).
+ \item About group languages (TODO).
 \end{enumerate}
-
-[XXX: test]
-
