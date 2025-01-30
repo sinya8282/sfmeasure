@@ -55,13 +55,14 @@ We list some basic properties of the density as follows.
 \begin{lemma}\label{lem:groupdensity}
  Let \(\eta\colon A^* \rightarrow G\) be a morphism onto a finite group. For any \(g \in G\), we have \(\cd(\eta^{-1}(g)) = \card{G}^{-1}\).
 \end{lemma}
-\begin{remark}
+\begin{remark}\label{rem:kernel}
 Let \(L\) be a regular language, \(M\) be a finite monoid and 
 \(\eta: A^* \rightarrow M\) be a morphism recognising \(L = \eta^{-1}(\eta(L))\).
 The \emph{kernel} of \(M\) is a unique minimal ideal of \(M\) (it is always exists since \(M\) is finite).
 For every \(m\) not in the kernel of \(M\),
 \(\eta^{-1}(m) \cap A^* w A^* = \emptyset\) holds for \(w \in \eta^{-1}(K)\) hence \(\d(\eta^{-1}(m)) = 0\) by the infinite monkey theorem.
-This implies that \(\d(\eta^{-1}(K)) = 1\).
+This implies that \(\d(\eta^{-1}(K)) = 1\) and
+\(\d(\eta^{-1}(m)) > 0\) for each \(m \in K\).
 \end{remark}
 For more detailed properties of \(\cd\), see Chapter~13 of \cite{codes}.
 
