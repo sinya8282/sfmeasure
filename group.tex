@@ -1,1 +1,74 @@
-\section{About Group Languages}
+\section{Hierarchies of Group Languages Do Not Collapse}
+
+%\begin{theorem}\label{thm:group-robust}
+%  Let \(\mathbf{G}\) be the variety of all fintie groups and
+%  let \(\mathbf{V} \subsetneq \mathbf{W} \subseteq \mathbf{G}\) be subvarieties of finite groups with proper inclusion.
+%  Then we have \(\mext(\mathbf{V}) \cap \mathbf{W} = \mathbf{V}\).
+%  As consequences, we have \(\mext(\mathbf{V}) \cap \mathbf{G} = \mathbf{V}\), \(\mathbf{W} \not\subseteq \mext(\mathbf{V})\),
+%  and \(\mext(\mathbf{V}) \subsetneq \mext(\mathbf{W})\).
+%\end{theorem}
+\begin{theorem}\label{thm:group-robust}
+  %Let \(\group_A\) be the local variety of group languages over \(A^*\) and
+  Let \(\mathcal{V}_A \subsetneq \mathcal{W}_A \subseteq \group_A\) be local subvarieties of group languages over \(A\) with proper inclusion.
+  Then we have \(\rext(\mathcal{V}_A) \cap \mathcal{W}_A = \mathcal{V}_A\).
+  In particular, we have \(\rext(\mathcal{V}_A) \cap \group_A = \mathcal{V}_A\), \(\mathcal{W}_A \not\subseteq \rext(\mathcal{V}_A)\),
+  and \(\rext(\mathcal{V}_A) \subsetneq \rext(\mathcal{W}_A)\).
+\end{theorem}
+
+[Theorem 1 of CIAA paper \cite{gcommeasure} is the special case of above Theorem where \(\mathcal{V}_A = \gcom_A\).]
+
+\begin{theorem}[Proposition 7.4 of Duality Paper]
+  {[TODO]}
+\end{theorem}
+
+\begin{lemma}\label{lem:group-profinite-identity}
+  For any profinite identity \((u, v) \in \widehat{A^*} \times \widehat{A^*}\),
+  there exists a profinite identity \((w, \varepsilon) \in \widehat{A^*} \times \widehat{A^*}\)
+  that is equivalent to \((u, v)\) on any \(A\)-generated finite group.
+\end{lemma}
+\begin{proof}
+  It suffices to put \(w = u v^{\omega - 1}\), where \(v^{\omega - 1} \in \widehat{A^*}\) is defined as follows:
+  if \(v\) is the limit of a Cauchy sequence \((v_n)_{n \in \nat}\) in \(A^*\),
+  then \(v^{\omega - 1} \defeq \lim_{n \to \infty} v_n^{n! - 1}\).
+  %consider \(v\) as a Cauchy sequence \((v_n)_{n \in \nat}\) in \(\widehat{A^*}\) (\(v_n \in A^*\)) and define \(v^{\omega - 1} \defeq (v_n^{n! - 1})_{n \in \nat}\).
+  %Precisely, consider \(\hat{u}, \hat{v}\) as Cauchy sequences \((u_n)_{n \in \nat}, (v_n)_{n \in \nat}\) of words in \(A^*\) respectively.
+  %Let \(v_n = b_1 b_2 \dotsm b_l\) (\(b_i \in A\)) and put \(\bar{v}_n \defeq b_l^{n! - 1} \dotsm b_2^{n! - 1} b_1^{n! - 1}\).
+  %Then \(\hat{w} \defeq (u_n \bar{v}_n)_{n \in \nat}\) is a desired Cauchy sequence.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:group-robust}]
+  Let \(L \in \mathcal{W}_A \setminus \mathcal{V}_A\) and we show that \(L\) is \(\mathcal{V}_A\)-\emph{im}measurable.
+  %Since every variety of monoids is characterised by the set of profinite identities that all of those monoids in the variety satisfy,
+  %there exists a profinite identity \((\hat{u}, \hat{v}) \in \widehat{A^*} \times \widehat{A^*}\)
+  %that every group in \(\mathbf{V}\) satisfies and some group \(G\) in \(\mathbf{W}\) does not.
+  %Since \(\mathcal{V}_A \subsetneq \mathcal{W}_A\), there exists a profinite identity \((\hat{u}, \hat{v}) \in \widehat{A^*} \times \widehat{A^*}\)
+  %that every \(A\)-generated group in \(\mathbf{V}\) satisfies and some \(\eta\colon A^* \to G\) in \(\mathbf{W}\) does not.
+  Let \(G\) be the syntactic group of \(L\) and \(\eta\colon A^* \to G\) be the syntactic morphism of \(L\).
+  Since \(L \notin \mathcal{V}_A\), there exists a profinite identity \((u, v) \in \widehat{A^*} \times \widehat{A^*}\)
+  that the syntactic morphism of every language in \(\mathcal{V}_A\) satisfies but \(\eta\) does not.
+  By Lemma~\ref{lem:group-profinite-identity},
+  there exists another profinite identity \((w, \varepsilon) \in \widehat{A^*} \times \widehat{A^*}\) equivalent to \((u, v)\) on any finite group.
+  Since \(\eta(L) \subseteq G\) is disjunctive, there exist two words \(x, y \in A^*\)
+  such that \(\lnot[\eta(x) \hat{\eta}(w) \eta(y) \in \eta(L) \iff \eta(x y) \in \eta(L)]\).
+  Define \(I \defeq \eta^{-1}(\eta(x)) \eta^{-1}(\eta(y))\).
+  Then \(I\) is the concatenation of two non-null languages and hence \(\d(I) > 0\).
+  
+  To complete the proof, it suffices to show that \(L_1, L_2 \in \mathcal{V}_A\) and \(L_1 \subseteq L \subseteq L_2\) implies \(I \subseteq L_2 \setminus L_1\).
+  Let \(\eta_1\colon A^* \to G_1\) and \(\eta_2\colon A^* \to G_2\) be the syntactic morphism of \(L_1\) and \(L_2\), respectively.
+  Let \((w_n)_{n \in \nat}\) be a Cauchy sequence in \(A^*\) converging to \(w\).
+  Then we have \(\eta(w_n) = \hat{\eta}(w)\), \(\eta_1(w_n) = \hat{\eta}_1(w)\), and \(\eta_2(w_n) = \hat{\eta}(w)\) for sufficiently large \(n \in \nat\).
+  Let \(z = x' y' \in I\) (\(x' \in \eta^{-1}(\eta(x)), y' \in \eta^{-1}(\eta(y))\)).
+  For \(i \in \{1, 2\}\), \(L_i \in \mathcal{V}_A\) implies \(\eta_i(w_n) = \hat{\eta}_i(w) = \eta_i(\varepsilon) = 1_{G_i}\).
+  In particular, \(\eta_i(x' y') = \eta_i(x' w_n y')\), \ie, \(x' y' \in L_i \iff x' w_n y' \in L_i\).
+  Thus \(z = x' y' \in L_2 \setminus L_1\).
+\end{proof}
+
+\begin{corollary}
+  Let \(c\) be a positive integer and define
+  \begin{align*}
+    \gnil_c &\defeq \set{L \subseteq A^*}{\text{\(L\) is recognised by a finite nilpotent group of class \(c\)}},\\
+    \gsol_c &\defeq \set{L \subseteq A^*}{\text{\(L\) is recognised by a finite solvable group of class \(c\)}}.
+  \end{align*}
+  Then \(\rext(\gnil_c) \subsetneq \rext(\gnil_{c + 1})\) and \(\rext(\gsol_c) \subsetneq \rext(\gsol_c)\).
+\end{corollary}
+
