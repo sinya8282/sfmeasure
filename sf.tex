@@ -148,7 +148,7 @@ For each \(\ell \geq 0\), we define a generalised definite language \(L_\ell\) a
  L_\ell = \{ uA^* \mid u \in A^\ell, \eta(uA^*) \subseteq mM\}.
 \)
 The inclusion \(L_\ell \subseteq \eta^{-1}(mM)\) is obvious.
-We can show that \(L_\ell\) tends to \(\eta^{-1}(mM)\) from inner as:
+We can show that \(L_\ell\) tends to \(\eta^{-1}(mM)\) from inner as follows.
 \begin{align*}
 & \,\, \d\left(\eta^{-1}(mM) \setminus L_\ell\right)\\
 = & \,\,
@@ -164,12 +164,12 @@ We can show that \(L_\ell\) tends to \(\eta^{-1}(mM)\) from inner as:
 \leq & \,\,
 1 - \sum \d(\{ uA^* \mid u \in A^\ell \cap A^* w A^*\})
 \end{align*}
-which tends to zero as \(\ell \rightarrow \infty\), since 
+where the last term tends to zero as \(\ell\) tends to infinity, since 
 \[
 \sum \d(\{ uA^* \mid u \in A^\ell \cap A^* w A^*\})
 = \frac{\card{A^\ell \cap A^* w A^*}}{\card{A^\ell}}
 \]
-tends to one as \(\ell \rightarrow \infty\) by the infinity monkey theorem.
+tends to one as \(\ell\) tends to infinity by the infinity monkey theorem.
 By the same argument, there is a convergent sequence \((L'_\ell)_{\ell \geq 0}\) of generalised definite languages to \(\eta^{-1}(Mm)\) from inner.
 This means that the sequence \((L_\ell \cap L'_\ell)_{\ell \geq 0}\)
 of generalised definite languages converges to \(\eta^{-1}(mM) \cap \eta^{-1}(Mm) = L_m\) from inner.
@@ -185,7 +185,7 @@ Since we have \(\gd \subseteq \sf\), it is enough to show that
 The syntactic monoid of any star-free language is \(\CH\)-trivial, hence \(\sf \subseteq \ext(\gd)\) holds by Lemma~\ref{lem:kernelHtrivial}.
 \end{proof}
 
-Actually, the converse direction of Lemma~\ref{lem:kernelHtrivial} holds. The following theorem gives an algebraic characterisation of \(\gd\)-measurable (\(= \) \(\sf\)-measurable) languages.
+Actually, the converse direction of Lemma~\ref{lem:kernelHtrivial} holds. The following theorem gives an algebraic characterisation of \(\gd\)-measurable (\(= \) \(\sf\)-measurable) regular languages.
 \begin{theorem}\label{thm:algsf}
 Let \(L\) be a regular language and \(M_L\) be its syntactic monoid.
 Then \(L\) is \(\gd\)-measurable if and only if every \(\CH\)-class in the kernel of \(M_L\) is trivial.
