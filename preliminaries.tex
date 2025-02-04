@@ -1,7 +1,7 @@
 \section{Preliminaries}\label{sec:pre}
 This section provides the precise definitions of density, measurability, considered subclasses of regular languages.
 \(\reg_A\) denotes the family of all regular languages over an alphabet \(A\). For a word \(w \in A^*\) and a letter \(a \in A\), we write \(|w|_a\) the number of occurrences of \(a\) in \(w\). The complement of \(L\) over \(A\) is denoted by \(\comp{L} = A^* \setminus L\).
-We assume that the reader has a standard knowledge of algebraic language theory (\cf \cite{Lawson,MPRI}) including the concept of Green's relations \(\CL, \CR, \CJ\) and \(\CH\).
+We assume that the reader has a standard knowledge of algebraic language theory (\cf \cite{Lawson,DAM,MPRI}) including the concept of Green's relations \(\CL, \CR, \CJ\) and \(\CH\).
 
 The main targets of this paper are the following three subclasses of regular languages. The \emph{star-free languages}, the \emph{generalised definite languages} \(\gd\) and the \emph{group languages} \(\group\):
 \begin{align*}
@@ -11,7 +11,7 @@ The main targets of this paper are the following three subclasses of regular lan
 \end{align*}
 
 A monoid \(M\) divides a monoid \(N\) if \(M\) is a monoid homomorphic image of a submonoid of \(N\).
-It is well-known that a monoid \(M\) recognises a language \(L\) if and only if the syntactic monoid \(M_L\) of \(L\) divides \(M\) (\cf \cite[Theorem~10.2.6]{Lawson}), hence
+It is well-known that a monoid \(M\) recognises a language \(L\) if and only if the syntactic monoid \(M_L\) of \(L\) divides \(M\), hence
 \(L\) is in \(\sf_A\) (\(\group_A\), respectively) if and only if \(M_L\) is a finite aperiodic monoid (a finite group, respectively).
 It is easy to see that a language \(L\) is generalised definite if and only if \(L = E \cup \bigcup_{(u, v) \in F} uA^*v\) for some finite sets \(E\) and \(F \subseteq A^* \times A^*\).
 % \(L = E \cup \bigcup_{i \in I} F_i A^* G_i\) for some finite sets \(E\) and \(F_i, G_i \subseteq A^*\) for all \(i \in I\), where \(I\) is a finite index set.
