@@ -8,16 +8,15 @@
 %  and \(\mext(\mathbf{V}) \subsetneq \mext(\mathbf{W})\).
 %\end{theorem}
 \begin{theorem}\label{thm:group-robust}
-  %Let \(\group_A\) be the local variety of group languages over \(A^*\) and
-  Let \(\mathcal{V}_A \subsetneq \mathcal{W}_A \subseteq \group_A\) be local subvarieties of group languages over \(A\) with proper inclusion.
-  Then we have \(\rext(\mathcal{V}_A) \cap \mathcal{W}_A = \mathcal{V}_A\).
-  In particular, we have \(\rext(\mathcal{V}_A) \cap \group_A = \mathcal{V}_A\), \(\mathcal{W}_A \not\subseteq \rext(\mathcal{V}_A)\),
+  If \(\mathcal{V}_A \subseteq \group_A\) is a local subvariety, then \(\rext(\mathcal{V}_A) \cap \group_A = \mathcal{V}_A\).
+  In particular, if \(\mathcal{V}_A \subsetneq \mathcal{W}_A \subseteq \group_A\) are local subvarieties,
+  then \(\rext(\mathcal{V}_A) \cap \mathcal{W}_A = \mathcal{V}_A\), \(\mathcal{W}_A \not\subseteq \rext(\mathcal{V}_A)\),
   and \(\rext(\mathcal{V}_A) \subsetneq \rext(\mathcal{W}_A)\).
 \end{theorem}
 
 [Theorem 1 of CIAA paper \cite{gcommeasure} is the special case of above Theorem where \(\mathcal{V}_A = \gcom_A\).]
 
-\begin{theorem}[Proposition 7.4 of Duality Paper]
+\begin{theorem}[{\cite[Proposition 7.4]{Duality2008}}]
   {[TODO]}
 \end{theorem}
 
@@ -69,6 +68,9 @@
     \gnil_c &\defeq \set{L \subseteq A^*}{\text{\(L\) is recognised by a finite nilpotent group of class \(c\)}},\\
     \gsol_c &\defeq \set{L \subseteq A^*}{\text{\(L\) is recognised by a finite solvable group of class \(c\)}}.
   \end{align*}
-  Then \(\rext(\gnil_c) \subsetneq \rext(\gnil_{c + 1})\) and \(\rext(\gsol_c) \subsetneq \rext(\gsol_c)\).
+  Then \(\rext(\gnil_c) \subsetneq \rext(\gnil_{c + 1})\) and \(\rext(\gsol_c) \subsetneq \rext(\gsol_{c + 1})\).
 \end{corollary}
+\begin{proof}
+  TODO
+\end{proof}
 
