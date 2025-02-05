@@ -5,9 +5,9 @@ We assume that the reader has a standard knowledge of algebraic language theory 
 
 The main targets of this paper are the following three subclasses of regular languages. The \emph{star-free languages}, the \emph{generalised definite languages} \(\gd\) and the \emph{group languages} \(\group\):
 \begin{align*}
- \sf_A &\defeq \set{L \subseteq A^*}{L \text{ is recognised by a finite aperiodic monoid}}\\
- \gd_A &\defeq \bool\{ wA^*, A^*w \mid w \in A^*\}\\
- \group_A &\defeq \set{L \subseteq A^*}{L \text{ is recognised by a finite group}}
+ \sf_A &\defeq \set{L \subseteq A^*}{L \text{ is recognised by a finite aperiodic monoid}},\\
+ \gd_A &\defeq \bool\set{wA^*, A^*w}{w \in A^*},\\
+ \group_A &\defeq \set{L \subseteq A^*}{L \text{ is recognised by a finite group}}.
 \end{align*}
 Also, we denote by \(\gcom_A\) the class of all languages recognised by finite commutative groups.
 A monoid \(M\) divides a monoid \(N\) if \(M\) is a monoid homomorphic image of a submonoid of \(N\).
@@ -28,7 +28,7 @@ The \emph{density} \(\cd(L)\) of \(L \subseteq A^*\) is defined as
  \cd(L) \defeq \lim_{n \rightarrow \infty} \frac{1}{n} \sum_{k = 0}^{n-1} \frac{\card{L \cap A^k}}{\card{A^k}}
 \]
  if it exists, otherwise we write \(\cd(L) = \bot\).
- The language \(L\) is called \emph{null} if \(\cd(L) = 0\),
+ A language \(L\) is called \emph{null} if \(\cd(L) = 0\),
  and dually, \(L\) is called \emph{co-null} if \(\cd(L) = 1\).
 \end{definition}
 
@@ -36,8 +36,8 @@ The \emph{density} \(\cd(L)\) of \(L \subseteq A^*\) is defined as
 It is known that every regular language has a rational density (\cf \cite{codes}) and it is computable.
 For each word \(w\), the language \(A^* w A^*\),
  the set of all words that contain \(w\) as a factor,
- is of density one (co-null). This fact follows from the so-called {\em infinite monkey theorem}:
-take any word \(w\). A random word of length \(n\) contains \(w\) as a factor with probability tending to one as \(n\) tends to infinite.
+ is of density one (\ie, co-null). This fact follows from the so-called {\em infinite monkey theorem}:
+take any word \(w\). A random word of length \(n\) contains \(w\) as a factor with probability tending to one as \(n\) tends to infinity.
 \end{example}
 
 We list some basic properties of the density as follows.
@@ -57,7 +57,7 @@ We list some basic properties of the density as follows.
 \end{lemma}
 \begin{remark}\label{rem:kernel}
 Let \(L\) be a regular language, \(M\) be a finite monoid and 
-\(\eta: A^* \rightarrow M\) be a surjective morphism recognising \(L = \eta^{-1}(\eta(L))\).
+\(\eta: A^* \rightarrow M\) be a surjective morphism such that \(L = \eta^{-1}(\eta(L))\).
 The \emph{kernel} \(K\) of \(M\) is a unique minimal ideal of \(M\) (it is always exists since \(M\) is finite).
 For every \(m\) not in the kernel \(K\) of \(M\),
 \(\eta^{-1}(m) \cap A^* w A^* = \emptyset\) holds for any \(w \in \eta^{-1}(K)\) hence \(\d(\eta^{-1}(m)) = 0\) by the infinite monkey theorem.

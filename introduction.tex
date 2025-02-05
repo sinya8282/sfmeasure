@@ -6,7 +6,7 @@ Although the definition of group languages is simple from an algebraic point of 
 To borrow the phrase used by Place--Zeitoun~\cite{place}: ``This makes it difficult to get an intuitive grasp about group languages, which may explain why this class remains poorly understood.''
 
 This paper sheds new light on these two major building blocks --- star-free and group languages --- of regular languages, by using a measure-theoretic notion so-called \emph{\(\CC\)-measurability}.
-A language \(L\) is said to be \(\CC\)-measurable if there exists an infinite sequence of pairs of languages \((K_n, M_n)_{n \in \nat}\) in \(\CC\) such that \(K_n \subseteq L \subseteq M_n\) holds for all \(n\) and the \emph{density} (described later) of the difference \(M_n \setminus K_n\) tends to zero if \(n\) tends to infinity.
+A language \(L\) is said to be \(\CC\)-measurable if there exists an infinite sequence of pairs of languages \((K_n, M_n)_{n \in \nat}\) in \(\CC\) such that \(K_n \subseteq L \subseteq M_n\) holds for all \(n\) and the \emph{density} (described later) of the difference \(M_n \setminus K_n\) tends to zero as \(n\) tends to infinity.
 The notion of \(\CC\)-measurability is introduced in \cite{S2021} and it was used for classifying non-regular languages by using regular languages.
 This notion can be considered as a non-commutative and high-dimensional extension of Buck's measure theoretic notion for subsets of natural numbers so-called ``measure density''~\cite{Buck}, and \(\CC\)-measurability can be characterised by using a purely measure theoretic notion called \emph{Carath{\'e}odory extension}~\cite{carathe}.
 % Approximating a complex object by more simple objects is a major concept
@@ -53,7 +53,7 @@ Some properties of the measuring power of star-free languages is investigated in
 The decidability of \(\group\)-measurability, where \(\group\) is the class of all group languages, for regular languages is still unknown, while the measurability of two restricted subclasses
  \(\gcom\) (commutative group languages) and \(\modl\) (languages defined by length-modulo condition) of group languages are shown to be decidable for regular languages~\cite{gcommeasure}. 
 
-The main results of this paper (shown in Section~\ref{sec:sf} \(\sim\) Section~\ref{sec:group}), relating to the measuring power of star-free and group languages, are three kinds as follows.
+The main results of this paper (shown in Section~\ref{sec:sf}--\ref{sec:group}), relating to the measuring power of star-free and group languages, are three kinds as follows.
 The first main result is about the measuring power of star-free languages (Section~\ref{sec:sf}).
 It is shown that a language \(L\) is \(\sf\)-measurable if and only if \(L\) is \(\gd\)-measurable (Theorem~\ref{thm:sf}).
 Since the \(\gd\)-measurability is known to be decidable for regular languages~\cite{gdmeasure}, this characterisation also gives the decidability of the \(\sf\)-measurability for regular languages.
@@ -63,8 +63,8 @@ The second main result (Section~\ref{sec:ind}), which is an application of the f
 star-free language \(L\) and group language \(K\) where
 \(\cd\) is the density function defined as
 \(\cd(X) \defeq \lim_{n \rightarrow \infty} \frac{1}{n} \sum_{k = 0}^{n-1} \card{X \cap A^k}/\card{X^k}\) (where \(\card{S}\) denotes the cardinality of a set \(S\)).
-Since the class of star-free languages corresponds to finite aperiodic monoids (monoids having no non-trivial subgroups) via Sch\"utzenberger's theorem~\cite{Schutzenberger1965190}, sometimes star-free languages and group languages are said as ``orthogonal''.
-For example, it is described in \cite{nato} that ``This notion [aperiodic monoid] is in some sense ``orthogonal'' to the notion of groups.'' and in \cite{DAM} that ``Aperiodic monoids are orthogonal to groups.'' Our second main result gives a rigorous statement how star-free and group languages are orthogonal in the probability theoretic sense.
+Since the class of star-free languages corresponds to finite aperiodic monoids (monoids having no non-trivial subgroups) via Sch\"utzenberger's theorem~\cite{Schutzenberger1965190}, it is sometimes said that star-free languages and group languages are ``orthogonal.''
+For example, it is described in \cite{nato} that ``This notion [aperiodic monoid] is in some sense ``orthogonal'' to the notion of groups'' and in \cite{DAM} that ``Aperiodic monoids are orthogonal to groups.'' Our second main result gives a rigorous statement how star-free and group languages are orthogonal in the probability theoretic sense.
 Between \(\gd\) and \(\sf\), there is a fine-grained infinite strict hierarchy called the \emph{dot-depth hierarchy} introduced by Cohen and Brzozowski~\cite{dot} in 1971.
 For a family \(\CC\) of languages, we denote by
 \(\monc \CC = \{ L_1 \cdots L_k \mid k \geq 1, L_1, \ldots, L_k \in \CC
@@ -73,11 +73,11 @@ The dot-depth hierarchy starts with the family \(\CB_0\) of all finite
 or co-finite languages, and continues as \(\CB_{i+1} = \bool \monc \CB_{i}\) for each \(i \geq 0\).
 By definition, we have \(\sf = \bigcup_{i \geq 0} \CB_i\)
 and also \(\CB_0 \subsetneq \gd \subsetneq \CB_1\).
-However, the first main result tells us that this infinite strict hierarchy \emph{collapses} via taking all measurable sets in a sense that 
+However, the first main result tells us that this infinite strict hierarchy \emph{collapses} via taking all measurable sets in the sense that 
 \(\{ L \mid L \text{ is } \gd\text{-measurable}\}
  = \{ L \mid L \text{ is } \sf\text{-measurable}\}\)
 holds.
 The last main result (Section~\ref{sec:group}) tells us that, for the measuring power on subclasses of group languages, the situation is exactly the opposite.
-We show that, for any two local subvarieties\footnote{A \emph{local variety} is a family of regular languages closed under Boolean operations and quotients.} \(\CC \subsetneq \CD \subseteq \group\) of group languages, we have \(\{ L \mid L \text{ is } \CC\text{-measurable}\}
+We show that, for any two local subvarieties\footnote{A \emph{local variety} is a family of regular languages of \(A^*\) closed under Boolean operations and quotients.} \(\CC \subsetneq \CD \subseteq \group\) of group languages, we have \(\{ L \mid L \text{ is } \CC\text{-measurable}\}
 \subsetneq \{ L \mid L \text{ is } \CD\text{-measurable}\}\) (Theroem~\ref{thm:group-robust}).
 %In Section~\ref{sec:fut} we summaries our results and explain some open problems.
