@@ -1,57 +1,83 @@
 \section{Introduction}
-Approximating a complex object by more simple objects is a major concept
-in both computer science and mathematics.
-In the theory of formal languages, various types of approximations have
-been investigated (\eg,
-\cite{kappe2004,kappe2005,approx,CORDY2007125,CAMPEANU20013,Domaratzki}).
-For example, Kappes and Kintala~\cite{kappe2004} introduced 
-\emph{convergent-reliability} and \emph{slender-reliability} which
-measure how a given deterministic automaton \(\CA\) nicely approximates a given
-language \(L\) over an alphabet \(A\).
-A slightly modified version of approximation notion is
-\emph{bounded-\(\epsilon\)-approximation} which was introduced by Eisman and Ravikumar~\cite{Eisman2011}.
-They say that two languages \(L_1\) and \(L_2\) provide a
-bounded-\(\epsilon\)-approximation of language \(L\) if
-\(L_1 \subseteq L \subseteq L_2\) holds and
- the ratio of their length-\(n\) difference satisfies
-\(
- \card{(L_2 \setminus L_1) \cap A^n} / \card{A^n} \leq \epsilon
- \)
-for every sufficiently large \(n \in \nat\).
+One of the fundamental results in semigroup theory is the Krohn-Rhodes decomposition theorem stating that every finite monoid can be decomposed in a suitable sense into a wreath product of finite aperiodic monoids and finite groups.
+According to the Krohn-Rhodes decomposition theorem, the class of \emph{star-free languages} (the language counterpart of aperiodic monoids) and \emph{group languages} (languages recognised by finite groups) can be considered as two major ``building blocks'' of regular languages.
+While the theory of star-free languages is well-studied (\eg, Sch\"utzenberger's algebraic characterisation~\cite{Schutzenberger1965190},  McNaughton-Papert's logical characterisation~\cite{counterfree}, the dot-depth hierarchy (described later) proposed by Cohen and Brzozowski~\cite{dot} and recent progresses relating to this hierarchy (see \cite{dot3} or a survey \cite{dotdepth}), etc...), the theory of group languages seems not.
+Although the definition of group languages is simple from an algebraic point of view, this class dose not have a language theoretic nor logical different characterisation.
+To borrow the phrase used by Place--Zeitoun~\cite{place}: ``This makes it difficult to get an intuitive grasp about group languages, which may explain why this class remains poorly understood.''
+
+This paper sheds new light on these two major building blocks --- star-free and group languages --- of regular languages, by using a measure-theoretic notion so-called \emph{\(\CC\)-measurability}.
+A language \(L\) is said to be \(\CC\)-measurable if there exists an infinite sequence of pairs of languages \((K_n, M_n)_{n \in \nat}\) in \(\CC\) such that \(K_n \subseteq L \subseteq M_n\) holds for all \(n\) and the \emph{density} (described later) of the difference \(M_n \setminus K_n\) tends to zero if \(n\) tends to infinity.
+The notion of \(\CC\)-measurability is introduced in \cite{S2021} and it was used for classifying non-regular languages by using regular languages.
+This notion can be considered as a non-commutative and high-dimensional extension of Buck's measure theoretic notion for subsets of natural numbers so-called ``measure density''~\cite{Buck}, and \(\CC\)-measurability can be characterised by using a purely measure theoretic notion called \emph{Carath{\'e}odory extension}~\cite{carathe}.
+% Approximating a complex object by more simple objects is a major concept
+% in both computer science and mathematics.
+% In the theory of formal languages, various types of approximations have
+% been investigated (\eg,
+% \cite{kappe2004,kappe2005,approx,CORDY2007125,CAMPEANU20013,Domaratzki}).
+% For example, Kappes and Kintala~\cite{kappe2004} introduced 
+% \emph{convergent-reliability} and \emph{slender-reliability} which
+% measure how a given deterministic automaton \(\CA\) nicely approximates a given
+% language \(L\) over an alphabet \(A\).
+% A slightly modified version of approximation notion is
+% \emph{bounded-\(\epsilon\)-approximation} which was introduced by Eisman and Ravikumar~\cite{Eisman2011}.
+% They say that two languages \(L_1\) and \(L_2\) provide a
+% bounded-\(\epsilon\)-approximation of language \(L\) if
+% \(L_1 \subseteq L \subseteq L_2\) holds and
+%  the ratio of their length-\(n\) difference satisfies
+% \(
+%  \card{(L_2 \setminus L_1) \cap A^n} / \card{A^n} \leq \epsilon
+%  \)
+% for every sufficiently large \(n \in \nat\).
 % Perhaps surprisingly, they showed that no pair of regular languages can
 %  provide a bounded-\(\epsilon\)-approximation of the
 % language \(\{w \in \{a,b\}^* \mid w \text{ has more } a \text{'s than } b
 % \text{'s}\}\) for any \(0 \leq \epsilon < 1\)~\cite{approx}.
 % This result is a very strong \emph{in}approximable (by regular languages)
 % example of certain non-regular languages.
-Also, there is a different framework of approximation so-called
-\emph{minimal-cover}~\cite{Domaratzki,CAMPEANU20013}, and
-a notion represents some \emph{in}approximability by regular languages so-called \emph{\(\reg\)-immunity}~\cite{immunity}.
-A model of approximation studied in this paper is \emph{\(\CC\)-measurability}, which was introduced in \cite{S2021}.
-This notion is rather close to bounded-\(\epsilon\)-approximation:
- Instead of approximating by a \emph{single} regular language, we consider an approximation of some non-regular language \(L\) by an \emph{infinite sequence} of regular languages that ``converges'' to \(L\).
-Intuitively, we say that \(L\) is \emph{\(\CC\)-measurable} if there exists an infinite sequence of pairs of languages \((K_n, M_n)_{n \in \nat}\) in \(\CC\) such that \(K_n \subseteq L \subseteq M_n\) holds for all \(n\) and the ``size'' (\emph{density}) of the difference \(M_n \setminus K_n\) tends to \(0\) if \(n\) tends to infinity.
-The notion \(\CC\)-measurability can be considered as a non-commutative and high-dimensional extension of Buck's measure theoretic approach to the density on natural numbers~\cite{Buck}, and \(\CC\)-measurability can be also characterised by using a purely measure theoretic notion so-called \emph{Carath{\'e}odory extension}~\cite{carathe}.
+% Also, there is a different framework of approximation so-called
+% \emph{minimal-cover}~\cite{Domaratzki,CAMPEANU20013}, and
+% a notion represents some \emph{in}approximability by regular languages so-called \emph{\(\reg\)-immunity}~\cite{immunity}.
+% A model of approximation studied in this paper is \emph{\(\CC\)-measurability}, which was introduced in \cite{S2021}.
+% This notion is rather close to bounded-\(\epsilon\)-approximation:
+%  Instead of approximating by a \emph{single} regular language, we consider an approximation of some non-regular language \(L\) by an \emph{infinite sequence} of regular languages that ``converges'' to \(L\).
 % While the membership problem for a given language \(L\) and a class
 % \(\CC\) just asks whether \(L \in \CC\), the \(\CC\)-measurability asks the existence of
 % an infinite sequence of languages in \(\CC\) that converges
 % to \(L\).
 % In this sense, measurability is much more difficult than the membership
 % problem and its analysis is a challenging task.
-
-So far, the decidability and alternative characterisation of \(\CC\)-measurability is systematically studied for some subclass \(\CC\) of regular languages.
+So far, the decidability and alternative characterisation of \(\CC\)-measurability is systematically studied for some subclasses of regular languages.
 For example, simple and decidable characterisations of \(\pt\)-measurable and \(\at\)-measurable languages are given in \cite{ltmeasure}, where \(\pt\) is the class of all piecewise testable languages and \(\at\) is the class of all alphabet testable languages (\ie, languages definable by the first-order logic with only one variable).
-For the class \(\gd\) of generalised definite languages, an automata theoretic characterisation of the \(\gd\)-measurability for regular languages is given in \cite{gdmeasure} and it is decidable in quadratic time~\cite{ppl2024} with respect to the size of given deterministic automaton.
+For the class \(\gd\) of \emph{generalised definite} languages (\ie, languages whose membership can be checked by finitely many prefix and suffix tests), an automata theoretic characterisation of the \(\gd\)-measurability for regular languages is given in \cite{gdmeasure} and it is decidable in quadratic time~\cite{ppl2024} with respect to the size of given deterministic automaton.
 Some properties of the measuring power of star-free languages is investigated in \cite{carathe}, but the decidability for regular languages was left open.
 The decidability of \(\group\)-measurability, where \(\group\) is the class of all group languages, for regular languages is still unknown, while the measurability of two restricted subclasses
  \(\gcom\) (commutative group languages) and \(\modl\) (languages defined by length-modulo condition) of group languages are shown to be decidable for regular languages~\cite{gcommeasure}. 
 
-\subsection*{Our contribution}
-The main results of this paper are the following three kinds.
-TODO 
-%The former one gives the decidable characterisation of \(\sf\)-measurability for regular languages.
-\begin{enumerate}
- \item A language \(L\) is \(\sf\)-measurable if and only if \(L\) is \(\gd\)-measurable (Theorem~\ref{thm:sf}).
- \item The probabilistic independence of star-free and group languages (Theorem~\ref{thm:ind}).
- \item About group languages (TODO).
-\end{enumerate}
+The main results of this paper (shown in Section~\ref{sec:sf} \(\sim\) Section~\ref{sec:group}), relating to the measuring power of star-free and group languages, are three kinds as follows.
+The first main result is about the measuring power of star-free languages (Section~\ref{sec:sf}).
+It is shown that a language \(L\) is \(\sf\)-measurable if and only if \(L\) is \(\gd\)-measurable (Theorem~\ref{thm:sf}).
+Since the \(\gd\)-measurability is known to be decidable for regular languages~\cite{gdmeasure}, this characterisation also gives the decidability of the \(\sf\)-measurability for regular languages.
+We also gives a purely algebraic characterisation of the \(\sf\)-measurable regular languages (Theorem~\ref{thm:algsf}).
+The second main result (Section~\ref{sec:ind}), which is an application of the first main result, is the \emph{probabilistic independence} of star-free and group languages (Theorem~\ref{thm:ind}) stating that
+\(\cd(L \cap K) = \cd(L) \times \cd(K)\) holds for any
+star-free language \(L\) and group language \(K\) where
+\(\cd\) is the density function defined as
+\(\cd(X) \defeq \lim_{n \rightarrow \infty} \frac{1}{n} \sum_{k = 0}^{n-1} \card{X \cap A^k}/\card{X^k}\) (where \(\card{S}\) denotes the cardinality of a set \(S\)).
+Since the class of star-free languages corresponds to finite aperiodic monoids (monoids having no non-trivial subgroups) via Sch\"utzenberger's theorem~\cite{Schutzenberger1965190}, sometimes star-free languages and group languages are said as ``orthogonal''.
+For example, it is described in \cite{nato} that ``This notion [aperiodic monoid] is in some sense ``orthogonal'' to the notion of groups.'' and in \cite{DAM} that ``Aperiodic monoids are orthogonal to groups.'' Our second main result gives a rigorous statement how star-free and group languages are orthogonal in the probability theoretic sense.
+Between \(\gd\) and \(\sf\), there is a fine-grained infinite strict hierarchy called the \emph{dot-depth hierarchy} introduced by Cohen and Brzozowski~\cite{dot} in 1971.
+For a family \(\CC\) of languages, we denote by
+\(\monc \CC = \{ L_1 \cdots L_k \mid k \geq 1, L_1, \ldots, L_k \in \CC
+\} \cup \{\{\varepsilon\}\}\) the monoid closure of \(\CC\).
+The dot-depth hierarchy starts with the family \(\CB_0\) of all finite
+or co-finite languages, and continues as \(\CB_{i+1} = \bool \monc \CB_{i}\) for each \(i \geq 0\).
+By definition, we have \(\sf = \bigcup_{i \geq 0} \CB_i\)
+and also \(\CB_0 \subsetneq \gd \subsetneq \CB_1\).
+However, the first main result tells us that this infinite strict hierarchy \emph{collapses} via taking all measurable sets in a sense that 
+\(\{ L \mid L \text{ is } \gd\text{-measurable}\}
+ = \{ L \mid L \text{ is } \sf\text{-measurable}\}\)
+holds.
+The last main result (Section~\ref{sec:group}) tells us that, for the measuring power on subclasses of group languages, the situation is exactly the opposite.
+We show that, for any two local subvarieties\footnote{A \emph{local variety} is a family of regular languages closed under Boolean operations and quotients.} \(\CC \subsetneq \CD \subseteq \group\) of group languages, we have \(\{ L \mid L \text{ is } \CC\text{-measurable}\}
+\subsetneq \{ L \mid L \text{ is } \CD\text{-measurable}\}\) (Theroem~\cite{} TODO).
+%In Section~\ref{sec:fut} we summaries our results and explain some open problems.

@@ -1,7 +1,7 @@
 \section{Preliminaries}\label{sec:pre}
 This section provides the precise definitions of density, measurability, considered subclasses of regular languages.
-\(\reg_A\) denotes the family of all regular languages over an alphabet \(A\). For a word \(w \in A^*\) and a letter \(a \in A\), we write \(|w|_a\) the number of occurrences of \(a\) in \(w\). The complement of \(L\) over \(A\) is denoted by \(\comp{L} = A^* \setminus L\).
-We assume that the reader has a standard knowledge of algebraic language theory (\cf \cite{Lawson,MPRI}) including the concept of Green's relations \(\CL, \CR, \CJ\) and \(\CH\).
+We denote by \(\reg_A\) the family of all regular languages over an alphabet \(A\). For a word \(w \in A^*\) and a letter \(a \in A\), we write \(|w|_a\) the number of occurrences of \(a\) in \(w\). The complement of \(L\) over \(A\) is denoted by \(\comp{L} = A^* \setminus L\).
+We assume that the reader has a standard knowledge of algebraic language theory (\cf \cite{Lawson,DAM,MPRI}) including the concept of Green's relations \(\CL, \CR, \CJ\) and \(\CH\).
 
 The main targets of this paper are the following three subclasses of regular languages. The \emph{star-free languages}, the \emph{generalised definite languages} \(\gd\) and the \emph{group languages} \(\group\):
 \begin{align*}
@@ -9,14 +9,14 @@ The main targets of this paper are the following three subclasses of regular lan
  \gd_A &\defeq \bool\{ wA^*, A^*w \mid w \in A^*\}\\
  \group_A &\defeq \set{L \subseteq A^*}{L \text{ is recognised by a finite group}}
 \end{align*}
-
+Also, we denote by \(\gcom_A\) the class of all languages recognised by finite commutative groups.
 A monoid \(M\) divides a monoid \(N\) if \(M\) is a monoid homomorphic image of a submonoid of \(N\).
-It is well-known that a monoid \(M\) recognises a language \(L\) if and only if the syntactic monoid \(M_L\) of \(L\) divides \(M\) (\cf \cite[Theorem~10.2.6]{Lawson}), hence
+It is well-known that a monoid \(M\) recognises a language \(L\) if and only if the syntactic monoid \(M_L\) of \(L\) divides \(M\), hence
 \(L\) is in \(\sf_A\) (\(\group_A\), respectively) if and only if \(M_L\) is a finite aperiodic monoid (a finite group, respectively).
 It is easy to see that a language \(L\) is generalised definite if and only if \(L = E \cup \bigcup_{(u, v) \in F} uA^*v\) for some finite sets \(E\) and \(F \subseteq A^* \times A^*\).
 % \(L = E \cup \bigcup_{i \in I} F_i A^* G_i\) for some finite sets \(E\) and \(F_i, G_i \subseteq A^*\) for all \(i \in I\), where \(I\) is a finite index set.
 Let \(\fin_A\) be the class of all finite and co-finite languages over \(A\).
-Hereafter, we only consider an alphabet \(A\) such that \(\card{A} \geq 2\) (because \(\sf_A = \gd_A = \fin_A\) holds if \(\card{A} = 1\)) and sometimes omit the subscript \(A\) for denoting these classes of languages.
+Hereafter, we only consider an alphabet \(A\) such that \(\card{A} \geq 2\) (because \(\sf_A = \gd_A = \fin_A\) and \(\group_A = \gcom_A\) holds if \(\card{A} = 1\)) and sometimes omit the subscript \(A\) for denoting these classes of languages.
 
 \subsection{Density and measurability of formal language}
 For a set $X$, we denote by $\card{X}$ the cardinality of $X$.
@@ -37,7 +37,7 @@ It is known that every regular language has a rational density (\cf \cite{codes}
 For each word \(w\), the language \(A^* w A^*\),
  the set of all words that contain \(w\) as a factor,
  is of density one (co-null). This fact follows from the so-called {\em infinite monkey theorem}:
-take any word \(w\). A random word of length \(n\) contains \(w\) as a factor with probability tending to \(1\) as \(n \rightarrow \infty\).
+take any word \(w\). A random word of length \(n\) contains \(w\) as a factor with probability tending to one as \(n\) tends to infinite.
 \end{example}
 
 We list some basic properties of the density as follows.
@@ -57,16 +57,16 @@ We list some basic properties of the density as follows.
 \end{lemma}
 \begin{remark}\label{rem:kernel}
 Let \(L\) be a regular language, \(M\) be a finite monoid and 
-\(\eta: A^* \rightarrow M\) be a morphism recognising \(L = \eta^{-1}(\eta(L))\).
-The \emph{kernel} of \(M\) is a unique minimal ideal of \(M\) (it is always exists since \(M\) is finite).
-For every \(m\) not in the kernel of \(M\),
-\(\eta^{-1}(m) \cap A^* w A^* = \emptyset\) holds for \(w \in \eta^{-1}(K)\) hence \(\d(\eta^{-1}(m)) = 0\) by the infinite monkey theorem.
+\(\eta: A^* \rightarrow M\) be a surjective morphism recognising \(L = \eta^{-1}(\eta(L))\).
+The \emph{kernel} \(K\) of \(M\) is a unique minimal ideal of \(M\) (it is always exists since \(M\) is finite).
+For every \(m\) not in the kernel \(K\) of \(M\),
+\(\eta^{-1}(m) \cap A^* w A^* = \emptyset\) holds for any \(w \in \eta^{-1}(K)\) hence \(\d(\eta^{-1}(m)) = 0\) by the infinite monkey theorem.
 This implies that \(\d(\eta^{-1}(K)) = 1\) and
 \(\d(\eta^{-1}(m)) > 0\) for each \(m \in K\).
 \end{remark}
-For more detailed properties of \(\cd\), see Chapter~13 of \cite{codes}.
+For more detailed properties of the density function \(\cd\), see Chapter~13 of \cite{codes}.
 
-The notion of ``measurability'' on formal languages is defined by a standard measure theoretic approach as follows.
+The notion of ``measurability'' on formal languages is defined by a standard measure theoretic way as follows.
 \begin{definition}[\cite{S2021}]\upshape
 Let \(\CC_A\) be a family of languages over \(A\).
 For a language \(L \subseteq A^*\), we define its
@@ -86,11 +86,10 @@ A language \(L\) is said to be
  {\em converges to \(L\) from inner (from outer, {\em respectively})} if
  \(L_n \subseteq L\) (\(L_n \supseteq L\), respectively) for each \(n\) and \(\lim_{n \rightarrow \infty}\cd(L_n) = \cd(L)\).
 A langauge \(L\) is \(\CC_A\)-measurable if and only if
-there exist a convergent sequence of languages in \(\CC_A\) to \(L\)
-both from inner and outer.
+there exist two convergent sequences of languages in \(\CC_A\) to \(L\) from inner and outer, respectively.
 \end{definition}
 
-The following is an example of \(\gcom\)-measurable non-regular language.
+The following is an example of \(\gcom\)-measurable non-regular languages.
 
 \begin{example}[\cite{S2021}]\label{ex:dyck2}
  The semi-Dyck language \(\dyck = \{\varepsilon, ab, aabb, abab, aaabbb, \ldots\}\) over \(A = \{a,b\}\) is \(\gcom\)-measurable.
@@ -102,6 +101,10 @@ The following is an example of \(\gcom\)-measurable non-regular language.
 
 For a family \(\CC_A\) of languages over \(A\), we denote by
 \(\ext(\CC_A)\) (\(\rext(\CC_A)\), respectively) the class of all \(\CC_A\)-measurable languages (\(\CC_A\)-measurable \emph{regular} languages, respectively) over \(A\).
+A family of regular languages over \(A\) is called {\em local variety} (\cf \cite{Adamek}) over \(A\) if it is closed under 
+ Boolean operations and left-and-right quotients.
+All classes \(\gd, \sf, \gcom\) and \(\group\) are of this type.
+The notion of \(\CC\)-measurability is well-behaved on Boolean operations and quotients as the following lemma says.
 % A family of regular languages over \(A\)
 %  is called a {\em local variety}~\cite{Adamek} over \(A\) if it is closed under 
 %  Boolean operations and left-and-right quotients.
@@ -109,7 +112,8 @@ For a family \(\CC_A\) of languages over \(A\), we denote by
 The operator \(\ext\) is a closure,
  \ie, it satisfies the following three properties for each \(\CC \subseteq \CD \subseteq 2^{A^*}\):
  (extensive)  \(\CC \subseteq \ext(\CC)\),
- (monotone) \(\ext(\CC) \subseteq \ext(\CD)\), and
+ (monotone) \(\ext(\CC) \subseteq \ext(\CD)\) and
  (idempotent) \(\ext(\ext(\CC)) = \ext(\CC)\).
-Moreover, \(\ext(\CC_A)\) is closed under Boolean operations and quotients if \(\CC_A\) is closed under Boolean operations and quotients.
+Moreover, 
+if \(\CC_A\) is a local variety, then \(\ext(\CC_A)\) is also a local variety.
 \end{lemma}

@@ -148,7 +148,7 @@ For each \(\ell \geq 0\), we define a generalised definite language \(L_\ell\) a
  L_\ell = \{ uA^* \mid u \in A^\ell, \eta(uA^*) \subseteq mM\}.
 \)
 The inclusion \(L_\ell \subseteq \eta^{-1}(mM)\) is obvious.
-We can show that \(L_\ell\) tends to \(\eta^{-1}(mM)\) from inner as:
+We can show that \(L_\ell\) tends to \(\eta^{-1}(mM)\) from inner as follows.
 \begin{align*}
 & \,\, \d\left(\eta^{-1}(mM) \setminus L_\ell\right)\\
 = & \,\,
@@ -164,12 +164,12 @@ We can show that \(L_\ell\) tends to \(\eta^{-1}(mM)\) from inner as:
 \leq & \,\,
 1 - \sum \d(\{ uA^* \mid u \in A^\ell \cap A^* w A^*\})
 \end{align*}
-which tends to zero as \(\ell \rightarrow \infty\), since 
+where the last term tends to zero as \(\ell\) tends to infinity, since 
 \[
 \sum \d(\{ uA^* \mid u \in A^\ell \cap A^* w A^*\})
 = \frac{\card{A^\ell \cap A^* w A^*}}{\card{A^\ell}}
 \]
-tends to one as \(\ell \rightarrow \infty\) by the infinity monkey theorem.
+tends to one as \(\ell\) tends to infinity by the infinity monkey theorem.
 By the same argument, there is a convergent sequence \((L'_\ell)_{\ell \geq 0}\) of generalised definite languages to \(\eta^{-1}(Mm)\) from inner.
 This means that the sequence \((L_\ell \cap L'_\ell)_{\ell \geq 0}\)
 of generalised definite languages converges to \(\eta^{-1}(mM) \cap \eta^{-1}(Mm) = L_m\) from inner.
@@ -185,8 +185,8 @@ Since we have \(\gd \subseteq \sf\), it is enough to show that
 The syntactic monoid of any star-free language is \(\CH\)-trivial, hence \(\sf \subseteq \ext(\gd)\) holds by Lemma~\ref{lem:kernelHtrivial}.
 \end{proof}
 
-Actually, the converse direction of Lemma~\ref{lem:kernelHtrivial} holds.
-\begin{theorem}
+Actually, the converse direction of Lemma~\ref{lem:kernelHtrivial} holds. The following theorem gives an algebraic characterisation of \(\gd\)-measurable (\(= \) \(\sf\)-measurable) regular languages.
+\begin{theorem}\label{thm:algsf}
 Let \(L\) be a regular language and \(M_L\) be its syntactic monoid.
 Then \(L\) is \(\gd\)-measurable if and only if every \(\CH\)-class in the kernel of \(M_L\) is trivial.
 \end{theorem}
@@ -205,19 +205,19 @@ Since \(M_L\) is the syntactic monoid of \(L\), it is known that
 for each \(a, b \in M_L\), if 
 \(cad \in P \Leftrightarrow cbd \in P\) for any pair \(c,d \in M_L\), then \(a = b\).
 Hence \(m \neq n\) implies \(m' = cmd \in P\) but \(n' = cnd \notin P\) for some \(c, d \in M_L\).
-Now we show that \(u A^* v \not\subseteq \eta^{-1}(m') \subseteq L\)
-for any pair of words \(u\) and \(v\).
+Now we show that \(u A^* v \subseteq L\) implies
+\(u A^* v \cap \eta^{-1}(m') = \emptyset\) for any pair of words \(u\) and \(v\).
 This concludes that, every generalised definite subset \(K\) of \(L\) satisfies \(\d(K) \leq \d(L) - \d(\eta^{-1}(m')) < \d(L)\) (notice that \(\d(\eta^{-1}(m')) > 0\) as stated in Remark~\ref{rem:kernel}), \ie, \(L\) is \(\gd\)-\emph{im}measurable.
 
-Assume \(u A^* v \subseteq \eta^{-1}(m')\) holds for some pair of words \(u\) and \(v\).
-This exactly means that \(eta(uA^*v) = \{m'\}\), in particular, \(\eta(uv) = m'\).
+Assume \(u A^* v \cap \eta^{-1}(m') \neq \emptyset \) holds for some pair of words \(u\) and \(v\).
+This means that \(\eta(uwv) = m'\) for some \(w \in A^*\).
 Since \(m' \CH n'\), there is some \(x \in M_L\) such that \(xm' = n'\).
-Let \(w \in \eta^{-1}(x)\).
-Then the word \(u (vu)^{k-1} v w uv \in u A^* v\) satisfies
+Let \(w_x \in \eta^{-1}(x)\).
+Then the word \(u (wvu)^{k-1} w v w_x uwv \in u A^* v\) satisfies
 \[
- \eta(u (vu)^{k-1} v w uv) = 
-\eta(uv)^k \eta(w) \eta(uv) =
+ \eta(u (wvu)^{k-1} w v w_x uwv) = 
+\eta(uwv)^k \eta(w_x) \eta(uwv) =
 m'^k x m' = n'.
 \]
-This means that \(\eta(u A^* v)\) contains \(n'\), which contradicts the assumption \(u A^* v \subseteq \eta^{-1}(m')\).
+This means that \(u A^* v \cap \eta^{-1}(n') \neq \emptyset\), which implies \(u A^* v \not\subseteq L\) because \(\eta^{-1}(n') \cap L = \emptyset\).
 \end{proof}
