@@ -7,8 +7,8 @@ To borrow the phrase used by Place--Zeitoun~\cite{place}: ``This makes it diffic
 
 This paper sheds new light on these two major building blocks --- star-free and group languages --- of regular languages, by using a measure-theoretic notion so-called \emph{\(\CC\)-measurability}.
 A language \(L\) is said to be \(\CC\)-measurable if there exists an infinite sequence of pairs of languages \((K_n, M_n)_{n \in \nat}\) in \(\CC\) such that \(K_n \subseteq L \subseteq M_n\) holds for all \(n\) and the \emph{density} (described later) of the difference \(M_n \setminus K_n\) tends to zero as \(n\) tends to infinity.
-The notion of \(\CC\)-measurability is introduced in \cite{S2021} and it was used for classifying non-regular languages by using regular languages.
-This notion can be considered as a non-commutative and high-dimensional extension of Buck's measure theoretic notion for subsets of natural numbers so-called ``measure density''~\cite{Buck}, and \(\CC\)-measurability can be characterised by using a purely measure theoretic notion called \emph{Carath{\'e}odory extension}~\cite{carathe}.
+The notion of \(\CC\)-measurability was introduced in \cite{S2021} and it was used for classifying non-regular languages by using regular languages.
+This notion can be considered as a non-commutative and high-dimensional extension of Buck's measure theoretic notion for subsets of natural numbers so-called \emph{measure density}~\cite{Buck}, and the notion of \(\CC\)-measurability can be defined by using a purely measure theoretic notion called \emph{Carath{\'e}odory extension}~\cite{carathe}.
 % Approximating a complex object by more simple objects is a major concept
 % in both computer science and mathematics.
 % In the theory of formal languages, various types of approximations have
@@ -48,23 +48,27 @@ This notion can be considered as a non-commutative and high-dimensional extensio
 % problem and its analysis is a challenging task.
 So far, the decidability and alternative characterisation of \(\CC\)-measurability is systematically studied for some subclasses of regular languages.
 For example, simple and decidable characterisations of \(\pt\)-measurable and \(\at\)-measurable languages are given in \cite{ltmeasure}, where \(\pt\) is the class of all piecewise testable languages and \(\at\) is the class of all alphabet testable languages (\ie, languages definable by the first-order logic with only one variable).
-For the class \(\gd\) of \emph{generalised definite} languages (\ie, languages whose membership can be checked by finitely many prefix and suffix tests), an automata theoretic characterisation of the \(\gd\)-measurability for regular languages is given in \cite{gdmeasure} and it is decidable in quadratic time~\cite{ppl2024} with respect to the size of given deterministic automaton.
+For the class \(\gd\) of \emph{generalised definite} languages (\ie, languages whose membership can be checked by finitely many prefix and suffix tests), an automata theoretic characterisation of the \(\gd\)-measurable regular languages is given in \cite{gdmeasure} and it is decidable in quadratic time with respect to the size of a given deterministic automaton~\cite{ppl2024}.
 Some properties of the measuring power of star-free languages is investigated in \cite{carathe}, but the decidability for regular languages was left open.
 The decidability of \(\group\)-measurability, where \(\group\) is the class of all group languages, for regular languages is still unknown, while the measurability of two restricted subclasses
- \(\gcom\) (commutative group languages) and \(\modl\) (languages defined by length-modulo condition) of group languages are shown to be decidable for regular languages~\cite{gcommeasure}. 
+ \(\gcom\) (languages recognised by \emph{commutative} groups) and \(\modl\) (languages defined by length-modulo condition) of group languages are shown to be decidable for regular languages~\cite{gcommeasure}. 
 
+\subsection*{Our contribution}
 The main results of this paper (shown in Section~\ref{sec:sf}--\ref{sec:group}), relating to the measuring power of star-free and group languages, are three kinds as follows.
+
 The first main result is about the measuring power of star-free languages (Section~\ref{sec:sf}).
 It is shown that a language \(L\) is \(\sf\)-measurable if and only if \(L\) is \(\gd\)-measurable (Theorem~\ref{thm:sf}).
 Since the \(\gd\)-measurability is known to be decidable for regular languages~\cite{gdmeasure}, this characterisation also gives the decidability of the \(\sf\)-measurability for regular languages.
-We also gives a purely algebraic characterisation of the \(\sf\)-measurable regular languages (Theorem~\ref{thm:algsf}).
+We also give an algebraic characterisation of the \(\sf\)-measurable regular languages (Theorem~\ref{thm:algsf}), which can be considered as a natural extension of Sch\"utzenberger's theorem.
+
 The second main result (Section~\ref{sec:ind}), which is an application of the first main result, is the \emph{probabilistic independence} of star-free and group languages (Theorem~\ref{thm:ind}) stating that
 \(\cd(L \cap K) = \cd(L) \times \cd(K)\) holds for any
 star-free language \(L\) and group language \(K\) where
 \(\cd\) is the density function defined as
 \(\cd(X) \defeq \lim_{n \rightarrow \infty} \frac{1}{n} \sum_{k = 0}^{n-1} \card{X \cap A^k}/\card{X^k}\) (where \(\card{S}\) denotes the cardinality of a set \(S\)).
-Since the class of star-free languages corresponds to finite aperiodic monoids (monoids having no non-trivial subgroups) via Sch\"utzenberger's theorem~\cite{Schutzenberger1965190}, it is sometimes said that star-free languages and group languages are ``orthogonal.''
-For example, it is described in \cite{nato} that ``This notion [aperiodic monoid] is in some sense ``orthogonal'' to the notion of groups'' and in \cite{DAM} that ``Aperiodic monoids are orthogonal to groups.'' Our second main result gives a rigorous statement how star-free and group languages are orthogonal in the probability theoretic sense.
+Since the class of star-free languages corresponds to finite aperiodic monoids (monoids having no non-trivial subgroups) via Sch\"utzenberger's theorem~\cite{Schutzenberger1965190}, it is sometimes said that star-free languages and group languages are ``orthogonal''.
+For example, it is described in \cite{nato} that `This notion [aperiodic monoid] is in some sense ``orthogonal'' to the notion of groups' and in \cite{DAM} that `Aperiodic monoids are orthogonal to groups.' Our second main result gives a rigorous statement how star-free and group languages are orthogonal in the probability theoretic sense.
+
 Between \(\gd\) and \(\sf\), there is a fine-grained infinite strict hierarchy called the \emph{dot-depth hierarchy} introduced by Cohen and Brzozowski~\cite{dot} in 1971.
 For a family \(\CC\) of languages, we denote by
 \(\monc \CC = \{ L_1 \cdots L_k \mid k \geq 1, L_1, \ldots, L_k \in \CC
@@ -77,7 +81,8 @@ However, the first main result tells us that this infinite strict hierarchy \emp
 \(\{ L \mid L \text{ is } \gd\text{-measurable}\}
  = \{ L \mid L \text{ is } \sf\text{-measurable}\}\)
 holds.
-The last main result (Section~\ref{sec:group}) tells us that, for the measuring power on subclasses of group languages, the situation is exactly the opposite.
+The last main result (Section~\ref{sec:group}) tells us that, for the measuring power of subclasses of group languages, the situation is rather opposite.
 We show that, for any two local subvarieties\footnote{A \emph{local variety} is a family of regular languages of \(A^*\) closed under Boolean operations and quotients.} \(\CC \subsetneq \CD \subseteq \group\) of group languages, we have \(\{ L \mid L \text{ is } \CC\text{-measurable}\}
-\subsetneq \{ L \mid L \text{ is } \CD\text{-measurable}\}\) (Theroem~\ref{thm:group-robust}).
-%In Section~\ref{sec:fut} we summaries our results and explain some open problems.
+\subsetneq \{ L \mid L \text{ is } \CD\text{-measurable}\}\), and moreover, \(\{ L \mid L \text{ is } \CC\text{-measurable}\} \cap \group = \CC\) holds (Theroem~\ref{thm:group-robust}).
+
+In Section~\ref{sec:fut} we summaries our main results and describe some open problems.
