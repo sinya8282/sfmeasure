@@ -1,7 +1,7 @@
 \section{Probabilistic Independence of Star-Free and Group Languages}\label{sec:ind}
 One important application of Theorem~\ref{thm:sf} is the following probabilistic independence of star-free and group languages, which emphasises how these two language classes are orthogonal.
 \begin{theorem}\label{thm:ind}
-For each star-free language \(L\) and group langauge \(K\),
+For any star-free language \(L\) and group langauge \(K\),
 we have 
 \[
  \cd(L \cap K) = \cd(L) \times \cd(K).
@@ -9,7 +9,7 @@ we have
 \end{theorem}
 The probabilistic independence of generalised definite languages and group languages can be more easliy proved. We use it as a lemma for proving Theorem~\ref{thm:ind}.
 \begin{lemma}\label{lem:ind}
-For each generalised definite language \(L\) and group langauge \(K\),
+For any generalised definite language \(L\) and group langauge \(K\),
 we have 
 \[
  \cd(L \cap K) = \cd(L) \times \cd(K).
@@ -32,11 +32,11 @@ by Lemma~\ref{lem:density} and Lemma~\ref{lem:groupdensity} since
 Let \(L\) be a star-free language and \(K\) be a group language.
 We show that \(\cd(L \cap K) \geq \cd(L) \times \cd(K)\) holds.
 By Theorem~\ref{thm:sf}, there is a convergent sequence \(M_n = (\bigcup_{(u, v) \in F_n} u A^* v)_{n \geq 0}\) of generalised definite languages, where \(F_n \subseteq A^* \times A^*\) is finite for each \(n\), to \(L\) from inner.
-Without loss of generality, we can assume that \(uA^*v \cap u'A^*v = \emptyset\) for each different pairs \((u,v), (u',v') \in F\).
+Without loss of generality, we can assume that \(uA^*v \cap u'A^*v' = \emptyset\) for each different pairs \((u,v), (u',v') \in F\).
 Then we have
 \[
  \cd(L \cap K) \geq \cd\left(\bigcup_{(u,v) \in F_n} u A^* v \cap K\right)
- = \sum_{(u,v) \in F_n} \cd(u A^* v \cap K)
+ = \sum_{(u,v) \in F_n} \cd(u A^* v) \times \cd(K)
  = \cd(M_n) \times \cd(K)
 \]
 by Lemma~\ref{lem:ind} where \(\cd(M_n)\) tends to \(\cd(L)\) as \(n\) tends to infinity.
