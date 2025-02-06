@@ -4,7 +4,7 @@ One important application of Theorem~\ref{thm:sf} is the following probabilistic
 For any star-free language \(L\) and group langauge \(K\),
 we have 
 \[
- \cd(L \cap K) = \cd(L) \times \cd(K).
+ \cd(L \cap K) = \cd(L) \cdot \cd(K).
 \]
 \end{theorem}
 The probabilistic independence of generalised definite languages and group languages can be more easliy proved. We use it as a lemma for proving Theorem~\ref{thm:ind}.
@@ -12,7 +12,7 @@ The probabilistic independence of generalised definite languages and group langu
 For any generalised definite language \(L\) and group langauge \(K\),
 we have 
 \[
- \cd(L \cap K) = \cd(L) \times \cd(K).
+ \cd(L \cap K) = \cd(L) \cdot \cd(K).
 \]
 \end{lemma}
 \begin{proof}
@@ -22,27 +22,27 @@ Because we have \(u^{-1} K v^{-1} = u^{-1} \eta^{-1}(S) v^{-1}
 = \eta^{-1}( \eta(u)^{-1} S \eta(v)^{-1})\),
 we can conclude that 
 \(\cd(L \cap K) = \cd(u(\eta^{-1}( \eta(u)^{-1} S \eta(v)^{-1})) v) =
-\card{A}^{-|uv|} \times \cd(\eta^{-1}( \eta(u)^{-1} S \eta(v)^{-1}))
-= \cd(L) \times \cd(K)
+\card{A}^{-|uv|} \cdot \cd(\eta^{-1}( \eta(u)^{-1} S \eta(v)^{-1}))
+= \cd(L) \cdot \cd(K)
 \)
 by Lemma~\ref{lem:density} and Lemma~\ref{lem:groupdensity} since 
 \(\card{S} = \card{\eta(u)^{-1} S \eta(v)^{-1}}\).
 \end{proof}
 \begin{proof}[Proof of Theorem~\ref{thm:ind}]
 Let \(L\) be a star-free language and \(K\) be a group language.
-We show that \(\cd(L \cap K) \geq \cd(L) \times \cd(K)\) holds.
+We show that \(\cd(L \cap K) \geq \cd(L) \cdot \cd(K)\) holds.
 By Theorem~\ref{thm:sf}, there is a convergent sequence \(M_n = (\bigcup_{(u, v) \in F_n} u A^* v)_{n \geq 0}\) of generalised definite languages, where \(F_n \subseteq A^* \times A^*\) is finite for each \(n\), to \(L\) from inner.
 Without loss of generality, we can assume that \(uA^*v \cap u'A^*v' = \emptyset\) for each different pairs \((u,v), (u',v') \in F\).
 Then we have
 \[
  \cd(L \cap K) \geq \cd\left(\bigcup_{(u,v) \in F_n} u A^* v \cap K\right)
- = \sum_{(u,v) \in F_n} \cd(u A^* v) \times \cd(K)
- = \cd(M_n) \times \cd(K)
+ = \sum_{(u,v) \in F_n} \cd(u A^* v) \cdot \cd(K)
+ = \cd(M_n) \cdot \cd(K)
 \]
 by Lemma~\ref{lem:ind} where \(\cd(M_n)\) tends to \(\cd(L)\) as \(n\) tends to infinity.
-Hence \(\cd(L \cap K) \geq \cd(L) \times \cd(K)\).
+Hence \(\cd(L \cap K) \geq \cd(L) \cdot \cd(K)\).
 By the same argument, the inequality
-\(\cd(L \cap K) \leq \cd(L) \times \cd(K)\) can be show by using a 
+\(\cd(L \cap K) \leq \cd(L) \cdot \cd(K)\) can be show by using a 
 convergent sequence of generalised definite languages to \(L\) from outer.
 \end{proof}
 
