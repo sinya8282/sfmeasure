@@ -1,7 +1,7 @@
 \section{Introduction}
 One of the fundamental results in semigroup theory is the Krohn-Rhodes decomposition theorem stating that every finite monoid can be decomposed in a suitable sense into a wreath product of finite aperiodic monoids and finite groups.
-According to the Krohn-Rhodes decomposition theorem, the class of \emph{star-free languages} (the language counterpart of aperiodic monoids) and \emph{group languages} (languages recognised by finite groups) can be considered as two major ``building blocks'' of regular languages.
-While the theory of star-free languages is well-studied (\eg, Sch\"utzenberger's algebraic characterisation~\cite{Schutzenberger1965190},  McNaughton-Papert's logical characterisation~\cite{counterfree}, the dot-depth hierarchy (described later) proposed by Cohen and Brzozowski~\cite{dot} and recent progresses relating to this hierarchy (see \cite{dot3} or a survey \cite{dotdepth}), etc...), the theory of group languages seems not.
+According to the Krohn-Rhodes decomposition theorem, the class of \emph{star-free languages} (the language counterpart of aperiodic monoids) and \emph{group languages} (languages recognised by finite groups) can be considered as two major ``building blocks'' of regular languages (see Chapter~7 of \cite{DAM} for detailed introduction of the Krohn-Rhodes theorem).
+While the theory of star-free languages is well-studied (\eg, Sch\"utzenberger's algebraic characterisation~\cite{Schutzenberger1965190},  McNaughton-Papert's logical characterisation~\cite{counterfree}, the dot-depth hierarchy (described later) proposed by Cohen and Brzozowski~\cite{dot} and recent progresses relating to this hierarchy (see \cite{dot3} or a survey \cite{dotdepth}), etc...), the theory of group languages seems not, albeit that there is a result on an analogue of the dot-depth hierarchy starting with group langauges~\cite{margolis} and the decidability of the so-called sepration problem for group languages~\cite{place}.
 Although the definition of group languages is simple from an algebraic point of view, this class dose not have a language theoretic nor logical different characterisation.
 To borrow the phrase used by Place--Zeitoun~\cite{place}: ``This makes it difficult to get an intuitive grasp about group languages, which may explain why this class remains poorly understood.''
 
@@ -72,7 +72,8 @@ For example, it is described in \cite{nato} that `This notion [aperiodic monoid]
 Between \(\gd\) and \(\sf\), there is a fine-grained infinite strict hierarchy called the \emph{dot-depth hierarchy} introduced by Cohen and Brzozowski~\cite{dot} in 1971.
 For a family \(\CC\) of languages, we denote by
 \(\monc \CC = \{ L_1 \cdots L_k \mid k \geq 1, L_1, \ldots, L_k \in \CC
-\} \cup \{\{\varepsilon\}\}\) the monoid closure of \(\CC\).
+\} \cup \{\{\varepsilon\}\}\) the monoid closure of \(\CC\),
+and denote by \(\bool\CC\) the Boolean closure of \(\CC\).
 The dot-depth hierarchy starts with the family \(\CB_0\) of all finite
 or co-finite languages, and continues as \(\CB_{i+1} = \bool \monc \CB_{i}\) for each \(i \geq 0\).
 By definition, we have \(\sf = \bigcup_{i \geq 0} \CB_i\)
