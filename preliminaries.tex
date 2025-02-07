@@ -59,8 +59,11 @@ Let \(L\) be a regular language, \(M\) be a finite monoid and
 The \emph{kernel} \(K\) of \(M\) is a unique minimal ideal of \(M\) (it is always exists since \(M\) is finite).
 For every \(m\) not in the kernel \(K\) of \(M\),
 \(\eta^{-1}(m) \cap A^* w A^* = \emptyset\) holds for any \(w \in \eta^{-1}(K)\) hence \(\d(\eta^{-1}(m)) = 0\) by the infinite monkey theorem.
-This implies that \(\d(\eta^{-1}(K)) = 1\) and
-\(\d(\eta^{-1}(m)) > 0\) for each \(m \in K\) [todo: describe more by using the previous lemma].
+This implies that \(\d(\eta^{-1}(K)) = 1\).
+More over, \(\d(\eta^{-1}(K)) = 1\) implies that there exist at least one element \(n \in K\) such that \(\d(\eta^{-1}(n)) > 0\) since \(K\) is finite.
+Because \(K\) is the kernel of \(M\), for any \(m \in K\) there exists a pair of 
+element \(x, y \in M\) such that \(xny = m\), hence \(\eta^{-1}(m)\) contains \(u \eta^{-1}(n) v\) where \(u \in \eta^{-1}(x)\) and \(v \in \eta^{-1}(y)\) so that
+\(\d(\eta^{-1}(m)) \geq \d(\eta^{-1}(n)) \cdot \card{A}^{-(|u|+|v|)}\) by Lemma~\ref{lem:density}, \ie, \(\d(\eta^{-1}(m)) > 0\) holds for each \(m \in K\).
 \end{remark}
 For more detailed properties of the density function \(\cd\), see Chapter~13 of \cite{codes}.
 
@@ -88,6 +91,7 @@ there exist two convergent sequences of languages in \(\CC_A\) to \(L\) from inn
 \end{definition}
 
 The following is an example of \(\gcom\)-measurable non-regular languages.
+For more detailed exaxmples of \(\CC\)-measurable/\emph{im}meaurable langauges for a subclass \(\CC\) of regular languages, see \cite{S2021,carathe,gcommeasure}.
 
 \begin{example}[\cite{S2021}]\label{ex:dyck2}
  The semi-Dyck language \(\dyck = \{\varepsilon, ab, aabb, abab, aaabbb, \ldots\}\) over \(A = \{a,b\}\) is \(\gcom\)-measurable.
