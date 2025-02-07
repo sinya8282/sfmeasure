@@ -12,7 +12,7 @@ The main targets of this paper are the following three subclasses of regular lan
 Also, we denote by \(\gcom_A\) the class of all languages recognised by finite commutative groups.
 A monoid \(M\) divides a monoid \(N\) if \(M\) is a monoid homomorphic image of a submonoid of \(N\).
 It is well-known that a monoid \(M\) recognises a language \(L\) if and only if the syntactic monoid \(M_L\) of \(L\) divides \(M\), hence
-\(L\) is in \(\sf_A\) (\(\group_A\), respectively) if and only if \(M_L\) is a finite aperiodic monoid (a finite group, respectively).
+\(L\) is in \(\sf_A\) (\resp \(\group_A\)) if and only if \(M_L\) is a finite aperiodic monoid (\resp a finite group).
 It is easy to see that a language \(L\) is generalised definite if and only if \(L = E \cup \bigcup_{(u, v) \in F} uA^*v\) for some finite sets \(E\) and \(F \subseteq A^* \times A^*\).
 % \(L = E \cup \bigcup_{i \in I} F_i A^* G_i\) for some finite sets \(E\) and \(F_i, G_i \subseteq A^*\) for all \(i \in I\), where \(I\) is a finite index set.
 
@@ -84,8 +84,8 @@ A language \(L\) is said to be
  \emph{\(\CC_A\)-measurable} if
  \(\plm{\CC_A}(L) = \pum{\CC_A}(L)\) holds.
  We say that an infinite sequence \((L_n)_n\) of languages over \(A\)
- {\em converges to \(L\) from inner (from outer, {\em respectively})} if
- \(L_n \subseteq L\) (\(L_n \supseteq L\), respectively) for each \(n\) and \(\lim_{n \rightarrow \infty}\cd(L_n) = \cd(L)\).
+ {\em converges to \(L\) from inner ({\em \resp}from outer)} if
+ \(L_n \subseteq L\) (\resp \(L_n \supseteq L\)) for each \(n\) and \(\lim_{n \rightarrow \infty}\cd(L_n) = \cd(L)\).
 A langauge \(L\) is \(\CC_A\)-measurable if and only if
 there exist two convergent sequences of languages in \(\CC_A\) to \(L\) from inner and outer, respectively.
 \end{definition}
@@ -102,8 +102,8 @@ For more detailed exaxmples of \(\CC\)-measurable/\emph{im}meaurable langauges f
 \end{example}
 
 For a family \(\CC_A\) of languages over \(A\), we denote by
-\(\ext(\CC_A)\) (\(\rext(\CC_A)\), respectively) the class of all \(\CC_A\)-measurable languages (\(\CC_A\)-measurable \emph{regular} languages, respectively) over \(A\).
-A family of regular languages over \(A\) is called {\em local variety} (\cf \cite{Adamek}) over \(A\) if it is closed under 
+\(\ext(\CC_A)\) (\resp \(\rext(\CC_A)\)) the class of all \(\CC_A\)-measurable languages (\resp \(\CC_A\)-measurable \emph{regular} languages) over \(A\).
+A family of regular languages over \(A\) is called a \emph{local variety} (\cf \cite{Adamek}) over \(A\) if it is closed under 
  Boolean operations and left-and-right quotients.
 All classes \(\gd_A, \sf_A, \gcom_A\) and \(\group_A\) are local varities.
 The notion of \(\CC_A\)-measurability is well-behaved on Boolean operations and quotients as the following lemma says.
