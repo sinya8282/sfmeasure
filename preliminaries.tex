@@ -12,7 +12,7 @@ The main targets of this paper are the following three subclasses of regular lan
 Also, we denote by \(\gcom_A\) the class of all languages recognised by finite commutative groups.
 A monoid \(M\) divides a monoid \(N\) if \(M\) is a monoid homomorphic image of a submonoid of \(N\).
 It is well-known that a monoid \(M\) recognises a language \(L\) if and only if the syntactic monoid \(M_L\) of \(L\) divides \(M\), hence
-\(L\) is in \(\sf_A\) (\(\group_A\), respectively) if and only if \(M_L\) is a finite aperiodic monoid (a finite group, respectively).
+\(L\) is in \(\sf_A\) (\resp \(\group_A\)) if and only if \(M_L\) is a finite aperiodic monoid (\resp a finite group).
 It is easy to see that a language \(L\) is generalised definite if and only if \(L = E \cup \bigcup_{(u, v) \in F} uA^*v\) for some finite sets \(E\) and \(F \subseteq A^* \times A^*\).
 % \(L = E \cup \bigcup_{i \in I} F_i A^* G_i\) for some finite sets \(E\) and \(F_i, G_i \subseteq A^*\) for all \(i \in I\), where \(I\) is a finite index set.
 
@@ -59,8 +59,11 @@ Let \(L\) be a regular language, \(M\) be a finite monoid and
 The \emph{kernel} \(K\) of \(M\) is a unique minimal ideal of \(M\) (it is always exists since \(M\) is finite).
 For every \(m\) not in the kernel \(K\) of \(M\),
 \(\eta^{-1}(m) \cap A^* w A^* = \emptyset\) holds for any \(w \in \eta^{-1}(K)\) hence \(\d(\eta^{-1}(m)) = 0\) by the infinite monkey theorem.
-This implies that \(\d(\eta^{-1}(K)) = 1\) and
-\(\d(\eta^{-1}(m)) > 0\) for each \(m \in K\) [todo: describe more by using the previous lemma].
+This implies that \(\d(\eta^{-1}(K)) = 1\).
+More over, \(\d(\eta^{-1}(K)) = 1\) implies that there exist at least one element \(n \in K\) such that \(\d(\eta^{-1}(n)) > 0\) since \(K\) is finite.
+Because \(K\) is the kernel of \(M\), for any \(m \in K\) there exists a pair of 
+element \(x, y \in M\) such that \(xny = m\), hence \(\eta^{-1}(m)\) contains \(u \eta^{-1}(n) v\) where \(u \in \eta^{-1}(x)\) and \(v \in \eta^{-1}(y)\) so that
+\(\d(\eta^{-1}(m)) \geq \d(\eta^{-1}(n)) \cdot \card{A}^{-(|u|+|v|)}\) by Lemma~\ref{lem:density}, \ie, \(\d(\eta^{-1}(m)) > 0\) holds for each \(m \in K\).
 \end{remark}
 For more detailed properties of the density function \(\cd\), see Chapter~13 of \cite{codes}.
 
@@ -81,13 +84,14 @@ A language \(L\) is said to be
  \emph{\(\CC_A\)-measurable} if
  \(\plm{\CC_A}(L) = \pum{\CC_A}(L)\) holds.
  We say that an infinite sequence \((L_n)_n\) of languages over \(A\)
- {\em converges to \(L\) from inner (from outer, {\em respectively})} if
- \(L_n \subseteq L\) (\(L_n \supseteq L\), respectively) for each \(n\) and \(\lim_{n \rightarrow \infty}\cd(L_n) = \cd(L)\).
+ {\em converges to \(L\) from inner ({\em \resp}from outer)} if
+ \(L_n \subseteq L\) (\resp \(L_n \supseteq L\)) for each \(n\) and \(\lim_{n \rightarrow \infty}\cd(L_n) = \cd(L)\).
 A langauge \(L\) is \(\CC_A\)-measurable if and only if
 there exist two convergent sequences of languages in \(\CC_A\) to \(L\) from inner and outer, respectively.
 \end{definition}
 
 The following is an example of \(\gcom\)-measurable non-regular languages.
+For more detailed exaxmples of \(\CC\)-measurable/\emph{im}meaurable langauges for a subclass \(\CC\) of regular languages, see \cite{S2021,carathe,gcommeasure}.
 
 \begin{example}[\cite{S2021}]\label{ex:dyck2}
  The semi-Dyck language \(\dyck = \{\varepsilon, ab, aabb, abab, aaabbb, \ldots\}\) over \(A = \{a,b\}\) is \(\gcom\)-measurable.
@@ -98,8 +102,8 @@ The following is an example of \(\gcom\)-measurable non-regular languages.
 \end{example}
 
 For a family \(\CC_A\) of languages over \(A\), we denote by
-\(\ext(\CC_A)\) (\(\rext(\CC_A)\), respectively) the class of all \(\CC_A\)-measurable languages (\(\CC_A\)-measurable \emph{regular} languages, respectively) over \(A\).
-A family of regular languages over \(A\) is called {\em local variety} (\cf \cite{Adamek}) over \(A\) if it is closed under 
+\(\ext(\CC_A)\) (\resp \(\rext(\CC_A)\)) the class of all \(\CC_A\)-measurable languages (\resp \(\CC_A\)-measurable \emph{regular} languages) over \(A\).
+A family of regular languages over \(A\) is called a \emph{local variety} (\cf \cite{Adamek}) over \(A\) if it is closed under 
  Boolean operations and left-and-right quotients.
 All classes \(\gd_A, \sf_A, \gcom_A\) and \(\group_A\) are local varities.
 The notion of \(\CC_A\)-measurability is well-behaved on Boolean operations and quotients as the following lemma says.

@@ -138,11 +138,10 @@ For the language \(L_m = \eta^{-1}(m)\), we have
 \]
 Let \(w \in \eta^{-1}(K)\).
 If a word \(u \in A^*\) contains \(w\) as a factor (\ie, \(u \in A^* w A^*\)), then \(\eta(u) \in K\) and \(\eta(uA^*) = \eta(u) M\) is a minimal right ideal. 
-TODO: describe what \(\bigsqcup\) mean.
 Notice that the set of all minimal right ideals is a partition of the kernel 
 \(
  K = \bigsqcup_{n \in K / \CR} nM
-\).
+\) where \(\bigsqcup\) denotes the disjoint union.
 %Notice that \(u A^* \subseteq \eta^{-1}(\eta(u) M)\) holds.
 For each \(\ell \geq 0\), we define a generalised definite language \(L_\ell\) as
 \(
@@ -153,21 +152,21 @@ We can show that \(L_\ell\) tends to \(\eta^{-1}(mM)\) from inner as follows.
 \begin{align*}
 & \,\, \d\left(\eta^{-1}(mM) \setminus L_\ell\right)\\
 = & \,\,
-\d(\eta^{-1}(mM)) - \sum \d\left(\bigsqcup\{ uA^* \mid u \in A^\ell, \eta(uA^*) \subseteq mM\}\right)\\
+\d(\eta^{-1}(mM)) - \d\left(\bigsqcup\{ uA^* \mid u \in A^\ell, \eta(uA^*) \subseteq mM\}\right)\\
 \leq & \,\,
-\sum_{n \in K / \CR} \left( \d(\eta^{-1}(nM)) - \sum \d\left(\bigsqcup\{ uA^* \mid u \in A^\ell, \eta(uA^*) \subseteq nM\}\right) \right)\\
+\sum_{n \in K / \CR} \left( \d(\eta^{-1}(nM)) - \d\left(\bigsqcup\{ uA^* \mid u \in A^\ell, \eta(uA^*) \subseteq nM\}\right) \right)\\
 = & \,\,
 \sum_{n \in K / \CR} \left( \d(\eta^{-1}(nM))\right)
- - \sum_{n \in K / \CR} \sum \d\left(\bigsqcup\{ uA^* \mid u \in A^\ell, \eta(uA^*) \subseteq nM\}\right)\\
+ - \sum_{n \in K / \CR} \d\left(\bigsqcup\{ uA^* \mid u \in A^\ell, \eta(uA^*) \subseteq nM\}\right)\\
 = & \,\,
 \d(\eta^{-1}(K))
- - \sum \d\left(\bigsqcup\{ uA^* \mid u \in A^\ell, \eta(uA^*) \subseteq nM \text{ for some } n \in K\}\right)\\
+ - \d\left(\bigsqcup\{ uA^* \mid u \in A^\ell, \eta(uA^*) \subseteq nM \text{ for some } n \in K/\CR\}\right)\\
 \leq & \,\,
-1 - \sum \d\left(\bigsqcup\{ uA^* \mid u \in A^\ell \cap A^* w A^*\}\right)
+1 - \d\left(\bigsqcup\{ uA^* \mid u \in A^\ell \cap A^* w A^*\}\right)
 \end{align*}
 where the last term tends to zero as \(\ell\) tends to infinity, since 
 \[
-\sum \d(\{ uA^* \mid u \in A^\ell \cap A^* w A^*\})
+\d\left(\bigsqcup\{ uA^* \mid u \in A^\ell \cap A^* w A^*\}\right)
 = \frac{\card{A^\ell \cap A^* w A^*}}{\card{A^\ell}}
 \]
 tends to one as \(\ell\) tends to infinity by the infinity monkey theorem.
