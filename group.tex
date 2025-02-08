@@ -17,7 +17,7 @@ For the definition and basic properties of the free profinite monoid \(\widehat{
 \end{theorem}
 A regular language \(L \subseteq A^*\) \emph{satisfies} an equation \(u = v\), where \(u, v \in \widehat{A^*}\),
 if the syntactic morphism \(\eta\colon A^* \to M_L\) of \(L\) satisfies \(\hat{\eta}(u) = \hat{\eta}(v)\),
-where \(\hat{\eta}\colon \widehat{A^*} \to M_L\) is the composition of \(\eta\) and the canonical injection \(A^* \to \widehat{A^*}\).
+where \(\hat{\eta}\colon \widehat{A^*} \to M_L\) is the unique uniformly continuous extension of \(\eta\).
 
 \begin{lemma}\label{lem:group-profinite-identity}
   For any equation \(u = v\) (where \(u, v \in \widehat{A^*}\)),
@@ -71,6 +71,10 @@ where \(\hat{\eta}\colon \widehat{A^*} \to M_L\) is the composition of \(\eta\) 
 
 \subsection{Hierarchies of Finite Nilpotent and Solvable Groups}
 
+The main result of this subsection is Theorem~\ref{thm:strict-nilp-solv},
+which is an application of Theorem~\ref{thm:group-robust} and states that
+the classes of regular languages approximable by nilpotent/solvable group languages form strict hierarchies,
+contrast to the dot-depth hierarchy.
 In this subsection and the next, the reader is assumed to be familiar with group theory.
 Recall that we assume \(\card{A} \geq 2\).
 
@@ -150,21 +154,21 @@ therefore \(\gsol_A^{\leq n}\) is also a local variety.
   hence the syntactic monoid of \(\eta^{-1}(1_G)\), which is isomorphic to \(G\) by Lemma~\ref{lem:WP-synt}, divides \(H\).
   In general, if \(K\) is a nilpotent group of class \(c\),
   then every subgroup of \(K\) and every factor group of \(K\) is nilpotent of class at most \(c\).
+  Hence \(G\) is nilpotent of class at most \(n\), contradiction.
   (Note that every submonoid of a group is a subgroup.)
-  Therefore \(G\) is nilpotent of class at most \(n\), contradiction.
   Thus \(\gnil_A^{\leq n} \subsetneq \gnil_A^{\leq n + 1}\).
 
   By Lemma~\ref{lem:two-gen-solvable}, there exists a two-generated finite solvable group \(G\) of derived length \(n + 1\).
   Then one can similarly show \(\eta^{-1}(1_G) \in \gsol_A^{\leq n + 1} \setminus \gsol_A^{\leq n}\) for a surjective morphism \(\eta\colon A^* \to G\).
 \end{proof}
 
-\begin{corollary}
+\begin{theorem}\label{thm:strict-nilp-solv}
   For \(n \geq 1\), we have
   \begin{itemize}
     \item \(\rext(\gnil_A^{\leq n}) \subsetneq \rext(\gnil_A^{\leq n + 1}) \subsetneq \rext(\group_A)\), and
     \item \(\rext(\gsol_A^{\leq n}) \subsetneq \rext(\gsol_A^{\leq n + 1}) \subsetneq \rext(\group_A)\).
   \end{itemize}
-\end{corollary}
+\end{theorem}
 \begin{proof}
   By Proposition~\ref{prop:strict} and Theorem~\ref{thm:group-robust}.
 \end{proof}

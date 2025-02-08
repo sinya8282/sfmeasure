@@ -107,7 +107,7 @@ To prove Theorem~\ref{thm:sf}, we require some lemmata, where Lemma~\ref{lem:ker
 Every regular language whose density is zero or one is \(\gd\)-measurable.
 \end{lemma}
 \begin{lemma}\label{lem:fiberinner}
-Let \(\CC \subseteq \reg_A\) be a class of regular languages closed under Boolean operations, \(M\) be a finite monoid, \(\alpha: A^* \rightarrow M\) be a monoid morphism and \(L \subseteq A^*\) be a langauge such that \(L = \alpha^{-1}(\alpha(L))\).
+Let \(\CC \subseteq \reg_A\) be a class of regular languages closed under Boolean operations, \(M\) be a finite monoid, \(\alpha\colon A^* \rightarrow M\) be a monoid morphism, and \(L \subseteq A^*\) be a langauge such that \(L = \alpha^{-1}(\alpha(L))\).
 If there is a convergent sequence of languages in \(\CC\) to \(\alpha^{-1}(m)\) from inner for every \(m \in M\), then \(L\) is \(\CC\)-measurable.
 \end{lemma}
 \begin{proof}
@@ -118,20 +118,20 @@ Since \(\CC\) is closed under finite intersection and complementation,
 the sequence \((\bigcap_{m \not\in \alpha(L)} \comp{L_{m,n}})_n\) is a convergent sequence of languages in \(\CC\) to \(L\) from outer.
 \end{proof}
 \begin{lemma}\label{lem:kernelHtrivial}
-Let \(L\) be a regular language and \(M_L\) be its syntactic monoid.
-If every \(\CH\)-class in the kernel of \(M_L\) is trivial, then
+Let \(L\) be a regular language and \(M = M_L\) be its syntactic monoid.
+If every \(\CH\)-class in the kernel of \(M\) is trivial, then
 \(L\) is \(\gd\)-measurable.
 \end{lemma}
 \begin{proof}
-Let \(\eta: A^* \rightarrow M\) be the syntactic morphism of \(L\).
+Let \(\eta\colon A^* \rightarrow M\) be the syntactic morphism of \(L\).
 Let \(K\) be the kernel of \(M\).
 If \(m \not\in K\), then the infinite monkey theorem implies 
 \(\d(\eta^{-1}(m)) = 0\) hence \(\eta^{-1}(m)\) is \(\gd\)-measurable by Lemma~\ref{lem:zeroone}.
 Let \(m \in M\) be an element in \(K\).
 In this case, we have \(\CH_m = mM \cap Mm\).
-By the assumption, \(K\) is \(\CH\)-trivial which implies
+Since \(K\) is \(\CH\)-trivial by the assumption, this implies
 \(\CH_m = mM \cap Mm = \{m\}\).
-For the language \(L_m = \eta^{-1}(m)\), we have
+For the language \(L_m \defeq \eta^{-1}(m)\), we have
 \[
  L_m = \eta^{-1}(mM \cap Mm)
  = \eta^{-1}(mM) \cap \eta^{-1}(Mm).
@@ -148,7 +148,7 @@ For each \(\ell \geq 0\), we define a generalised definite language \(L_\ell\) a
  L_\ell = \bigsqcup\set{uA^*}{u \in A^\ell, \eta(uA^*) \subseteq mM}.
 \)
 The inclusion \(L_\ell \subseteq \eta^{-1}(mM)\) is obvious.
-We can show that \(L_\ell\) tends to \(\eta^{-1}(mM)\) from inner as follows.
+We can show that \(L_\ell\) converges to \(\eta^{-1}(mM)\) from inner as follows.
 \begin{align*}
 & \,\, \d\left(\eta^{-1}(mM) \setminus L_\ell\right)\\
 = & \,\,
@@ -156,7 +156,7 @@ We can show that \(L_\ell\) tends to \(\eta^{-1}(mM)\) from inner as follows.
 \leq & \,\,
 \sum_{n \in K / \CR} \left( \d(\eta^{-1}(nM)) - \d\left(\bigsqcup\{ uA^* \mid u \in A^\ell, \eta(uA^*) \subseteq nM\}\right) \right)\\
 = & \,\,
-\sum_{n \in K / \CR} \left( \d(\eta^{-1}(nM))\right)
+\sum_{n \in K / \CR} \d(\eta^{-1}(nM))
  - \sum_{n \in K / \CR} \d\left(\bigsqcup\{ uA^* \mid u \in A^\ell, \eta(uA^*) \subseteq nM\}\right)\\
 = & \,\,
 \d(\eta^{-1}(K))
@@ -169,7 +169,7 @@ where the last term tends to zero as \(\ell\) tends to infinity, since
 \d\left(\bigsqcup\{ uA^* \mid u \in A^\ell \cap A^* w A^*\}\right)
 = \frac{\card{A^\ell \cap A^* w A^*}}{\card{A^\ell}}
 \]
-tends to one as \(\ell\) tends to infinity by the infinity monkey theorem.
+tends to one as \(\ell\) tends to infinity by the infinite monkey theorem.
 By the same argument, there is a convergent sequence \((L'_\ell)_{\ell \geq 0}\) of generalised definite languages to \(\eta^{-1}(Mm)\) from inner.
 This means that the sequence \((L_\ell \cap L'_\ell)_{\ell \geq 0}\)
 of generalised definite languages converges to \(\eta^{-1}(mM) \cap \eta^{-1}(Mm) = L_m\) from inner.
@@ -179,45 +179,45 @@ Hence \(L\) is \(\gd\)-measurable by Lemma~\ref{lem:fiberinner} because \(\gd\) 
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:sf}]
-Since we have \(\gd \subseteq \sf\), it is enough to show that
-\(\sf \subseteq \ext(\gd)\) which implies 
+Since we have \(\gd \subseteq \sf\), it suffices to show that
+\(\sf \subseteq \ext(\gd)\), which implies 
 \(\ext(\gd) \subseteq \ext(\sf) \subseteq \ext(\ext(\gd)) = \ext(\gd)\) by Lemma~\ref{lem:closure}.
 The syntactic monoid of any star-free language is \(\CH\)-trivial, hence \(\sf \subseteq \ext(\gd)\) holds by Lemma~\ref{lem:kernelHtrivial}.
 \end{proof}
 
 Actually, the converse direction of Lemma~\ref{lem:kernelHtrivial} holds. The following theorem gives an algebraic characterisation of \(\gd\)-measurable (\(= \) \(\sf\)-measurable) regular languages.
 \begin{theorem}\label{thm:algsf}
-Let \(L\) be a regular language and \(M_L\) be its syntactic monoid.
-Then \(L\) is \(\gd\)-measurable if and only if every \(\CH\)-class in the kernel of \(M_L\) is trivial.
+Let \(L\) be a regular language and \(M = M_L\) be its syntactic monoid.
+Then \(L\) is \(\gd\)-measurable if and only if every \(\CH\)-class in the kernel of \(M\) is trivial.
 \end{theorem}
 \begin{proof}
 We show the ``only if'' part by contraposition.
-Let \(K\) be the kernel of \(M_L\).
-Assume some \(\CH\)-class in the kernel of \(M_L\) is not trivial.
+Let \(K\) be the kernel of \(M\).
+Suppose that some \(\CH\)-class in the kernel of \(M\) is not trivial.
 This implies that, there is some \(k \geq 2\) such that \(\card{\CH_m} = k\) for every \(m \in K\) since every \(\CH\)-class in \(K\) is a group and all these groups are isomorphic (\cf Section 4.1 of \cite{MPRI}).
-If \(\d(L) = 0\), then \(K\) should be trivial (\ie, \(M_L\) is a monoid with zero \cf \cite{Ryoma}).
-Hence we can assume that \(\d(L) > 0\).
-Let \(\eta: A^* \rightarrow M\) be the syntactic morphism of \(L\) and let \(P = \eta(L)\).
+If \(\d(L) = 0\), then \(K\) should be trivial (\ie, \(M\) is a monoid with zero, \cf\cite{Ryoma}).
+Hence we may assume that \(\d(L) > 0\).
+Let \(\eta\colon A^* \rightarrow M\) be the syntactic morphism of \(L\) and let \(P \defeq \eta(L)\).
 Because \(\d(L) > 0\) and the infinite monkey theorem, \(P\) and \(K\) have a non-empty intersection and hence we can pick some element \(m \in P \cap K\).
 By the assumption there is some \(n \in \CH_m\) such that \(m \neq n\).
-Since \(M_L\) is the syntactic monoid of \(L\), it is known that 
-\(P\) is \emph{disjunctive subset} of \(M_L\) (\cf Proposition 10.3.3 of \cite{Lawson}), \ie,
-for each \(a, b \in M_L\), if 
-\(cad \in P \Leftrightarrow cbd \in P\) for any pair \(c,d \in M_L\), then \(a = b\).
-Hence \(m \neq n\) implies \(m' = cmd \in P\) but \(n' = cnd \notin P\) for some \(c, d \in M_L\).
+Since \(M\) is the syntactic monoid of \(L\), it is known that 
+\(P\) is \emph{disjunctive subset} of \(M\) (\cf Proposition 10.3.3 of \cite{Lawson}), \ie,
+for each \(a, b \in M\), if 
+\(cad \in P \Leftrightarrow cbd \in P\) for any pair \(c,d \in M\), then \(a = b\).
+Hence \(m \neq n\) implies \(m' = cmd \in P\) but \(n' = cnd \notin P\) for some \(c, d \in M\).
 Now we show that \(u A^* v \subseteq L\) implies
 \(u A^* v \cap \eta^{-1}(m') = \emptyset\) for any pair of words \(u\) and \(v\).
 This concludes that, every generalised definite subset \(K\) of \(L\) satisfies \(\d(K) \leq \d(L) - \d(\eta^{-1}(m')) < \d(L)\) (notice that \(\d(\eta^{-1}(m')) > 0\) as stated in Remark~\ref{rem:kernel}), \ie, \(L\) is \(\gd\)-\emph{im}measurable.
 
 Assume \(u A^* v \cap \eta^{-1}(m') \neq \emptyset \) holds for some pair of words \(u\) and \(v\).
-This means that \(\eta(uwv) = m'\) for some \(w \in A^*\).
-Since \(m' \CH n'\), there is some \(x \in M_L\) such that \(xm' = n'\).
+Then \(\eta(uwv) = m'\) for some \(w \in A^*\).
+Since \(m' \mathrel{\CH} n'\), there is some \(x \in M\) such that \(xm' = n'\).
 Let \(w_x \in \eta^{-1}(x)\).
 Then the word \(u (wvu)^{k-1} w v w_x uwv \in u A^* v\) satisfies
 \[
  \eta(u (wvu)^{k-1} w v w_x uwv) = 
 \eta(uwv)^k \eta(w_x) \eta(uwv) =
-m'^k x m' = n'.
+(m')^k x m' = n'.
 \]
-This means that \(u A^* v \cap \eta^{-1}(n') \neq \emptyset\), which implies \(u A^* v \not\subseteq L\) because \(\eta^{-1}(n') \cap L = \emptyset\).
+Hence \(u A^* v \cap \eta^{-1}(n') \neq \emptyset\), which implies \(u A^* v \not\subseteq L\) since \(\eta^{-1}(n') \cap L = \emptyset\).
 \end{proof}

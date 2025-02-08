@@ -1,27 +1,27 @@
 \section{Probabilistic Independence of Star-Free and Group Languages}\label{sec:ind}
-In the probability theory, two evens \(A\) and \(B\) are said to be independent
-if their joint probability equals the product of their probabilities
+In the probability theory, two events \(A\) and \(B\) are said to be independent
+if their joint probability equals the product of their probabilities:
 \(P(A \cap B) = P(A) \cdot P(B)\).
 One important application of Theorem~\ref{thm:sf} is the following probabilistic independence of star-free and group languages, which emphasises how these two language classes are orthogonal.
 \begin{theorem}\label{thm:ind}
-For any star-free language \(L\) and group langauge \(K\),
+For any star-free language \(L\) and any group langauge \(K\),
 we have 
 \[
  \cd(L \cap K) = \cd(L) \cdot \cd(K).
 \]
 \end{theorem}
-The probabilistic independence of generalised definite languages and group languages can be more easliy proved. We use it as a lemma for proving Theorem~\ref{thm:ind}.
+The probabilistic independence of generalised definite languages and group languages is proved more easliy; we use it as a lemma for proving Theorem~\ref{thm:ind}.
 \begin{lemma}\label{lem:ind}
-For any generalised definite language \(L\) and group langauge \(K\),
+For any generalised definite language \(L\) of the form \(u A^* v\) for some \(u, v \in A^*\) and any group langauge \(K\),
 we have 
 \[
  \cd(L \cap K) = \cd(L) \cdot \cd(K).
 \]
 \end{lemma}
 \begin{proof}
-Let \(L = u A^* v\) be a generalised definite language, and \(K\) be a group language such that \(K = \eta^{-1}(S)\) for some finite group \(G\), where \(S\) is a subset of \(G\) and \(\eta: A^* \rightarrow G\) is a surjective morphism.
+Let \(L = u A^* v\) be a generalised definite language, and \(K\) be a group language such that \(K = \eta^{-1}(S)\) for some finite group \(G\), where \(S\) is a subset of \(G\) and \(\eta\colon A^* \rightarrow G\) is a surjective morphism.
 Observe that \(L \cap K = u (u^{-1} K v^{-1}) v\) holds.
-Because we have \(u^{-1} K v^{-1} = u^{-1} \eta^{-1}(S) v^{-1} 
+Since we have \(u^{-1} K v^{-1} = u^{-1} \eta^{-1}(S) v^{-1} 
 = \eta^{-1}( \eta(u)^{-1} S \eta(v)^{-1})\),
 we can conclude that 
 \(\cd(L \cap K) = \cd(u(\eta^{-1}( \eta(u)^{-1} S \eta(v)^{-1})) v) =
@@ -33,9 +33,10 @@ by Lemma~\ref{lem:density} and Lemma~\ref{lem:groupdensity} since
 \end{proof}
 \begin{proof}[Proof of Theorem~\ref{thm:ind}]
 Let \(L\) be a star-free language and \(K\) be a group language.
-We show that \(\cd(L \cap K) \geq \cd(L) \cdot \cd(K)\) holds.
-By Theorem~\ref{thm:sf}, there is a convergent sequence \(M_n = (\bigcup_{(u, v) \in F_n} u A^* v)_{n \geq 0}\) of generalised definite languages, where \(F_n \subseteq A^* \times A^*\) is finite for each \(n\), to \(L\) from inner.
-Without loss of generality, we can assume that \(uA^*v \cap u'A^*v' = \emptyset\) for each different pairs \((u,v), (u',v') \in F\).
+We only show that \(\cd(L \cap K) \geq \cd(L) \cdot \cd(K)\) holds;
+the reverse inequality \(\cd(L \cap K) \leq \cd(L) \cdot \cd(K)\) is also proved in the same way.
+By Theorem~\ref{thm:sf}, there is a sequence \(M_n = (\bigcup_{(u, v) \in F_n} u A^* v)_{n \geq 0}\) of generalised definite languages convergent to \(L\) from inner, where \(F_n \subseteq A^* \times A^*\) is finite for each \(n\).
+Without loss of generality, we may assume that \(uA^*v \cap u'A^*v' = \emptyset\) for each different pairs \((u,v), (u',v') \in F\).
 Then we have
 \[
  \cd(L \cap K) \geq \cd\left(\bigcup_{(u,v) \in F_n} u A^* v \cap K\right)
@@ -43,10 +44,10 @@ Then we have
  = \cd(M_n) \cdot \cd(K)
 \]
 by Lemma~\ref{lem:ind} where \(\cd(M_n)\) tends to \(\cd(L)\) as \(n\) tends to infinity.
-Hence \(\cd(L \cap K) \geq \cd(L) \cdot \cd(K)\).
-By the same argument, the inequality
-\(\cd(L \cap K) \leq \cd(L) \cdot \cd(K)\) can be show by using a 
-convergent sequence of generalised definite languages to \(L\) from outer.
+Thus \(\cd(L \cap K) \geq \cd(L) \cdot \cd(K)\).
+%By the same argument, the inequality
+%\(\cd(L \cap K) \leq \cd(L) \cdot \cd(K)\) can be show by using a 
+%convergent sequence of generalised definite languages to \(L\) from outer.
 \end{proof}
 
 % \subsection{Axiomatic characterisation of the density function \(\d\)}
