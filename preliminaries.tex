@@ -51,7 +51,7 @@ We list some basic properties of the density as follows.
 \end{enumerate}
 \end{lemma}
 \begin{lemma}\label{lem:groupdensity}
- Let \(\eta\colon A^* \rightarrow G\) be a morphism onto a finite group. For any \(g \in G\), we have \(\cd(\eta^{-1}(g)) = \card{G}^{-1}\).
+ Let \(\eta\colon A^* \rightarrow G\) be a surjective morphism onto a finite group. For any \(g \in G\), we have \(\cd(\eta^{-1}(g)) = \card{G}^{-1}\).
 \end{lemma}
 \begin{remark}\label{rem:kernel}
 Let \(L\) be a regular language, \(M\) be a finite monoid and 
@@ -91,7 +91,7 @@ there exist two convergent sequences of languages in \(\CC_A\) to \(L\) from inn
 \end{definition}
 
 The following is an example of \(\gcom\)-measurable non-regular languages.
-For more detailed exaxmples of \(\CC\)-measurable/immeaurable langauges for a subclass \(\CC\) of regular languages, see \cite{S2021,carathe,gcommeasure}.
+For more detailed examples of \(\CC\)-measurable/immeasurable langauges for a subclass \(\CC\) of regular languages, see \cite{S2021,carathe,gcommeasure}.
 
 \begin{example}[\cite{S2021}]\label{ex:dyck2}
  The semi-Dyck language \(\dyck = \{\varepsilon, ab, aabb, abab, aaabbb, \ldots\}\) over \(A = \{a,b\}\) is \(\gcom\)-measurable.
@@ -131,7 +131,7 @@ To prove Theorem~\ref{thm:group-robust}, we use the following theorem.
 For the definition and basic properties of the free profinite monoid \(\widehat{A^*}\), see \cite{MPRI} for example.
 \begin{theorem}[{\cite[Proposition 7.4]{Duality2008}}]\label{thm:duality}
   A set of regular languages over \(A\) is a Boolean quotienting algebra (\ie, local variety)
-  if and only if it can be defined by a set of semigroup equation of the form \(u = v\), where \(u, v \in \widehat{A^*}\).
+  if and only if it can be defined by a set of semigroup equations of the form \(u = v\), where \(u, v \in \widehat{A^*}\).
 \end{theorem}
 A regular language \(L \subseteq A^*\) \emph{satisfies} an equation \(u = v\), where \(u, v \in \widehat{A^*}\),
 if the syntactic morphism \(\eta\colon A^* \to M_L\) of \(L\) satisfies \(\hat{\eta}(u) = \hat{\eta}(v)\),
@@ -242,7 +242,7 @@ and Lemmata~\ref{lem:solvable-length-n} and \ref{lem:solvable-reduce} below.
   hence in particular a normal subgroup of each \(G^{(i)}\).
   Let \(\bar{G} \defeq G / G^{(n)}\).
   Then \(G^{(0)} / G^{(n)} \rhd G^{(1)} / G^{(n)} \rhd \dotsb \rhd G^{(n)} / G^{(n)} = \{1\}\) is the derived series of \(\bar{G}\) of length \(n\),
-  since we have an isormophism \([G^{(i)} / G^{(n)}, G^{(i)} / G^{(n)}] \cong [G^{(i)}, G^{(i)}] / G^{(n)} = G^{(i + 1)} / G^{(n)}\).
+  since we have an isomorphism \([G^{(i)} / G^{(n)}, G^{(i)} / G^{(n)}] \cong [G^{(i)}, G^{(i)}] / G^{(n)} = G^{(i + 1)} / G^{(n)}\).
 \end{proof}
 
 \begin{proof}[Proof of Lemma~\ref{lem:two-gen-solvable}]
