@@ -15,7 +15,7 @@ Later, the second author claimed that a weaker equation
 this result was announced at the international conferences Highlights 2024 by the first author.
 However, after some discussion between these two authors, a flaw was found in the proof of \(\reg = \rext(\bool(\sf \cup \group))\).
 Actually, this equation does \emph{not} hold as follows.
-\begin{proposition}\label{prop:counterexample}
+\begin{proposition}[Y.]\label{prop:counterexample}
 Let \(\CT_4\) be the full transformation monoid on the four elements set \(\{1,2,3,4\}\) whose identity element is the identity function \(f_1\).
 Define \(e, f \in \CT_4\) as
 \begin{align*}
@@ -50,7 +50,10 @@ for any word \(u, v \in A^*\) with \(|u|, |v| > N\),
 By the assumption, \(L \cap K \subseteq \eta^{-1}(e)\) is infinite hence there is a pair of words \(u\) and \(v\) such that \(uv \in L \cap K\), \(|u|, |v| > N\), \(\eta(u) \in eM\) and \(\eta(v) \in Me\).
 Since \(K\) is a group language, there is a finite group \(G\) and a morphism \(\varphi\colon A^* \rightarrow G\) such that
 \(K = \varphi^{-1}(\varphi(K))\).
-Let \(w = a_1 a_2 \cdots a_k \in A^*\) be a word in \(\eta^{-1}(f)\), and let \(n = \card{G}\) and \(\widetilde{w} = a_1^n a_2^n \cdots a_k^n\).
+Since \(\eta(u) \in eM = \{e, ef, efe, efef\}\) and \(\eta(v) \in Me = \{fefe, efe, fe, e\}\),
+one can choose a word \(w = a_1 a_2 \cdots a_k \in A^*\) so that \(\eta(u w v) = e f e\).
+(In fact, we may assume \(k \leq 2\).)
+Let \(n = \card{G}\) and \(\widetilde{w} = a_1^n a_2^n \cdots a_k^n\).
 Hence \(\eta(a) = e\) and \(\eta(b) = f\) are both idempotents, we have
 \(\eta(u \widetilde{w} v) =
 \eta(u) \eta(\widetilde{w}) \eta(v) =
