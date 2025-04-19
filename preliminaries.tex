@@ -3,9 +3,12 @@ This section provides the precise definitions of density and measurability.
 We denote by \(\reg_A\) the family of all regular languages over an alphabet \(A\). For a word \(w \in A^*\) and a letter \(a \in A\), we write \(|w|_a\) for the number of occurrences of \(a\) in \(w\). The complement of \(L\) over \(A\) is denoted by \(\comp{L} = A^* \setminus L\).
 We assume that the reader has a standard knowledge of algebraic language theory (\cf \cite{Lawson,DAM,MPRI}).
 
+For a finite monoid \(M\) and an element \(x \in M\), the unique idempotent power of \(x\) is denoted \(x^\omega\).
+A moniod \(M\) is called \emph{aperiodic} if \(x^{\omega+1} = x^\omega\) holds for any \(x \in M\).
 Recall that Green's \(\CH\)-relation on a monoid \(M\) is defined as \(x \CH y \Leftrightarrow xM = yM \land Mx = My\), and
 \(\CJ\)-relation is defined as \(x \CJ y \Leftrightarrow MxM = MyM\).
 A monoid \(M\) is said to be \({\cal G}\)-trivial if every \({\cal G}\)-class is a singleton where \({\cal G} \in \{\CH, \CJ\}\).
+It is well-known that a finite moniod \(M\) is aperiodic if and only if \(M\) is \(\CH\)-trivial.
 The main targets of this paper are the following three subclasses of regular languages. The \emph{star-free languages}, the \emph{generalised definite languages} \(\gd\), and the \emph{group languages} \(\group\):
 \begin{align*}
  \sf_A &\defeq \set{L \subseteq A^*}{L \text{ is recognised by a finite \(\CH\)-trivial monoid}},\\
@@ -129,10 +132,19 @@ Let \(\fin_A\) be the class of all finite and co-finite languages over \(A\).
 Hereafter, we only consider an alphabet \(A\) such that \(\card{A} \geq 2\) (because \(\sf_A = \gd_A = \fin_A\) and \(\group_A = \gcom_A\) holds if \(\card{A} = 1\)) and sometimes omit the subscript \(A\) for denoting these classes of languages.
 
 The notion of local varieties and local pseudovarieties can be captured by an appropriate ``equation'' notion called \emph{profinite equations} (\cf \cite{profinite}).
-TODO: describe an intuition of profinite equations.
-
-To prove Theorem~\ref{thm:group-robust}, we use the following theorem.
-For the definition and basic properties of the free profinite monoid \(\widehat{A^*}\), see \cite{MPRI} for example.
+For a pair of words \(u\) and \(v\), we can define a dinstance between them by
+\(d(u, v) = 2^{-r(u,v)}\)
+where \(r(u,v) = \min\{ |\CA| \mid \CA \text{ is a deterministic automaton accepting one of } \{u, v\} \text{ but not the other } \}\).
+Intuitively, \(r(u,v)\) represents the minimum number of states for separating \(u\) and \(v\) by using deterministic automata.
+Then this function \(d\) is an ultrametric on \(A^*\), and the completion of the metric space \((A^*, d)\), denoted by \(\widehat{A^*}\), is called the set of profinite words over \(A\).
+An element of \(\widehat{A^*}\) is a Cauchy sequence of (usual finite) words over \(A\) with respect to \(d\).
+For example, the profinite word \(w^\omega\), associated with every word \(w\), can be defined as a limit of the sequence of words \((w^{n!})_{n \geq 1}\).
+For any finite monoid \(M\) and morphism \(\eta: A^* \rightarrow M\), it is easy to see that \(\eta(w^{n!})\) is the idempotent power \(\eta(w)^{\omega}\) of \(\eta(w)\).
+Hence, for a finite monoid \(M\), the equation \(w^{\omega+1} = w^{\omega}\) can be interpreted as \(x^{\omega+1} = x^\omega\) holds for any \(x \in M\), \ie, 
+\(M\) is aperiodic (= \(\CH\)-trivial).
+It is known that any local variety of languages can be captured by using profinite equations and vice versa.
+We use the following theorem to prove Theorem~\ref{thm:group-robust} in Section~\ref{sec:group}.
+%For the definition and basic properties of the free profinite monoid \(\widehat{A^*}\), see \cite{profinite,MPRI} for example.
 \begin{theorem}[{\cite[Proposition 7.4]{Duality2008}}]\label{thm:duality}
   A set of regular languages over \(A\) is a Boolean quotienting algebra (\ie, local variety)
   if and only if it can be defined by a set of semigroup equations of the form \(u = v\), where \(u, v \in \widehat{A^*}\).
@@ -264,7 +276,7 @@ Lemma~\ref{lem:WP-synt} below is the last piece of the proof of Proposition~\ref
 %Let \(G\) be a group and \(\eta\colon A^* \to G\) be a surjective morphism.
 %The \emph{word problem} \(\WP_\eta(G)\) of \(G\) (with respect to \(\eta\))
 %is the language over \(A\) defined as \(\WP_\eta(G) \defeq \eta^{-1}(1_G)\).
-\begin{lemma}[{\cite[p.\ 197]{Herbst1993}}, {\cite[3.4.9 Proposition]{Holt2017}}]\label{lem:WP-synt}
+\begin{lemma}[{\cite[3.4.9 Proposition]{Holt2017}}]\label{lem:WP-synt}
   Let \(G\) be a group and \(\eta\colon A^* \to G\) be a surjective morphism.
   Then the syntactic monoid of the language \(\eta^{-1}(1_G) \subseteq A^*\) is isomorphic to \(G\).
   %Then the syntactic monoid of \(\WP_\eta(G)\) is isomorphic to \(G\).
