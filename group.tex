@@ -30,7 +30,8 @@ Our previous result \cite[Theorem 1]{gcommeasure} is the special case of Theorem
   \end{equation}
   Since the two languages \(\eta^{-1}(\eta(x)), \eta^{-1}(\eta(y)) \subseteq A^*\) are group languages,
   they are non-null by Lemma~\ref{lem:groupdensity}.
-  Hence the concatenation \(I \defeq \eta^{-1}(\eta(x)) \eta^{-1}(\eta(y))\) is also non-null (by Lemma~\ref{lem:density}, for example).
+ In particular, there should be some word \(w \in \eta^{-1}(\eta(x))\), and hence \(\eta^{-1}(\eta(x)) \eta^{-1}(\eta(y)) \supseteq w \eta^{-1}(\eta(y))\) should have a positive density by Lemma~\ref{lem:density}.
+  Hence the concatenation \(I \defeq \eta^{-1}(\eta(x)) \eta^{-1}(\eta(y))\) is non-null.
   To complete the proof, it suffices to show that \(L_1, L_2 \in \CC\) and \(L_1 \subseteq L \subseteq L_2\) implies \(I \subseteq L_2 \setminus L_1\).
   Let \(\theta_1\colon A^* \to G_1\) and \(\theta_2\colon A^* \to G_2\) be the syntactic morphism of \(L_1\) and \(L_2\), respectively.
   Let \((w_n)_{n \in \nat}\) be a Cauchy sequence in \(A^*\) converging to \(w\) in \(\widehat{A^*}\).
