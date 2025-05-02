@@ -46,8 +46,8 @@ take any word \(w\). A random word of length \(n\) contains \(w\) as a factor wi
 
 We list some basic properties of the density as follows.
 \begin{lemma}[\cite{codes}]\label{lem:density}
- Let \(K, L \subseteq A^*\) with \(\cd(K) = \alpha, \cd(L) =
- \beta\). Then we have:
+The function \(\cd\) is a finitely additive measure.
+In particular, for any \(K, L \subseteq A^*\) with \(\cd(K) = \alpha, \cd(L) = \beta\), we have:
 \begin{enumerate}
 \item \(\cd(L \setminus K) = \beta - \alpha\) if \(K \subseteq L\). 
 % \item \(\cd(\comp{K}) = 1 - \alpha\).
@@ -59,6 +59,31 @@ We list some basic properties of the density as follows.
 \begin{lemma}[{\cite[Example 13.4.9]{codes}}]\label{lem:groupdensity}
  Let \(\eta\colon A^* \rightarrow G\) be a surjective morphism onto a finite group. For any \(g \in G\), we have \(\cd(\eta^{-1}(g)) = \card{G}^{-1}\).
 \end{lemma}
+
+A word \(w\) is said to be a \emph{forbidden word} of a language \(L\) if \(L \cap A^* w A^* = 0\) holds.
+If a language \(L\) has a forbidden word, then \(\cd(L) = 0\) holds by the infinite monkey theorem because its complement \(\overline{L} \subseteq A^* w A^*\) should be co-null.
+The following lemma states that the converse of infinite monkey theorem is actually true for regular languages.
+We notice that there is a context-free language with density zero but having no forbidden word (the set of all palindromes, for example).
+\begin{lemma}\label{lem:zero}
+Let \(L\) be a regular language.
+The density of \(L\) is zero if and only if \(L\) has a forbidden word.
+\end{lemma}
+There are several proof strategies of Lemma~\ref{lem:zero}.
+One can prove this by using the asymptotic formula of a rational series (\cf Theorem~9.8 of \cite{Salomaa:1978:ATA:578607}) with the fact that the growth rate of the language of the form \(\overline{A^* w A^*}\) is strictly smaller than \(\card{A}\)~\cite{Kim1977SomeCP}.
+A more direct and automata-theoretic proof can be found in \cite{Ryoma}.
+The most simplest proof is the following strategy using Myhill--Nerode theorem due to Tsuboi--Takeuchi~\cite{TTmonkey}.
+\begin{proof}
+The ``if'' part is immediate as described.
+To prove ``only if'' part by contraposition, we assume that \(L\) does not have any forbidden word as described above.
+In this case, we have the equation \(A^* = \bigcup_{(u,v) \in A^* \times A^*} u^{-1} L v^{-1}\) since any word can be obtained by taking a quotient of some word in \(L\).
+By Myhill--Nerode theorem, there is a finite set of pair of words
+\(F \subseteq A^* \times A^*\) such that
+\(A^* = \bigcup_{(u,v) \in A^* \times A^*} u^{-1} L v^{-1} = \bigcup_{(u,v) \in F} u^{-1} L v^{-1}\).
+If the language \(u^{-1} L v^{-1}\) is null for any \((u,v) \in F\), we can deduce that its finite union \(\bigcup_{(u,v) \in F} u^{-1} L v^{-1}\) must be null since \(\cd\) is a finitely additive measure.
+ But this contradict with \(\cd(A^*) = \cd\left(\bigcup_{(u,v) \in F} u^{-1} L v^{-1}\right) = 1\).
+Hence \(u^{-1} L v^{-1}\) should have a non-zero density for some \((u,v) \in F\), which immediately implies that \(L\) should have a non-zero density, too.
+\end{proof}
+
 
 \begin{remark}\label{rem:kernel}
 Let \(L\) be a regular language, \(M\) be a finite monoid and 
