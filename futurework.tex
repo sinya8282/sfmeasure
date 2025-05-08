@@ -15,8 +15,8 @@ Later, the second author claimed that a weaker equation
 this result was announced at the international conferences Highlights 2024 by the first author.
 However, after some discussion between these two authors, a flaw was found in the proof of \(\reg = \rext(\bool(\sf \cup \group))\).
 Actually, this equation does \emph{not} hold as follows.
-\begin{proposition}[Y.]\label{prop:counterexample}
-Let \(\CT_4\) be the full transformation monoid on the four elements set \(\{1,2,3,4\}\) whose identity element is the identity function \(f_1\).
+\begin{proposition}\label{prop:counterexample}
+Let \(\CT_4\) be the full transformation monoid on the four elements set \(\{1,2,3,4\}\) whose identity element is the identity function \(\mathrm{id}\).
 Define \(e, f \in \CT_4\) as
 \begin{align*}
  e\colon 1 \mapsto 1, 2 \mapsto 2, 3 \mapsto 1, 4 \mapsto 2 \quad \text{ and } \quad
@@ -30,8 +30,8 @@ In particular, we have \(\reg_A \supsetneq \rext_A(\bool(\sf_A \cup \group_A))\)
 \begin{proof}
 By simple calculation, one can easily observe that 
 \(e^2 = e, f^2 = f, efefe = e, fefef = f\) hold so that 
-\(M = \{f_1,e,ef,efe,efef,f,fe,fef,fefe\}\).
-The kernel of \(M\) is \(M \setminus \{f_1\}\) and
+\(M = \{\mathrm{id},e,ef,efe,efef,f,fe,fef,fefe\}\).
+The kernel of \(M\) is \(M \setminus \{\mathrm{id}\}\) and
 \(\CH_e = \{e, efe\}\) and \(\CH_f = \{f, fef\}\) are maximal subgroups of \(M\), respectively.
 
 Thanks to Theorem~\ref{thm:sf}, we have 
