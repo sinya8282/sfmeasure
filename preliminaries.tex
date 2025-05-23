@@ -159,7 +159,7 @@ Hereafter, we only consider an alphabet \(A\) such that \(\card{A} \geq 2\) (bec
 The notion of local varieties and local pseudovarieties can be captured by an appropriate notion of ``equation'' called \emph{profinite equations} (\cf \cite{profinite}).
 For a pair of words \(u\) and \(v\), we can define a distance between them by
 \(d(u, v) = 2^{-r(u,v)}\)
-where \(r(u,v) = \min\{ |\CA| \mid \CA \text{ is a deterministic automaton accepting one of } \{u, v\} \text{ but not the other } \}\).
+where \(r(u,v) = \min\{ \lvert\CA\rvert \mid \CA \text{ is a deterministic automaton accepting one of } \{u, v\} \text{ but not the other} \}\).
 Intuitively, \(r(u,v)\) represents the minimum number of states for separating \(u\) and \(v\) by using deterministic automata.
 Then this function \(d\) is an ultrametric on \(A^*\), and the completion of the metric space \((A^*, d)\), denoted by \(\widehat{A^*}\), is called the set of profinite words over \(A\).
 An element of \(\widehat{A^*}\) is a Cauchy sequence of (usual finite) words over \(A\) with respect to \(d\).
