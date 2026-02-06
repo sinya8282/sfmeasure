@@ -1,22 +1,21 @@
 \section{Conclusion and Open Problems}\label{sec:fut}
-Theorem~\ref{thm:sf} and our previous work~\cite{gdmeasure,ppl2024} give a decidable characterisation of the \(\sf\)-measurable regular languages.
-Its algebraic characterisation (Theorem~\ref{thm:algsf}) can be considered as a natural extension of Sch\"utzenberger's theorem for star-free languages.
-The decidability of the \(\group\)-measurability for regular languages is still open.
-Perhaps the profinite method can be useful to solve this problem.
-The probabilistic independence of star-free and group languages describes how these two classes are orthogonal.
+Theorem~\ref{thm:sf} together with our previous work~\cite{gdmeasure,ppl2024} provides a decidable characterisation of the \(\sf\)-measurable regular languages.
+Its algebraic characterisation (Theorem~\ref{thm:algsf}) can be viewed as a natural extension of Sch\"utzenberger's theorem for star-free languages.
+The decidability of the \(\group\)-measurability for regular languages remains open.
+It is conceivable that the profinite method can be useful in solving this problem.
+The probabilistic independence of star-free and group languages highlights how these two classes are orthogonal.
 %It is interesting that whether there exists a local variety of regular languages \(\CC\) properly containing \(\sf\) and the probabilistic independence of \(\CC\) and \(\group\) also holds.
 %If there is no such class, one can regard that the class of star-free languages is a ``maximal'' subclass of regular languages which is orthogonal to the class of group languages in the probabilistic sense.
 
-In 2023, the first author posed a question whether the equation
-\(\reg = \bool(\rext(\sf) \cup \rext(\group))\) holds or not, at some domestic workshops in Japan.
-If this kind of equation \emph{were} true, it can be considered as a ``measure-theoretic decomposition theorem'' of regular languages.
-Later, the second author claimed that a weaker equation
-\(\reg = \rext(\bool(\sf \cup \group))\) holds and
-this result was announced at the international conferences Highlights 2024 by the first author.
-However, after some discussion between these two authors, a flaw was found in the proof of \(\reg = \rext(\bool(\sf \cup \group))\).
-Actually, this equation does \emph{not} hold as follows.
+In 2023, at a domestic workshop in Japan, the first author posed a question: does
+\(\reg = \bool(\rext(\sf) \cup \rext(\group))\) hold?
+If such an equation \emph{were} true, it could be viewed as a ``measure-theoretic decomposition theorem'' of regular languages.
+At Highlights 2024, the second author claimed that a weaker equation
+(\(\reg = \rext(\bool(\sf \cup \group))\)) holds.
+However, after some discussion, the two authors identified a flaw in the proof of the latter equation.
+In fact, this equation does \emph{not} hold as shown below.
 \begin{proposition}\label{prop:counterexample}
-Let \(\CT_4\) be the full transformation monoid on the four elements set \(\{1,2,3,4\}\) whose identity element is the identity function \(\mathrm{id}\).
+Let \(\CT_4\) be the full transformation monoid on the four-element set \(\{1,2,3,4\}\) for which the identity element is the identity function \(\mathrm{id}\).
 Define \(e, f \in \CT_4\) as
 \begin{align*}
  e\colon 1 \mapsto 1, 2 \mapsto 2, 3 \mapsto 1, 4 \mapsto 2 \quad \text{ and } \quad
@@ -27,6 +26,6 @@ For an alphabet \(A = \{a,b\}\), define a morphism \(\eta\colon A^* \rightarrow 
 Then \(\eta^{-1}(e)\) is \(\bool(\sf_A \cup \group_A)\)-immeasurable.
 In particular, we have \(\reg_A \supsetneq \rext_A(\bool(\sf_A \cup \group_A))\).
 \end{proposition}
-The authors are still interested in whether there is a suitable notion \(\CO\colon 2^{A^*} \rightarrow 2^{A^*}\) of ``operation'' on languages, which is richer than the Boolean closure operator \(\bool\) but the simpler than the operation on languages corresponds to the wreath product operation on monoids, for a measure-theoretic decomposition theorem of regular languages like
+The authors are still interested in whether there is a suitable notion \(\CO\colon 2^{A^*} \rightarrow 2^{A^*}\) of an ``operation'' on languages that is richer than the Boolean closure operator \(\bool\) but simpler than the operation on languages corresponding to the wreath product operation on monoids. Such an operator would ideally yield a measure-theoretic decomposition theorem of regular languages such as
  \(\reg = \CO(\rext(\sf) \cup \rext(\group))\) or
  \(\reg = \rext(\CO(\sf \cup \group))\).

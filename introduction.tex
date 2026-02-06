@@ -1,14 +1,14 @@
 \section{Introduction}
-One of the fundamental results in semigroup theory is the Krohn-Rhodes decomposition theorem stating that every finite monoid can be decomposed in a suitable sense into a wreath product of finite aperiodic monoids and finite groups.
-According to the Krohn-Rhodes decomposition theorem, the class of \emph{star-free languages} (the language counterpart of aperiodic monoids) and \emph{group languages} (languages recognised by finite groups) can be considered as two major ``building blocks'' of regular languages (see Chapter~7 of \cite{DAM} for detailed introduction of the Krohn-Rhodes theorem).
-While the theory of star-free languages is well-studied (\eg, Sch\"utzenberger's algebraic characterisation~\cite{Schutzenberger1965190},  McNaughton-Papert's logical characterisation~\cite{counterfree}, the dot-depth hierarchy (described later) proposed by Cohen and Brzozowski~\cite{dot} and recent progresses relating to this hierarchy (see \cite{dot3} or the survey \cite{dotdepth}), etc.), the theory of group languages seems not, albeit that there is a result on an analogue of the dot-depth hierarchy starting with group languages~\cite{margolis} and the decidability of the so-called separation problem for group languages~\cite{place}.
-Although the definition of group languages is simple from an algebraic point of view, this class does not have a language theoretic nor logical different characterisation.
+One of the fundamental results in semigroup theory is the Krohn-Rhodes decomposition theorem, which states that every finite monoid can be decomposed in a suitable sense into a wreath product of finite aperiodic monoids and finite groups.
+According to the Krohn-Rhodes decomposition theorem, the class of \emph{star-free languages} (the language counterpart of aperiodic monoids) and \emph{group languages} (languages recognised by finite groups) can be regarded as two major ``building blocks'' of regular languages (see Chapter~7 of \cite{DAM} for a detailed introduction to the Krohn-Rhodes theorem).
+While the theory of star-free languages is well-studied (\eg Sch\"utzenberger's algebraic characterisation~\cite{Schutzenberger1965190},  McNaughton-Papert's logical characterisation~\cite{counterfree}, the dot-depth hierarchy (described later) proposed by Cohen and Brzozowski~\cite{dot}, and recent progresses relating to this hierarchy (see \cite{dot3} or the survey \cite{dotdepth})), the theory of group languages is comparatively less developed although there are results on an analogue of the dot-depth hierarchy starting with group languages~\cite{margolis} and the decidability of the so-called separation problem for group languages~\cite{place}.
+Although the definition of group languages is simple from an algebraic point of view, this class does not have a language-theoretic or logical characterisation.
 To borrow the phrase used by Place--Zeitoun~\cite{place}: ``This makes it difficult to get an intuitive grasp about group languages, which may explain why this class remains poorly understood.''
 
-This paper sheds new light on these two major building blocks --- star-free and group languages --- of regular languages, by using a measure-theoretic notion so-called \emph{\(\CC\)-measurability}.
-A language \(L\) is said to be \(\CC\)-measurable if there exists an infinite sequence of pairs of languages \((K_n, M_n)_{n \in \nat}\) in \(\CC\) such that \(K_n \subseteq L \subseteq M_n\) holds for all \(n\) and the \emph{density} (described later) of the difference \(M_n \setminus K_n\) tends to zero as \(n\) tends to infinity.
-The notion of \(\CC\)-measurability was introduced in \cite{S2021} and used for classifying non-regular languages by using regular languages.
-The notion of \(\CC\)-measurability can be considered as a non-commutative and high-dimensional extension of Buck's measure theoretic notion for subsets of natural numbers so-called \emph{measure density}~\cite{Buck}, and the notion of \(\CC\)-measurability can be defined by using a purely measure theoretic notion called \emph{Carath{\'e}odory extension}~\cite{carathe}.
+This paper sheds new light on these two major building blocks --- star-free and group languages --- of regular languages, by using a measure-theoretic notion called \emph{\(\CC\)-measurability}.
+A language \(L\) is said to be \(\CC\)-measurable if there exists an infinite sequence of pairs of languages \((K_n, M_n)_{n \in \nat}\) in \(\CC\) such that \(K_n \subseteq L \subseteq M_n\) for all \(n\) and the \emph{density} (defined later) of the difference \(M_n \setminus K_n\) tends to zero as \(n \to \infty\).
+The notion of \(\CC\)-measurability was introduced in \cite{S2021} and used to classify non-regular languages by means of regular languages.
+The notion of \(\CC\)-measurability can be considered as a non-commutative and high-dimensional extension of Buck's measure-theoretic notion for subsets of natural numbers called \emph{measure density}~\cite{Buck}, and the notion of \(\CC\)-measurability can be defined using a purely measure-theoretic notion called \emph{Carath{\'e}odory extension}~\cite{carathe}.
 % Approximating a complex object by more simple objects is a major concept
 % in both computer science and mathematics.
 % In the theory of formal languages, various types of approximations have
@@ -46,44 +46,44 @@ The notion of \(\CC\)-measurability can be considered as a non-commutative and h
 % to \(L\).
 % In this sense, measurability is much more difficult than the membership
 % problem and its analysis is a challenging task.
-So far, the decidability and alternative characterisation of \(\CC\)-measurability is systematically studied for some subclasses of regular languages.
-For example, simple and decidable characterisations of \(\pt\)-measurable and \(\at\)-measurable languages are given in \cite{ltmeasure}, where \(\pt\) is the class of all piecewise testable languages and \(\at\) is the class of all alphabet testable languages (\ie, languages defined by the first-order logic with only one variable).
-For the class \(\gd\) of \emph{generalised definite} languages (\ie, languages whose membership can be checked by finitely many prefix and suffix tests), an automata theoretic characterisation of the \(\gd\)-measurable regular languages is given in \cite{gdmeasure} and it is decidable in quadratic time with respect to the size of a given deterministic automaton~\cite{ppl2024}.
-Some properties of the measuring power of star-free languages is investigated in \cite{carathe}, but the decidability for regular languages was left open.
-The decidability of \(\group\)-measurability, where \(\group\) is the class of all group languages, for regular languages is still unknown, while the measurability of two restricted subclasses
- \(\gcom\) (languages recognised by \emph{commutative} groups) and \(\modl\) (languages defined by length-modulo condition) of group languages are shown to be decidable for regular languages~\cite{gcommeasure}. 
+So far, the decidability and alternative characterisations of \(\CC\)-measurability have been systematically studied for some subclasses of regular languages.
+For example, simple and decidable characterisations of \(\pt\)-measurable and \(\at\)-measurable languages are given in \cite{ltmeasure}, where \(\pt\) is the class of all piecewise testable languages and \(\at\) is the class of all alphabet testable languages (\ie languages defined in first-order logic with only one variable).
+For the class \(\gd\) of \emph{generalised definite} languages (\ie languages whose membership can be checked by finitely many prefix and suffix tests), an automata-theoretic characterisation of the \(\gd\)-measurable regular languages is given in \cite{gdmeasure}, and this characterisation is decidable in quadratic time with respect to the size of a given deterministic automaton~\cite{ppl2024}.
+Some properties of the measuring power of star-free languages were investigated in \cite{carathe}, but the decidability for regular languages was left open.
+The decidability of \(\group\)-measurability, where \(\group\) is the class of all group languages, for regular languages remains unknown, while the measurability of two restricted subclasses
+ \(\gcom\) (languages recognised by \emph{commutative} groups) and \(\modl\) (languages defined by a length-modulo condition) of group languages has been shown to be decidable for regular languages~\cite{gcommeasure}. 
 
-\subsection*{Our contribution}
-The main results of this paper (shown in Section~\ref{sec:sf}--\ref{sec:group}), relating to the measuring power of star-free and group languages, are three kinds as follows.
+\subsection*{Our contributions}
+This paper establishes three main results (shown in Sections~\ref{sec:sf}--\ref{sec:group}) relating to the measuring power of star-free and group languages, as follows.
 
-The first main result is about the measuring power of star-free languages (Section~\ref{sec:sf}).
+The first main result concerns the measuring power of star-free languages (Section~\ref{sec:sf}).
 It is shown that a language \(L\) is \(\sf\)-measurable if and only if \(L\) is \(\gd\)-measurable (Theorem~\ref{thm:sf}).
-Since the \(\gd\)-measurability is known to be decidable for regular languages~\cite{gdmeasure}, this characterisation also gives the decidability of the \(\sf\)-measurability for regular languages.
-We also give an algebraic characterisation of the \(\sf\)-measurable regular languages (Theorem~\ref{thm:algsf}), which can be considered as a natural extension of Sch\"utzenberger's theorem.
+Since \(\gd\)-measurability is known to be decidable for regular languages~\cite{gdmeasure}, this characterisation also yields the decidability of \(\sf\)-measurability for regular languages.
+We also give an algebraic characterisation of \(\sf\)-measurable regular languages (Theorem~\ref{thm:algsf}), which can be viewed as a natural extension of Sch\"utzenberger's theorem.
 
-The second main result (Section~\ref{sec:ind}), which is an application of the first main result, is the \emph{probabilistic independence} of star-free and group languages (Theorem~\ref{thm:ind}) stating that
-\(\cd(L \cap K) = \cd(L) \cdot \cd(K)\) holds for any
-star-free language \(L\) and any group language \(K\) where
-\(\cd\) is the density function defined as
-\(\cd(X) \defeq \lim_{n \rightarrow \infty} \frac{1}{n} \sum_{k = 0}^{n-1} \card{X \cap A^k}/\card{A^k}\) (where \(\card{S}\) denotes the cardinality of a set \(S\)).
-Since the class of star-free languages corresponds to finite aperiodic monoids (monoids having no non-trivial subgroups) via Sch\"utzenberger's theorem~\cite{Schutzenberger1965190}, it is sometimes said that star-free languages and group languages are ``orthogonal''.
-For example, it is described in \cite{nato} that `This notion [aperiodic monoid] is in some sense ``orthogonal'' to the notion of groups' and in \cite{DAM} that `Aperiodic monoids are orthogonal to groups.' Our second main result gives a rigorous statement how star-free and group languages are orthogonal in the probability theoretic sense.
+The second main result (Section~\ref{sec:ind}), which is an application of the first main result, is the \emph{probabilistic independence} of star-free and group languages (Theorem~\ref{thm:ind}).
+It states that
+\(\cd(L \cap K) = \cd(L) \cdot \cd(K)\) for any
+star-free language \(L\) and any group language \(K\), where
+\(\cd\) is the density function defined by
+\(\cd(X) \defeq \lim_{n \rightarrow \infty} \frac{1}{n} \sum_{k = 0}^{n-1} \card{X \cap A^k}/\card{A^k}\) and \(\card{S}\) denotes the cardinality of a set \(S\).
+Since the class of star-free languages corresponds to finite aperiodic monoids (monoids with no non-trivial subgroups) via Sch\"utzenberger's theorem~\cite{Schutzenberger1965190}, it is sometimes said that star-free languages and group languages are ``orthogonal''.
+For example, it is noted in \cite{nato} that `This notion [aperiodic monoid] is in some sense ``orthogonal'' to the notion of groups' and in \cite{DAM} that `Aperiodic monoids are orthogonal to groups'. Our second main result thus gives a rigorous probability-theoretic formalisation of this ``orthogonality'' between star-free and group languages.
 
-Between \(\gd\) and \(\sf\), there is a fine-grained infinite strict hierarchy called the \emph{dot-depth hierarchy} introduced by Cohen and Brzozowski~\cite{dot} in 1971.
-For a family \(\CC\) of languages, we denote by
+Between \(\gd\) and \(\sf\), there is a fine-grained infinite strict hierarchy, the \emph{dot-depth hierarchy} introduced by Cohen and Brzozowski~\cite{dot} in 1971.
+For a family \(\CC\) of languages, we write by
 \(\monc \CC = \{ L_1 \cdots L_k \mid k \geq 1, L_1, \ldots, L_k \in \CC
-\} \cup \{\{\varepsilon\}\}\) the monoid closure of \(\CC\),
-and denote by \(\bool\CC\) the Boolean closure of \(\CC\).
+\} \cup \{\{\varepsilon\}\}\) for the monoid closure of \(\CC\)
+and \(\bool\CC\) for the Boolean closure of \(\CC\).
 The dot-depth hierarchy starts with the family \(\CB_0\) of all finite
-or co-finite languages, and continues as \(\CB_{i+1} = \bool \monc \CB_{i}\) for each \(i \geq 0\).
-By definition, we have \(\sf = \bigcup_{i \geq 0} \CB_i\)
-and also \(\CB_0 \subsetneq \gd \subsetneq \CB_1\).
-However, the first main result tells us that this infinite strict hierarchy \emph{collapses} via taking all measurable sets in the sense that 
+or co-finite languages and continues with \(\CB_{i+1} = \bool \monc \CB_{i}\) for each \(i \geq 0\).
+By definition, \(\sf = \bigcup_{i \geq 0} \CB_i\)
+and \(\CB_0 \subsetneq \gd \subsetneq \CB_1\).
+However, the first main result tells us that this infinite strict hierarchy \emph{collapses} when we take all measurable sets in the sense that 
 \(\{ L \mid L \text{ is } \gd\text{-measurable}\}
- = \{ L \mid L \text{ is } \sf\text{-measurable}\}\)
-holds.
-The last main result (Section~\ref{sec:group}) tells us that, for the measuring power of subclasses of group languages, the situation is rather opposite.
+ = \{ L \mid L \text{ is } \sf\text{-measurable}\}\).
+The third main result (Section~\ref{sec:group}) tells us that the situation is quite different for the measuring power of subclasses of group languages.
 We show that, for any two local subvarieties\footnote{A \emph{local variety} is a family of regular languages over \(A\) closed under Boolean operations and quotients.} \(\CC \subsetneq \CD \subseteq \group\) of group languages, we have \(\{ L \mid L \text{ is } \CC\text{-measurable}\}
-\subsetneq \{ L \mid L \text{ is } \CD\text{-measurable}\}\), and moreover, \(\{ L \mid L \text{ is } \CC\text{-measurable}\} \cap \group = \CC\) holds (Theorem~\ref{thm:group-robust}).
+\subsetneq \{ L \mid L \text{ is } \CD\text{-measurable}\}\), and moreover, \(\{ L \mid L \text{ is } \CC\text{-measurable}\} \cap \group = \CC\) (Theorem~\ref{thm:group-robust}).
 
-In Section~\ref{sec:fut} we summarise our main results and describe some open problems.
+In Section~\ref{sec:fut} we summarise our main results and describe several open problems.

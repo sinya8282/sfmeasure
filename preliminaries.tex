@@ -1,53 +1,53 @@
 \section{Preliminaries}\label{sec:pre}
 This section provides the precise definitions of density and measurability.
-We denote by \(\reg_A\) the family of all regular languages over an alphabet \(A\). For a word \(w \in A^*\) and a letter \(a \in A\), we write \(|w|_a\) for the number of occurrences of \(a\) in \(w\). The complement of \(L\) over \(A\) is denoted by \(\comp{L} = A^* \setminus L\).
-We assume that the reader has a standard knowledge of algebraic language theory (\cf \cite{Lawson,DAM,MPRI}).
+We denote by \(\reg_A\) the family of all regular languages over an alphabet \(A\). For a word \(w \in A^*\) and a letter \(a \in A\), we write \(|w|_a\) for the number of occurrences of \(a\) in \(w\). The complement of a language \(L\) over \(A\) is denoted by \(\comp{L} = A^* \setminus L\).
+We assume that the reader is familiar with standard notions from algebraic language theory (\cf \cite{Lawson,DAM,MPRI}).
 
 For a finite monoid \(M\) and an element \(x \in M\), the unique idempotent power of \(x\) is denoted \(x^\omega\).
-A monoid \(M\) is called \emph{aperiodic} if \(x^{\omega+1} = x^\omega\) holds for any \(x \in M\).
-Recall that Green's \(\CH\)-relation on a monoid \(M\) is defined as \(x \CH y \Leftrightarrow xM = yM \land Mx = My\), and
-\(\CJ\)-relation is defined as \(x \CJ y \Leftrightarrow MxM = MyM\).
-A monoid \(M\) is said to be \({\cal G}\)-trivial if every \({\cal G}\)-class is a singleton where \({\cal G} \in \{\CH, \CJ\}\).
-It is well-known that a finite monoid \(M\) is aperiodic if and only if \(M\) is \(\CH\)-trivial.
-The main targets of this paper are the following three subclasses of regular languages. The \emph{star-free languages}, the \emph{generalised definite languages} \(\gd\), and the \emph{group languages} \(\group\):
+A monoid \(M\) is called \emph{aperiodic} if \(x^{\omega+1} = x^\omega\) for every \(x \in M\).
+Recall that Green's \(\CH\)-relation on a monoid \(M\) is defined by \(x \CH y \Leftrightarrow xM = yM \land Mx = My\), and
+the \(\CJ\)-relation is defined by \(x \CJ y \Leftrightarrow MxM = MyM\).
+A monoid \(M\) is said to be \({\cal G}\)-trivial if every \({\cal G}\)-class is a singleton, where \({\cal G} \in \{\CH, \CJ\}\).
+It is well known that a finite monoid \(M\) is aperiodic if and only if \(M\) is \(\CH\)-trivial.
+We focus on the following three subclasses of regular languages: \emph{star-free languages} \(\sf\), \emph{generalised definite languages} \(\gd\), and \emph{group languages} \(\group\).
 \begin{align*}
  \sf_A &\defeq \set{L \subseteq A^*}{L \text{ is recognised by a finite \(\CH\)-trivial monoid}},\\
  \gd_A &\defeq \bool\set{wA^*, A^*w}{w \in A^*},\\
- \group_A &\defeq \set{L \subseteq A^*}{L \text{ is recognised by a finite group}}.
+ \group_A &\defeq \set{L \subseteq A^*}{L \text{ is recognised by a finite group}}
 \end{align*}
-Also, we denote by \(\gcom_A\) the class of all languages recognised by finite commutative groups.
+We write \(\gcom_A\) for the class of all languages recognised by finite commutative groups.
 A monoid \(M\) divides a monoid \(N\) if \(M\) is a monoid homomorphic image of a submonoid of \(N\).
-It is well-known that a monoid \(M\) recognises a language \(L\) if and only if the syntactic monoid \(M_L\) of \(L\) divides \(M\), hence
+It is well known that a monoid \(M\) recognises a language \(L\) if and only if the syntactic monoid \(M_L\) of \(L\) divides \(M\); hence
 \(L\) is in \(\sf_A\) (\resp \(\group_A\)) if and only if \(M_L\) is a finite \(\CH\)-trivial monoid (\resp a finite group).
 It is easy to see that a language \(L\) is generalised definite if and only if \(L = E \cup \bigcup_{(u, v) \in F} uA^*v\) for some finite sets \(E \subseteq A^*\) and \(F \subseteq A^* \times A^*\).
 % \(L = E \cup \bigcup_{i \in I} F_i A^* G_i\) for some finite sets \(E\) and \(F_i, G_i \subseteq A^*\) for all \(i \in I\), where \(I\) is a finite index set.
 
 \subsection{Density and measurability of formal language}
-For a set $X$, we denote by $\card{X}$ the cardinality of $X$.
-We denote by $\nat$ the set of natural numbers including $0$.
+For a set $X$, we write $\card{X}$ for its cardinality.
+We write $\nat$ for the set of natural numbers including $0$.
 
 \begin{definition}[\cf \cite{codes}]\upshape
 The \emph{density} \(\cd(L)\) of \(L \subseteq A^*\) is defined as
 \[
  \cd(L) \defeq \lim_{n \rightarrow \infty} \frac{1}{n} \sum_{k = 0}^{n-1} \frac{\card{L \cap A^k}}{\card{A^k}}
 \]
- if it exists, otherwise we write \(\cd(L) = \bot\).
- A language \(L\) is called \emph{null} if \(\cd(L) = 0\),
- and dually, \(L\) is called \emph{co-null} if \(\cd(L) = 1\).
+ if it exists; otherwise we write \(\cd(L) = \bot\).
+ A language \(L\) is called \emph{null} if \(\cd(L) = 0\)
+ and \(L\) is called \emph{co-null} if \(\cd(L) = 1\).
 \end{definition}
 
 \begin{example}\label{ex:density}
-It is known that every regular language has a rational density (\cf \cite{codes}) and it is computable.
+It is known that every regular language has a rational density (\cf \cite{codes}) and that this density is computable.
 For each word \(w\), the language \(A^* w A^*\),
  the set of all words that contain \(w\) as a factor,
- is of density one (\ie, co-null). This fact follows from the so-called {\em infinite monkey theorem}:
-take any word \(w\). A random word of length \(n\) contains \(w\) as a factor with probability tending to one as \(n\) tends to infinity.
+ has density one (\ie co-null). This follows from the so-called {\em infinite monkey theorem}:
+for any word \(w\), a random word of length \(n\) contains \(w\) as a factor with probability tending to one as \(n\) tends to infinity.
 \end{example}
 
-We list some basic properties of the density as follows.
+We list some basic properties of density as follows.
 \begin{lemma}[\cite{codes}]\label{lem:density}
 The function \(\cd\) is a finitely additive measure.
-In particular, for any \(K, L \subseteq A^*\) with \(\cd(K) = \alpha, \cd(L) = \beta\), we have:
+In particular, for any \(K, L \subseteq A^*\) with \(\cd(K) = \alpha\) and \(\cd(L) = \beta\), we have
 \begin{enumerate}
 \item \(\cd(L \setminus K) = \beta - \alpha\) if \(K \subseteq L\). 
 % \item \(\cd(\comp{K}) = 1 - \alpha\).
@@ -61,51 +61,51 @@ In particular, for any \(K, L \subseteq A^*\) with \(\cd(K) = \alpha, \cd(L) = \
 \end{lemma}
 
 A word \(w\) is said to be a \emph{forbidden word} of a language \(L\) if \(L \cap A^* w A^* = 0\) holds.
-If a language \(L\) has a forbidden word, then \(\cd(L) = 0\) holds by the infinite monkey theorem because its complement \(\overline{L} \supseteq A^* w A^*\) should be co-null.
-The following lemma states that the converse of infinite monkey theorem is actually true for regular languages.
-We notice that there is a context-free language with density zero but having no forbidden word (the set of all palindromes, for example).
+If a language \(L\) has a forbidden word, then \(\cd(L) = 0\) holds by the infinite monkey theorem because its complement \(\overline{L} \supseteq A^* w A^*\) is co-null.
+The following lemma states that the converse of the infinite monkey theorem is in fact true for regular languages.
+We also note that there exists a context-free language with density zero but having no forbidden word (the set of all palindromes, for example).
 \begin{lemma}\label{lem:zero}
 Let \(L\) be a regular language.
 The density of \(L\) is zero if and only if \(L\) has a forbidden word.
 \end{lemma}
-There are several proof strategies of Lemma~\ref{lem:zero}.
-One can prove this by using the asymptotic formula of a rational series (\cf Theorem~9.8 of \cite{Salomaa:1978:ATA:578607}) with the fact that the growth rate of the language of the form \(\overline{A^* w A^*}\) is strictly smaller than \(\card{A}\)~\cite{Kim1977SomeCP}.
+There are several proof strategies for Lemma~\ref{lem:zero}.
+One can prove the lemma using the asymptotic formula for a rational series (\cf Theorem~9.8 of \cite{Salomaa:1978:ATA:578607}) along with the fact that the growth rate of a language having the form \(\overline{A^* w A^*}\) is strictly smaller than \(\card{A}\)~\cite{Kim1977SomeCP}.
 A more direct and automata-theoretic proof can be found in \cite{Ryoma}.
-The simplest proof is the following strategy using Myhill--Nerode theorem due to Tsuboi--Takeuchi~\cite{TTmonkey}.
+The simplest proof is the following strategy using the Myhill--Nerode theorem, following Tsuboi--Takeuchi~\cite{TTmonkey}.
 \begin{proof}
-The ``if'' part is immediate as described.
-To prove ``only if'' part by contraposition, we assume that \(L\) does not have any forbidden word as described above.
-In this case, we have the equation \(A^* = \bigcup_{(u,v) \in A^* \times A^*} u^{-1} L v^{-1}\) since any word can be obtained by taking a quotient of some word in \(L\).
-By Myhill--Nerode theorem, there is a finite set of pair of words
+The ``if'' part of the equivalence is immediate.
+To prove the ``only if'' part by contraposition, we assume that \(L\) does not have any forbidden word as described above.
+In this case, we have \(A^* = \bigcup_{(u,v) \in A^* \times A^*} u^{-1} L v^{-1}\) since any word can be obtained by taking a quotient of some word in \(L\).
+By the Myhill--Nerode theorem, there is a finite set of pairs of words
 \(F \subseteq A^* \times A^*\) such that
 \(A^* = \bigcup_{(u,v) \in A^* \times A^*} u^{-1} L v^{-1} = \bigcup_{(u,v) \in F} u^{-1} L v^{-1}\).
-If the language \(u^{-1} L v^{-1}\) is null for any \((u,v) \in F\), we can deduce that its finite union \(\bigcup_{(u,v) \in F} u^{-1} L v^{-1}\) must be null since \(\cd\) is a finitely additive measure.
- But this contradict with \(\cd(A^*) = \cd\left(\bigcup_{(u,v) \in F} u^{-1} L v^{-1}\right) = 1\).
-Hence \(u^{-1} L v^{-1}\) should have a non-zero density for some \((u,v) \in F\), which immediately implies that \(L\) should have a non-zero density, too.
+If the language \(u^{-1} L v^{-1}\) is null for every \((u,v) \in F\), we can deduce that its finite union \(\bigcup_{(u,v) \in F} u^{-1} L v^{-1}\) must be null since \(\cd\) is a finitely additive measure.
+ But this contradicts \(\cd(A^*) = \cd\left(\bigcup_{(u,v) \in F} u^{-1} L v^{-1}\right) = 1\).
+Hence, \(u^{-1} L v^{-1}\) should have a non-zero density for some \((u,v) \in F\), which immediately implies that \(L\) also has a non-zero density.
 \end{proof}
 
 
 \begin{remark}\label{rem:kernel}
-Let \(L\) be a regular language, \(M\) be a finite monoid and 
+Let \(L\) be a regular language, \(M\) be a finite monoid, and 
 \(\eta\colon A^* \rightarrow M\) be a surjective morphism such that \(L = \eta^{-1}(\eta(L))\).
-The \emph{kernel} \(K\) of \(M\) is a unique minimal ideal of \(M\) (it always exists since \(M\) is finite), \ie, the minimal \(\CJ\)-class of \(M\).
+The \emph{kernel} \(K\) of \(M\) is a unique minimal ideal of \(M\) (it always exists since \(M\) is finite), \ie the minimal \(\CJ\)-class of \(M\).
 For every \(m\) not in the kernel \(K\) of \(M\),
-\(\eta^{-1}(m) \cap A^* w A^* = \emptyset\) holds for any \(w \in \eta^{-1}(K)\) hence \(\d(\eta^{-1}(m)) = 0\) by the infinite monkey theorem.
+\(\eta^{-1}(m) \cap A^* w A^* = \emptyset\) holds for every \(w \in \eta^{-1}(K)\); hence \(\d(\eta^{-1}(m)) = 0\) by the infinite monkey theorem.
 This implies that \(\d(\eta^{-1}(K)) = 1\).
-Moreover, \(\d(\eta^{-1}(K)) = 1\) implies that there exist at least one element \(n \in K\) such that \(\d(\eta^{-1}(n)) > 0\) since \(K\) is finite.
+Moreover, \(\d(\eta^{-1}(K)) = 1\) implies that there exists at least one element \(n \in K\) such that \(\d(\eta^{-1}(n)) > 0\) since \(K\) is finite.
 Because \(K\) is the kernel of \(M\), for any \(m \in K\) there exists a pair of 
-element \(x, y \in M\) such that \(xny = m\), hence \(\eta^{-1}(m)\) contains \(u \eta^{-1}(n) v\) where \(u \in \eta^{-1}(x)\) and \(v \in \eta^{-1}(y)\) so that
-\(\d(\eta^{-1}(m)) \geq \d(\eta^{-1}(n)) \cdot \card{A}^{-(|u|+|v|)}\) by Lemma~\ref{lem:density}, \ie, \(\d(\eta^{-1}(m)) > 0\) holds for each \(m \in K\).
+elements \(x, y \in M\) such that \(xny = m\); hence \(\eta^{-1}(m)\) contains \(u \eta^{-1}(n) v\), where \(u \in \eta^{-1}(x)\) and \(v \in \eta^{-1}(y)\) so that
+\(\d(\eta^{-1}(m)) \geq \d(\eta^{-1}(n)) \cdot \card{A}^{-(|u|+|v|)}\) by Lemma~\ref{lem:density}; \ie \(\d(\eta^{-1}(m)) > 0\) holds for each \(m \in K\).
 \end{remark}
-For more detailed properties of the density function \(\cd\), see Chapter~13 of \cite{codes}.
+For more detailed properties of density function \(\cd\), see Chapter~13 of \cite{codes}.
 
-The notion of ``measurability'' on formal languages is defined by a standard measure theoretic way as follows.
+The notion of ``measurability'' for formal languages is defined in the standard measure-theoretic way as follows.
 \begin{definition}[\cite{S2021}]\upshape
 Let \(\CC_A\) be a family of languages over \(A\).
 For a language \(L \subseteq A^*\), we define its
  \emph{\(\CC_A\)-inner-density} \(\plm{\CC_A}(L)\)
  and \emph{\(\CC_A\)-outer-density} \(\pum{\CC_A}(L)\)
- over \(A\) as
+ as
  \[
  \begin{alignedat}{2}
   \plm{\CC_A}(L) &\defeq& \, \sup &\set{\cd(K)}{K \subseteq L, K \in \CC_A, \cd(K) \neq \bot} \text{ and }\\
@@ -114,64 +114,64 @@ For a language \(L \subseteq A^*\), we define its
  \]
 A language \(L\) is said to be
  \emph{\(\CC_A\)-measurable} if
- \(\plm{\CC_A}(L) = \pum{\CC_A}(L)\) holds.
+ \(\plm{\CC_A}(L) = \pum{\CC_A}(L)\).
  We say that an infinite sequence \((L_n)_n\) of languages over \(A\)
  {\em converges to \(L\) from inner ({\em \resp}from outer)} if
  \(L_n \subseteq L\) (\resp \(L_n \supseteq L\)) for each \(n\) and \(\lim_{n \rightarrow \infty}\cd(L_n) = \cd(L)\).
 A language \(L\) is \(\CC_A\)-measurable if and only if
-there exist two convergent sequences of languages in \(\CC_A\) to \(L\) from inner and outer, respectively.
+there exist two sequences of languages in \(\CC_A\) converging to \(L\) from inner and outer, respectively.
 \end{definition}
 
-The following is an example of \(\gcom\)-measurable non-regular languages.
+The following is an example of a \(\gcom\)-measurable non-regular language.
 For more detailed examples of \(\CC\)-measurable/immeasurable languages for a subclass \(\CC\) of regular languages, see \cite{S2021,carathe,gcommeasure}.
 
 \begin{example}[\cite{S2021}]\label{ex:dyck2}
  The semi-Dyck language \(\dyck = \{\varepsilon, ab, aabb, abab, aaabbb, \ldots\}\) over \(A = \{a,b\}\) is \(\gcom\)-measurable.
- For each \(k \geq 2\), the language \(L_k = \{ w \in A^* \mid |w|_a = |w|_b \mod k \}\) is in \(\gcom\), because 
- \(\eta^{-1}(0) = L_k\) holds for the morphism \(\eta\colon A^* \rightarrow \modint{k}\) where \(\eta(a) = 1\) and \(\eta(b) = k-1\).
- Obviously, \(\dyck \subseteq L_k\) holds and it follows from Lemma~\ref{lem:groupdensity} that
- \(\cd(L_k) = 1/k\) holds. Hence \(\cd(L_k)\) tends to zero if \(k\) tends to infinity.
+ For each \(k \geq 2\), the language \(L_k = \{ w \in A^* \mid |w|_a = |w|_b \mod k \}\) is in \(\gcom\) because 
+ \(\eta^{-1}(0) = L_k\) holds for the morphism \(\eta\colon A^* \rightarrow \modint{k}\), where \(\eta(a) = 1\) and \(\eta(b) = k-1\).
+ Obviously, \(\dyck \subseteq L_k\), and it follows from Lemma~\ref{lem:groupdensity} that
+ \(\cd(L_k) = 1/k\). Hence, \(\cd(L_k)\) tends to zero as \(k \to \infty\).
 \end{example}
 
 \subsection{Local varieties and profinite equations}
-For a family \(\CC_A\) of languages over \(A\), we denote by
-\(\ext(\CC_A)\) (\resp \(\rext(\CC_A)\)) the class of all \(\CC_A\)-measurable languages (\resp \(\CC_A\)-measurable \emph{regular} languages) over \(A\).
+For a family \(\CC_A\) of languages over \(A\), we write
+\(\ext(\CC_A)\) (\resp \(\rext(\CC_A)\)) for the class of all \(\CC_A\)-measurable languages (\resp \(\CC_A\)-measurable \emph{regular} languages) over \(A\).
 A family of regular languages over \(A\) is called a \emph{local variety} (\cf \cite{Adamek}) over \(A\) if it is closed under 
- Boolean operations and left-and-right quotients.
+ Boolean operations as well as left and right quotients.
 All classes \(\gd_A, \sf_A, \gcom_A\), and \(\group_A\) are local varieties.
-The notion of \(\CC_A\)-measurability is well-behaved on Boolean operations and quotients as the following lemma says.
+The notion of \(\CC_A\)-measurability is well-behaved with respect to Boolean operations and quotients, as the following lemma shows.
 % A family of regular languages over \(A\)
 %  is called a {\em local variety}~\cite{Adamek} over \(A\) if it is closed under 
 %  Boolean operations and left-and-right quotients.
 \begin{lemma}[\cite{carathe}]\label{lem:closure}
-The operator \(\ext\) is a closure,
- \ie, it satisfies the following three properties for each \(\CC_A \subseteq \CD_A \subseteq 2^{A^*}\):
+The operator \(\ext\) is a closure;
+ \ie it satisfies the following three properties for each \(\CC_A \subseteq \CD_A \subseteq 2^{A^*}\):
  (extensive)  \(\CC_A \subseteq \ext(\CC_A)\),
- (monotone) \(\ext(\CC_A) \subseteq \ext(\CD_A)\) and
+ (monotone) \(\ext(\CC_A) \subseteq \ext(\CD_A)\), and
  (idempotent) \(\ext(\ext(\CC_A)) = \ext(\CC_A)\).
 Moreover, 
 if \(\CC_A\) is a local variety, then \(\ext(\CC_A)\) is also a local variety.
 \end{lemma}
 
 Let \(\fin_A\) be the class of all finite and co-finite languages over \(A\).
-Hereafter, we only consider an alphabet \(A\) such that \(\card{A} \geq 2\) (because \(\sf_A = \gd_A = \fin_A\) and \(\group_A = \gcom_A\) holds if \(\card{A} = 1\)) and sometimes omit the subscript \(A\) for denoting these classes of languages.
+Hereafter, we only consider an alphabet \(A\) such that \(\card{A} \geq 2\) (because \(\sf_A = \gd_A = \fin_A\) and \(\group_A = \gcom_A\) hold if \(\card{A} = 1\)) and sometimes omit the subscript \(A\) when denoting these classes of languages.
 
-The notion of local varieties and local pseudovarieties can be captured by an appropriate notion of ``equation'' called \emph{profinite equations} (\cf \cite{profinite}).
+The notions of local varieties and local pseudovarieties can be captured by an appropriate kind of ``equation'' called a \emph{profinite equation} (\cf \cite{profinite}).
 For a pair of words \(u\) and \(v\), we can define a distance between them by
-\(d(u, v) = 2^{-r(u,v)}\)
+\(d(u, v) = 2^{-r(u,v)}\),
 where \(r(u,v) = \min\{ \lvert\CA\rvert \mid \CA \text{ is a deterministic automaton accepting one of } \{u, v\} \text{ but not the other} \}\).
-Intuitively, \(r(u,v)\) represents the minimum number of states for separating \(u\) and \(v\) by using deterministic automata.
-Then this function \(d\) is an ultrametric on \(A^*\), and the completion of the metric space \((A^*, d)\), denoted by \(\widehat{A^*}\), is called the set of profinite words over \(A\).
+Intuitively, \(r(u,v)\) represents the minimum number of states needed for separating \(u\) and \(v\) using deterministic automata.
+This function \(d\) is then an ultrametric on \(A^*\), and the completion of the metric space \((A^*, d)\), denoted by \(\widehat{A^*}\), is called the set of profinite words over \(A\).
 An element of \(\widehat{A^*}\) is a Cauchy sequence of (usual finite) words over \(A\) with respect to \(d\).
 For example, the profinite word \(w^\omega\), associated with every word \(w\), can be defined as a limit of the sequence of words \((w^{n!})_{n \geq 1}\).
 For any finite monoid \(M\) and morphism \(\eta \colon A^* \rightarrow M\), it is easy to see that \(\eta(w^{n!})\) is the idempotent power \(\eta(w)^{\omega}\) of \(\eta(w)\) for sufficiently large \(n\).
-Hence, for a finite monoid \(M\), the equation \(w^{\omega+1} = w^{\omega}\) can be interpreted as \(x^{\omega+1} = x^\omega\) holds for any \(x \in M\), \ie, 
+Hence, for a finite monoid \(M\), the equation \(w^{\omega+1} = w^{\omega}\) can be interpreted as the identity \(x^{\omega+1} = x^\omega\) holding for any \(x \in M\); \ie 
 \(M\) is aperiodic (= \(\CH\)-trivial).
-It is known that any local variety of languages can be captured by using profinite equations and vice versa.
+It is known that any local variety of languages can be captured by profinite equations and vice versa.
 We use the following theorem to prove Theorem~\ref{thm:group-robust} in Section~\ref{sec:group}.
 %For the definition and basic properties of the free profinite monoid \(\widehat{A^*}\), see \cite{profinite,MPRI} for example.
 \begin{theorem}[{\cite[Proposition 7.4]{Duality2008}}]\label{thm:duality}
-  A set of regular languages over \(A\) is a Boolean quotienting algebra (\ie, local variety)
+  A set of regular languages over \(A\) is a Boolean quotienting algebra (\ie a local variety)
   if and only if it can be defined by a set of semigroup equations of the form \(u = v\), where \(u, v \in \widehat{A^*}\).
 \end{theorem}
 A regular language \(L \subseteq A^*\) \emph{satisfies} an equation \(u = v\), where \(u, v \in \widehat{A^*}\),
@@ -181,12 +181,12 @@ where \(\hat{\eta}\colon \widehat{A^*} \to M_L\) is the unique uniformly continu
 
 \begin{lemma}\label{lem:group-profinite-identity}
   For any equation \(u = v\) (where \(u, v \in \widehat{A^*}\)),
-  there exists \(w \in \widehat{A^*}\) such that the equation \(w = \varepsilon\) is equivalent to \(u = v\) on any \(A\)-generated finite group.
+  there exists \(w \in \widehat{A^*}\) such that the equation \(w = \varepsilon\) is equivalent to \(u = v\) for any \(A\)-generated finite group.
 \end{lemma}
 \begin{proof}
   Let \((v_n)_{n \in \nat}\) be a Cauchy sequence in \(A^*\) converging to \(v\) in \(\widehat{A^*}\).
   The profinite word \(v^{\omega - 1} \in \widehat{A^*}\) is defined as \(v^{\omega - 1} = \lim_{n \to \infty} v_n^{n! - 1}\).
-  Then, for every \(A\)-generated finite group \(\eta\colon A^* \to G\), we have \(\hat{\eta}(v^{\omega - 1}) = \hat{\eta}(v)^{-1}\) in \(G\).
+  For every \(A\)-generated finite group \(\eta\colon A^* \to G\), we have \(\hat{\eta}(v^{\omega - 1}) = \hat{\eta}(v)^{-1}\) in \(G\).
   Thus \(w = u v^{\omega - 1}\) satisfies the condition of the lemma.
 \end{proof}
 
@@ -209,8 +209,8 @@ where \([g, h] \defeq g h g^{-1} h^{-1}\) is the commutator of \(g\) and \(h\).
 Hence, for example, \(\gnil_A^{\leq 2}\) is a local variety defined by the set of equations of the form
 \((u v u^{\omega - 1} v^{\omega - 1}) w (u v u^{\omega - 1} v^{\omega - 1})^{\omega - 1} w^{\omega - 1} = \varepsilon\) for \(u, v, w \in A^*\).
 Similarly, each \(\gnil_A^{\leq n}\) is also a local variety.
-It is also known that each \(\gsol_A^{\leq n}\) is defined by a set of equations,
-therefore \(\gsol_A^{\leq n}\) is also a local variety.
+Each \(\gsol_A^{\leq n}\) is likewise defined by a set of equations;
+therefore, \(\gsol_A^{\leq n}\) is also a local variety.
 
 %For each \(n \geq 1\), it is known that there exists a finite nilpotent group of class \(n\) that is generated by at most \(n\) elements.
 %For example, if \(p\) is a positive integer,
@@ -238,5 +238,5 @@ We need the following Proposition~\ref{prop:strict} to prove Corollary~\ref{cor:
   Suppose \(\card{A} \geq 2\).
   For every \(n \geq 1\), we have \(\gnil_A^{\leq n} \subsetneq \gnil_A^{\leq n + 1}\) and \(\gsol_A^{\leq n} \subsetneq \gsol_A^{\leq n + 1}\).
 \end{proposition}
-For the proof of Proposition~\ref{prop:strict}, see the Appendix.
+For the proof of Proposition~\ref{prop:strict}, see the Appendix A.
 

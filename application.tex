@@ -2,7 +2,7 @@
 In probability theory, two events \(A\) and \(B\) are said to be independent
 if their joint probability equals the product of their probabilities:
 \(P(A \cap B) = P(A) \cdot P(B)\).
-One important application of Theorem~\ref{thm:sf} is the following probabilistic independence of star-free and group languages, which emphasises how these two language classes are orthogonal.
+One important application of Theorem~\ref{thm:sf} is the following probabilistic independence of star-free and group languages, which emphasises how these two language classes are mutually orthogonal.
 \begin{theorem}[Y.-S.]\label{thm:ind}
 For any star-free language \(L\) and any group language \(K\),
 we have 
@@ -10,7 +10,7 @@ we have
  \cd(L \cap K) = \cd(L) \cdot \cd(K).
 \]
 \end{theorem}
-The probabilistic independence of generalised definite languages and group languages is proved more easily; we use it as a lemma for proving Theorem~\ref{thm:ind}.
+The probabilistic independence of generalised definite languages and group languages is proved more easily; therefore, we use it as a lemma in order to prove Theorem~\ref{thm:ind}.
 \begin{lemma}\label{lem:ind}
 For any generalised definite language \(L\) of the form \(u A^* v\) for some \(u, v \in A^*\) and any group language \(K\),
 we have 
@@ -19,7 +19,7 @@ we have
 \]
 \end{lemma}
 \begin{proof}
-Let \(L = u A^* v\) be a generalised definite language, and \(K\) be a group language such that \(K = \eta^{-1}(S)\) for some finite group \(G\), where \(S\) is a subset of \(G\) and \(\eta\colon A^* \rightarrow G\) is a surjective morphism.
+Let \(L = u A^* v\) be a generalised definite language, and let \(K\) be a group language such that \(K = \eta^{-1}(S)\) for some finite group \(G\), where \(S\) is a subset of \(G\) and \(\eta\colon A^* \rightarrow G\) is a surjective morphism.
 Observe that \(L \cap K = u (u^{-1} K v^{-1}) v\) holds.
 Since we have \(u^{-1} K v^{-1} = u^{-1} \eta^{-1}(S) v^{-1} 
 = \eta^{-1}( \eta(u)^{-1} S \eta(v)^{-1})\),
@@ -32,11 +32,11 @@ by Lemma~\ref{lem:density} and Lemma~\ref{lem:groupdensity} since
 \(\card{S} = \card{\eta(u)^{-1} S \eta(v)^{-1}}\).
 \end{proof}
 \begin{proof}[Proof of Theorem~\ref{thm:ind}]
-Let \(L\) be a star-free language and \(K\) be a group language.
+Let \(L\) be a star-free language, and let \(K\) be a group language.
 We only show that \(\cd(L \cap K) \geq \cd(L) \cdot \cd(K)\) holds;
 the reverse inequality \(\cd(L \cap K) \leq \cd(L) \cdot \cd(K)\) is also proved in the same way.
-By Theorem~\ref{thm:sf}, there is a sequence \(M_n = (\bigcup_{(u, v) \in F_n} u A^* v)_{n \geq 0}\) of generalised definite languages convergent to \(L\) from inner, where \(F_n \subseteq A^* \times A^*\) is finite for each \(n\).
-Without loss of generality, we may assume that \(uA^*v \cap u'A^*v' = \emptyset\) for each different pairs \((u,v), (u',v') \in F\).
+By Theorem~\ref{thm:sf}, there is a sequence \(M_n = (\bigcup_{(u, v) \in F_n} u A^* v)_{n \geq 0}\) of generalised definite languages that is convergent to \(L\) from inner, where \(F_n \subseteq A^* \times A^*\) is finite for each \(n\).
+Without loss of generality, we may assume that \(uA^*v \cap u'A^*v' = \emptyset\) for each distinct pair \((u,v), (u',v') \in F\).
 Then we have
 \[
  \cd(L \cap K) \geq \cd\left(\bigcup_{(u,v) \in F_n} u A^* v \cap K\right)

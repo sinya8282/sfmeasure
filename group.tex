@@ -1,10 +1,10 @@
 \section{Hierarchies of Group Languages Are Not Collapsed by \(\rext\)}\label{sec:group}
 
 The main result of this section is Corollary~\ref{cor:strict-nilp-solv},
-which is a consequence of Theorem~\ref{thm:group-robust} below and states that
+which is a consequence of Theorem~\ref{thm:group-robust} below. It states that
 the classes of regular languages approximable by nilpotent/solvable group languages form strict hierarchies.
-This is completely different from the situation in Theorem~\ref{thm:sf},
-which shows that the dot-depth hierarchy is collapsed by \(\rext\).
+This is completely different from the situation described in Theorem~\ref{thm:sf},
+which states that the dot-depth hierarchy is collapsed by \(\rext\).
 
 \begin{theorem}[Y.]\label{thm:group-robust}
   If \(\CC \subseteq \group_A\) is a local variety of group languages, then \(\rext(\CC) \cap \group_A = \CC\).
@@ -20,7 +20,7 @@ Our previous result \cite[Theorem 1]{gcommeasure} is the special case of Theorem
   that there exists an equation \(u = v\) (where \(u, v \in \widehat{A^*}\)) that every language in \(\CC\) satisfies but \(L\) does not.
   Let \(G\) be the syntactic monoid of \(L\), which is a group, and \(\eta\colon A^* \to G\) be the syntactic morphism of \(L\).
   By Lemma~\ref{lem:group-profinite-identity},
-  there exists \(w \in \widehat{A^*}\) such that the equation \(w = \varepsilon\) is equivalent to \(u = v\) on any \(A\)-generated finite group.
+  there exists \(w \in \widehat{A^*}\) such that the equation \(w = \varepsilon\) is equivalent to \(u = v\) for any \(A\)-generated finite group.
   Hence, for every \(L_1 \in \CC\) and its syntactic morphism \(\theta_1\colon A^* \to G_1\),
   we have \(\hat{\theta}_1(w) = \hat{\theta}_1(\varepsilon) = 1_{G_1}\) and \(\hat{\eta}(w) \neq \hat{\eta}(\varepsilon) = 1_G\).
   Since \(\hat{\eta}(w) \neq 1_G\) and \(G\) is the syntactic monoid of \(L\), there exist \(x, y \in A^*\)
@@ -28,12 +28,12 @@ Our previous result \cite[Theorem 1]{gcommeasure} is the special case of Theorem
   \begin{equation}
     \eta(x) \hat{\eta}(w) \eta(y) \in \eta(L) \centernot\iff \eta(x y) \in \eta(L). \label{eq:ebc45b27}
   \end{equation}
-  Since the two languages \(\eta^{-1}(\eta(x)), \eta^{-1}(\eta(y)) \subseteq A^*\) are group languages,
+  Since the two languages \(\eta^{-1}(\eta(x))\) and \(\eta^{-1}(\eta(y)) \subseteq A^*\) are group languages,
   they are non-null by Lemma~\ref{lem:groupdensity}.
- In particular, there should be some word \(w \in \eta^{-1}(\eta(x))\), and hence \(\eta^{-1}(\eta(x)) \eta^{-1}(\eta(y)) \supseteq w \eta^{-1}(\eta(y))\) should have a positive density by Lemma~\ref{lem:density}.
-  Hence the concatenation \(I \defeq \eta^{-1}(\eta(x)) \eta^{-1}(\eta(y))\) is non-null.
+ In particular, there exists some word \(w \in \eta^{-1}(\eta(x))\); hence \(\eta^{-1}(\eta(x)) \eta^{-1}(\eta(y)) \supseteq w \eta^{-1}(\eta(y))\) has a positive density by Lemma~\ref{lem:density}.
+  Hence, the concatenation \(I \defeq \eta^{-1}(\eta(x)) \eta^{-1}(\eta(y))\) is non-null.
   To complete the proof, it suffices to show that \(L_1, L_2 \in \CC\) and \(L_1 \subseteq L \subseteq L_2\) implies \(I \subseteq L_2 \setminus L_1\).
-  Let \(\theta_1\colon A^* \to G_1\) and \(\theta_2\colon A^* \to G_2\) be the syntactic morphism of \(L_1\) and \(L_2\), respectively.
+  Let \(\theta_1\colon A^* \to G_1\) and \(\theta_2\colon A^* \to G_2\) be the syntactic morphisms of \(L_1\) and \(L_2\), respectively.
   Let \((w_n)_{n \in \nat}\) be a Cauchy sequence in \(A^*\) converging to \(w\) in \(\widehat{A^*}\).
   Then we have \(\eta(w_k) = \hat{\eta}(w)\), \(\theta_1(w_k) = \hat{\theta}_1(w)\), and \(\theta_2(w_k) = \hat{\theta}_2(w)\) for sufficiently large \(k \in \nat\).
 
@@ -42,12 +42,12 @@ Our previous result \cite[Theorem 1]{gcommeasure} is the special case of Theorem
   Then there exist \(\tilde{x} \in \eta^{-1}(\eta(x))\) and \(\tilde{y} \in \eta^{-1}(\eta(y))\) such that \(z = \tilde{x} \tilde{y}\).
   Let \(i \in \{1, 2\}\).
   Since \(\theta_i(w_k) = 1_{G_i}\) and \(G_i\) is the syntactic monoid of \(L_i\),
-  we have \(\theta_i(\tilde{x} w_k \tilde{y}) \in \theta_i(L_i) \iff \theta_i(\tilde{x} \tilde{y}) \in \theta_i(L_i)\),
-  \ie,
+  we have \(\theta_i(\tilde{x} w_k \tilde{y}) \in \theta_i(L_i) \iff \theta_i(\tilde{x} \tilde{y}) \in \theta_i(L_i)\);
+  \ie
   \begin{equation}
     z = \tilde{x} \tilde{y} \in L_i \iff \tilde{x} w_k \tilde{y} \in L_i. \label{eq:fbaddcb1}
   \end{equation}
-  It follows from \eqref{eq:ebc45b27}, \(\eta(\tilde{x}) = \eta(x)\), \(\eta(\tilde{y}) = \eta(y)\), and \(\hat{\eta}(w) = \eta(w_k)\) that
+  From \eqref{eq:ebc45b27} and the equalities \(\eta(\tilde{x}) = \eta(x)\), \(\eta(\tilde{y}) = \eta(y)\), and \(\hat{\eta}(w) = \eta(w_k)\), it follows that
   \begin{equation}
     z = \tilde{x} \tilde{y} \in L \centernot\iff \tilde{x} w_k \tilde{y} \in L. \label{eq:500d85c6}
   \end{equation}
@@ -56,9 +56,9 @@ Our previous result \cite[Theorem 1]{gcommeasure} is the special case of Theorem
   We show \(z \in L_2 \setminus L_1\) by considering two cases depending on whether \(z \in L\) or \(z \notin L\).
   First, suppose that \(z \in L\).
   Since \(L \subseteq L_2\), we have \(z \in L_2\).
-  On the other hand, by \eqref{eq:500d85c6}, we know that \(\tilde{x} w_k \tilde{y} \notin L \supseteq L_1\), which implies \(\tilde{x} w_k \tilde{y} \notin L_1\).
+  On the other hand, by \eqref{eq:500d85c6}, we have \(\tilde{x} w_k \tilde{y} \notin L \supseteq L_1\), so \(\tilde{x} w_k \tilde{y} \notin L_1\).
   Then, by \eqref{eq:fbaddcb1}, it follows that \(z \notin L_1\), and thus we obtain \(z \in L_2 \setminus L_1\).
-  The case where \(z \notin L\) can be proved in a similar manner.
+  The case where \(z \notin L\) is proved in a similar manner.
 \end{proof}
 
 \begin{corollary}\label{cor:strict-nilp-solv}
@@ -70,6 +70,6 @@ Our previous result \cite[Theorem 1]{gcommeasure} is the special case of Theorem
   \end{itemize}
 \end{corollary}
 \begin{proof}
-  By Proposition~\ref{prop:strict} and Theorem~\ref{thm:group-robust}.
+  The result follows from Proposition~\ref{prop:strict} and Theorem~\ref{thm:group-robust}.
 \end{proof}
 
