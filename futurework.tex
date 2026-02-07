@@ -29,3 +29,9 @@ In particular, we have \(\reg_A \supsetneq \rext_A(\bool(\sf_A \cup \group_A))\)
 The authors are still interested in whether there is a suitable notion \(\CO\colon 2^{A^*} \rightarrow 2^{A^*}\) of an ``operation'' on languages that is richer than the Boolean closure operator \(\bool\) but simpler than the operation on languages corresponding to the wreath product operation on monoids. Such an operator would ideally yield a measure-theoretic decomposition theorem of regular languages such as
  \(\reg = \CO(\rext(\sf) \cup \rext(\group))\) or
  \(\reg = \rext(\CO(\sf \cup \group))\).
+
+Recently, Ryuya Hora (The University of Tokyo) pointed out us that the following proposition holds.
+\begin{proposition}\label{hora}
+There exists a unique Borel probabilistic measure \(\widehat{\delta}\) on the profinite monoid \(\widehat{A^*}\) such that \(\delta(L) = \widehat{\delta}(L')\), where \(L'\) is a topological closure on \(\widehat{A^*}\), holds for any regular language \(L\) over \(A\).
+\end{proposition}
+To find some connections between our work and other mathematical fields (\eg harmonic analysis on groups or/and geometric group theory) through this Borel probabilistic measure \(\widehat{\delta}\) seems a challenging but interesting future work.

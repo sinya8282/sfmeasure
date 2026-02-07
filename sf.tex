@@ -108,14 +108,14 @@ Every regular language with a density of zero or one is \(\gd\)-measurable.
 \end{lemma}
 \begin{lemma}\label{lem:fiberinner}
 Let \(\CC \subseteq \reg_A\) be a class of regular languages closed under Boolean operations, \(M\) be a finite monoid, \(\alpha\colon A^* \rightarrow M\) be a monoid morphism, and \(L \subseteq A^*\) be a language such that \(L = \alpha^{-1}(\alpha(L))\).
-If there is a sequence of languages in \(\CC\) converging to \(\alpha^{-1}(m)\) from inner for every \(m \in M\), then \(L\) is \(\CC\)-measurable.
+If there is a sequence of languages in \(\CC\) converging to \(\alpha^{-1}(m)\) from inside for every \(m \in M\), then \(L\) is \(\CC\)-measurable.
 \end{lemma}
 \begin{proof}
-For each \(m \in M\), let \((L_{m,n})_n\) be a sequence of languages in \(\CC\) converging to \(\alpha^{-1}(m)\) from inner.
+For each \(m \in M\), let \((L_{m,n})_n\) be a sequence of languages in \(\CC\) converging to \(\alpha^{-1}(m)\) from inside.
 Since \(\CC\) is closed under finite union,
-the sequence \((\bigcup_{m \in \alpha(L)} L_{m,n})_n\) is a sequence of languages in \(\CC\) converging to \(L\) from inner.
+the sequence \((\bigcup_{m \in \alpha(L)} L_{m,n})_n\) is a sequence of languages in \(\CC\) converging to \(L\) from inside.
 Since \(\CC\) is closed under finite intersection and complementation,
-the sequence \((\bigcap_{m \not\in \alpha(L)} \comp{L_{m,n}})_n\) is a sequence of languages in \(\CC\) converging to \(L\) from outer.
+the sequence \((\bigcap_{m \not\in \alpha(L)} \comp{L_{m,n}})_n\) is a sequence of languages in \(\CC\) converging to \(L\) from outside.
 \end{proof}
 \begin{lemma}\label{lem:kernelHtrivial}
 Let \(L\) be a regular language and \(M = M_L\) be its syntactic monoid.
@@ -148,7 +148,7 @@ For each \(\ell \geq 0\), we define a generalised definite language \(L_\ell\) a
  L_\ell = \bigsqcup\set{uA^*}{u \in A^\ell, \eta(uA^*) \subseteq mM}.
 \)
 The inclusion \(L_\ell \subseteq \eta^{-1}(mM)\) is obvious.
-We can show that \(L_\ell\) converges to \(\eta^{-1}(mM)\) from inner as follows.
+We can show that \(L_\ell\) converges to \(\eta^{-1}(mM)\) from inside as follows.
 \begin{align*}
 & \,\, \d\left(\eta^{-1}(mM) \setminus L_\ell\right)\\
 = & \,\,
@@ -170,11 +170,11 @@ where the last term tends to zero as \(\ell\) tends to infinity since
 = \frac{\card{A^\ell \cap A^* w A^*}}{\card{A^\ell}}
 \]
 tends to one as \(\ell \to \infty\) by the infinite monkey theorem.
-By the same argument, there is a sequence \((L'_\ell)_{\ell \geq 0}\) of generalised definite languages converging to \(\eta^{-1}(Mm)\) from inner.
+By the same argument, there is a sequence \((L'_\ell)_{\ell \geq 0}\) of generalised definite languages converging to \(\eta^{-1}(Mm)\) from inside.
 This means that the sequence \((L_\ell \cap L'_\ell)_{\ell \geq 0}\)
-of generalised definite languages converges to \(\eta^{-1}(mM) \cap \eta^{-1}(Mm) = L_m\) from inner.
+of generalised definite languages converges to \(\eta^{-1}(mM) \cap \eta^{-1}(Mm) = L_m\) from inside.
 We have shown that, for every \(m \in M\),
-there is a sequence of generalised definite languages converging to \(L_m = \eta^{-1}(m)\) from inner.
+there is a sequence of generalised definite languages converging to \(L_m = \eta^{-1}(m)\) from inside.
 Hence \(L\) is \(\gd\)-measurable by Lemma~\ref{lem:fiberinner} because \(\gd\) is closed under Boolean operations.
 \end{proof}
 
